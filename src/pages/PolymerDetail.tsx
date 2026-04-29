@@ -99,6 +99,19 @@ export default function PolymerDetail() {
         <TechSpecsTable rows={specs} />
       </section>
 
+      {polymer.marketContext && (
+        <section>
+          <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
+            European market context
+          </h2>
+          <div className="space-y-4 text-sm md:text-base text-foreground leading-relaxed">
+            {polymer.marketContext.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       {polymerGrades.length > 0 && (
         <section>
           <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
@@ -172,6 +185,32 @@ export default function PolymerDetail() {
         </div>
       </section>
 
+      {polymer.pricingDrivers && (
+        <section>
+          <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
+            What drives {polymer.abbreviation} pricing
+          </h2>
+          <div className="space-y-4 text-sm md:text-base text-foreground leading-relaxed">
+            {polymer.pricingDrivers.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {polymer.regulatoryContext && (
+        <section>
+          <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
+            Regulatory landscape
+          </h2>
+          <div className="space-y-4 text-sm md:text-base text-foreground leading-relaxed">
+            {polymer.regulatoryContext.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section>
         <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
           Sourcing options
@@ -215,16 +254,35 @@ export default function PolymerDetail() {
       )}
 
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: `${polymer.name} sourcing`,
-          serviceType: "Polymer procurement",
-          areaServed: "Europe",
-          provider: { "@type": "Organization", name: SITE.name, url: SITE.baseUrl },
-          url: `${SITE.baseUrl}/polymers/${polymer.slug}`,
-          description: polymer.shortDescription,
-        }}
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: `${polymer.name} sourcing`,
+            serviceType: "Polymer procurement",
+            areaServed: "Europe",
+            provider: {
+              "@type": "Organization",
+              name: SITE.name,
+              url: SITE.baseUrl,
+            },
+            url: `${SITE.baseUrl}/polymers/${polymer.slug}`,
+            description: polymer.shortDescription,
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: polymer.name,
+            alternateName: polymer.abbreviation,
+            category: polymer.family,
+            description: polymer.shortDescription,
+            brand: polymer.producers.map((p) => ({
+              "@type": "Brand",
+              name: p,
+            })),
+            url: `${SITE.baseUrl}/polymers/${polymer.slug}`,
+          },
+        ]}
       />
     </PageLayout>
   );
