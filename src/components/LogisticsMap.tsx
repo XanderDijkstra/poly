@@ -1,3 +1,9 @@
+// LogisticsMap renders an animated network of European polymer hubs on
+// a stylised continent silhouette. All city nodes and coastline vertices
+// are projected from real lat/lon onto the same viewBox using:
+//   x = (lon + 10) * 10           (spans  -10 deg E .. 50 deg E)
+//   y = (70  - lat) * 13.7        (spans  ~35 deg N .. 70 deg N)
+
 interface Node {
   id: string;
   x: number;
@@ -15,22 +21,22 @@ interface Flow {
 }
 
 const NODES: Node[] = [
-  { id: "rotterdam", x: 200, y: 218, label: "Rotterdam", size: "lg" },
-  { id: "antwerp", x: 195, y: 238, size: "md" },
-  { id: "hamburg", x: 258, y: 195, label: "Hamburg", size: "lg" },
-  { id: "lehavre", x: 158, y: 258, size: "sm" },
-  { id: "felixstowe", x: 168, y: 210, size: "sm" },
-  { id: "london", x: 152, y: 215, size: "sm" },
-  { id: "marseille", x: 218, y: 360, label: "Marseille", size: "md" },
-  { id: "tarragona", x: 158, y: 388, size: "sm" },
-  { id: "genoa", x: 250, y: 348, size: "sm" },
-  { id: "trieste", x: 290, y: 322, size: "sm" },
-  { id: "gdansk", x: 338, y: 198, size: "sm" },
-  { id: "istanbul", x: 442, y: 360, label: "Istanbul", size: "md" },
-  { id: "mersin", x: 498, y: 408, size: "sm" },
-  { id: "oslo", x: 252, y: 130, size: "sm" },
-  { id: "stockholm", x: 305, y: 145, size: "sm" },
-  { id: "madrid", x: 100, y: 408, size: "sm" },
+  { id: "rotterdam", x: 145, y: 248, label: "Rotterdam", size: "lg" },
+  { id: "antwerp", x: 144, y: 257, size: "md" },
+  { id: "hamburg", x: 200, y: 225, label: "Hamburg", size: "lg" },
+  { id: "lehavre", x: 101, y: 281, size: "sm" },
+  { id: "felixstowe", x: 113, y: 247, size: "sm" },
+  { id: "london", x: 99, y: 253, size: "sm" },
+  { id: "marseille", x: 154, y: 366, label: "Marseille", size: "md" },
+  { id: "tarragona", x: 113, y: 395, size: "sm" },
+  { id: "genoa", x: 189, y: 351, size: "sm" },
+  { id: "trieste", x: 238, y: 334, size: "sm" },
+  { id: "gdansk", x: 287, y: 215, size: "sm" },
+  { id: "istanbul", x: 390, y: 397, label: "Istanbul", size: "md" },
+  { id: "mersin", x: 446, y: 455, size: "sm" },
+  { id: "oslo", x: 208, y: 139, size: "sm" },
+  { id: "stockholm", x: 281, y: 147, size: "sm" },
+  { id: "madrid", x: 63, y: 405, size: "sm" },
 ];
 
 const FLOWS: Flow[] = [
@@ -60,39 +66,61 @@ function bezierPath(from: Node, to: Node, curvature = 0.2): string {
   return `M${from.x},${from.y} Q${mx + offsetX},${my + offsetY} ${to.x},${to.y}`;
 }
 
-// Simplified Europe silhouette in viewBox 600x480, anchored so all
-// city nodes (Rotterdam, Hamburg, Gdansk, Stockholm, Marseille, Genoa,
-// Madrid, Istanbul, Mersin, etc.) sit on land.
+// Continental Europe (Iberia → France → Low Countries → Baltic →
+// down through Eastern Europe → Black Sea → Anatolia → Greek coast →
+// up Adriatic east coast → down Italian east coast around the boot →
+// up Italian west → S France → Iberia east coast → close).
 const EUROPE_MAINLAND =
-  "M 85,420 L 70,395 L 78,360 L 100,345 L 130,335 L 145,318 " +
-  "L 150,295 L 132,280 L 150,268 L 178,252 L 205,212 L 240,188 " +
-  "L 275,180 L 295,196 L 325,196 L 360,186 L 395,182 L 425,200 " +
-  "L 450,232 L 462,268 L 478,300 L 470,328 L 458,352 L 478,366 " +
-  "L 510,360 L 540,378 L 548,406 L 530,425 L 478,428 L 430,428 " +
-  "L 380,425 L 340,425 L 312,418 L 305,432 L 290,420 L 278,395 " +
-  "L 270,372 L 252,358 L 232,360 L 215,366 L 192,370 L 170,382 " +
-  "L 148,398 L 122,418 Z";
+  "M 44,460 L 10,452 L 9,429 L 14,395 L 7,371 L 16,364 " +
+  "L 71,366 L 94,345 L 89,327 L 55,296 L 84,279 L 119,261 " +
+  "L 145,248 L 187,222 L 207,222 L 256,218 L 287,215 L 311,197 " +
+  "L 341,180 L 348,145 L 403,138 L 425,205 L 415,260 L 440,310 " +
+  "L 470,330 L 460,355 L 386,354 L 374,377 L 390,397 L 451,384 " +
+  "L 510,395 L 540,400 L 540,440 L 470,455 L 446,455 L 407,453 " +
+  "L 374,451 L 336,440 L 317,437 L 295,405 L 281,374 L 264,363 " +
+  "L 252,354 L 238,334 L 223,337 L 235,362 L 269,396 L 285,412 " +
+  "L 270,440 L 245,418 L 218,384 L 189,351 L 173,361 L 154,366 " +
+  "L 132,377 L 121,392 L 113,395 L 96,420 L 78,455 Z";
 
-// United Kingdom (Felixstowe and London nodes sit on this).
+// Great Britain (England + Wales + Scotland as one stylised shape).
 const EUROPE_UK =
-  "M 132,202 L 152,192 L 172,200 L 178,218 L 175,238 L 160,250 " +
-  "L 142,248 L 128,235 L 124,218 Z";
+  "M 78,200 L 92,170 L 102,140 L 117,108 L 128,108 L 132,140 " +
+  "L 121,170 L 132,200 L 138,220 L 132,240 L 122,254 L 105,260 " +
+  "L 90,254 L 82,238 L 80,218 Z";
 
 // Ireland.
 const EUROPE_IRELAND =
-  "M 92,222 L 108,215 L 122,222 L 124,238 L 110,245 L 95,238 Z";
+  "M 32,232 L 50,224 L 62,232 L 60,252 L 50,260 L 36,256 L 28,244 Z";
 
-// Scandinavia (Norway / Sweden / Finland — Oslo, Stockholm sit here).
+// Scandinavia (Denmark / Sweden / Norway as a single peninsula).
 const EUROPE_SCAND =
-  "M 250,168 L 235,135 L 235,105 L 248,78 L 268,68 L 290,75 " +
-  "L 318,90 L 352,108 L 388,125 L 400,150 L 385,168 L 352,172 " +
-  "L 320,168 L 296,162 L 275,160 Z";
+  "M 184,200 L 187,170 L 206,169 L 226,197 L 217,170 L 219,150 " +
+  "L 207,139 L 158,151 L 153,131 L 161,104 L 204,90 L 244,40 " +
+  "L 289,15 L 358,10 L 405,18 L 410,80 L 380,135 L 348,145 " +
+  "L 305,148 L 281,170 L 245,195 L 215,200 Z";
+
+// Finland (separate east of the Bothnian Gulf).
+const EUROPE_FINLAND =
+  "M 348,145 L 380,135 L 405,80 L 415,138 L 403,138 Z";
+
+// Iceland (small, top-left corner, anchors the eye).
+const EUROPE_ICELAND =
+  "M 30,90 L 55,80 L 65,92 L 55,108 L 35,105 Z";
 
 function nodeSize(size?: "lg" | "md" | "sm") {
   if (size === "lg") return { dot: 2.6, ringMax: 18, pulse: 3 };
   if (size === "md") return { dot: 2.1, ringMax: 14, pulse: 3.4 };
   return { dot: 1.6, ringMax: 10, pulse: 4 };
 }
+
+const LAND_PATHS = [
+  EUROPE_MAINLAND,
+  EUROPE_UK,
+  EUROPE_IRELAND,
+  EUROPE_SCAND,
+  EUROPE_FINLAND,
+  EUROPE_ICELAND,
+];
 
 export function LogisticsMap() {
   return (
@@ -124,14 +152,20 @@ export function LogisticsMap() {
             <stop offset="0%" stopColor="#0F2A4A" />
             <stop offset="100%" stopColor="#0B1F37" />
           </linearGradient>
-          <filter id="lm-particle-glow" x="-200%" y="-200%" width="500%" height="500%">
+          <filter
+            id="lm-particle-glow"
+            x="-200%"
+            y="-200%"
+            width="500%"
+            height="500%"
+          >
             <feGaussianBlur stdDeviation="1.6" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          <radialGradient id="lm-fade" cx="48%" cy="55%" r="55%">
+          <radialGradient id="lm-fade" cx="48%" cy="55%" r="60%">
             <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
             <stop offset="55%" stopColor="#FFFFFF" stopOpacity="0.85" />
             <stop offset="85%" stopColor="#FFFFFF" stopOpacity="0.25" />
@@ -145,34 +179,32 @@ export function LogisticsMap() {
         <rect width="600" height="480" fill="url(#lm-bg)" />
         <rect width="600" height="480" fill="url(#lm-dots)" />
 
+        <g opacity="0.55">
+          <circle cx="200" cy="260" r="170" fill="url(#lm-glow)" />
+          <circle cx="430" cy="380" r="120" fill="url(#lm-glow)" />
+        </g>
+
         <g mask="url(#lm-mask)">
           <g
-            fill="rgba(96,165,250,0.10)"
-            stroke="rgba(148,197,255,0.35)"
-            strokeWidth="0.8"
+            fill="rgba(96,165,250,0.12)"
+            stroke="rgba(148,197,255,0.45)"
+            strokeWidth="0.7"
             strokeLinejoin="round"
           >
-            <path d={EUROPE_MAINLAND} />
-            <path d={EUROPE_UK} />
-            <path d={EUROPE_IRELAND} />
-            <path d={EUROPE_SCAND} />
+            {LAND_PATHS.map((d, i) => (
+              <path key={`land-${i}`} d={d} />
+            ))}
           </g>
           <g
             fill="none"
-            stroke="rgba(148,197,255,0.18)"
+            stroke="rgba(148,197,255,0.20)"
             strokeWidth="0.4"
             strokeDasharray="1 2"
           >
-            <path d={EUROPE_MAINLAND} />
-            <path d={EUROPE_UK} />
-            <path d={EUROPE_IRELAND} />
-            <path d={EUROPE_SCAND} />
+            {LAND_PATHS.map((d, i) => (
+              <path key={`outline-${i}`} d={d} />
+            ))}
           </g>
-        </g>
-
-        <g opacity="0.6">
-          <circle cx="200" cy="240" r="180" fill="url(#lm-glow)" />
-          <circle cx="430" cy="360" r="120" fill="url(#lm-glow)" />
         </g>
 
         <g
@@ -217,11 +249,7 @@ export function LogisticsMap() {
             const d = bezierPath(from, to, flow.curvature ?? 0.2);
             return (
               <g key={`particle-${i}`}>
-                <circle
-                  r="2.2"
-                  fill="#67E8F9"
-                  filter="url(#lm-particle-glow)"
-                >
+                <circle r="2.2" fill="#67E8F9" filter="url(#lm-particle-glow)">
                   <animateMotion
                     dur={`${flow.duration}s`}
                     begin={`${flow.delay ?? 0}s`}
