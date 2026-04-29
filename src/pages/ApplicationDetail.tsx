@@ -17,7 +17,7 @@ export default function ApplicationDetail() {
 
   usePageMeta({
     title: application
-      ? `Polymers for ${application.name.toLowerCase()} — recommended grades | ${SITE.name}`
+      ? `Polymers for ${application.name.toLowerCase()}: recommended grades | ${SITE.name}`
       : `Application not found | ${SITE.name}`,
     description: application
       ? `Polymer recommendations for ${application.name.toLowerCase()}: which materials, which grades, regulatory considerations.`

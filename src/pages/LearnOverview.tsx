@@ -16,7 +16,7 @@ export default function LearnOverview() {
   usePageMeta({
     title: `Learn about polymer sourcing | ${SITE.name}`,
     description:
-      "Glossary and education for polymer procurement teams. Technical, regulatory, commercial and logistics topics — clearly explained.",
+      "Glossary and education for polymer procurement teams. Technical, regulatory, commercial and logistics topics, clearly explained.",
     canonical: "/learn",
   });
 
@@ -34,7 +34,7 @@ export default function LearnOverview() {
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Learn" }]}
       eyebrow="Education hub"
       title="Learn about polymer sourcing"
-      lede={`${learnTerms.length} terms covering polymer technology, food-contact regulation, commercial mechanics, and logistics — written for procurement teams who need the working answer fast.`}
+      lede={`${learnTerms.length} terms covering polymer technology, food-contact regulation, commercial mechanics, and logistics, written for procurement teams who need the working answer fast.`}
       wide
     >
       {Object.entries(grouped).map(([cat, items]) => (

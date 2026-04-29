@@ -12,7 +12,7 @@ export interface Insight {
 export const insights: Insight[] = [
   {
     slug: "european-polymer-market-q1-2026",
-    title: "European Polymer Market — Q1 2026",
+    title: "European Polymer Market Q1 2026",
     publishedAt: "2026-04-15",
     author: "PolymerPlatform editorial",
     excerpt:
@@ -22,7 +22,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "red-sea-shipping-impact-resin-supply-2026",
-    title: "Red Sea Shipping Disruption — Impact on European Resin Supply",
+    title: "Red Sea Shipping Disruption: Impact on European Resin Supply",
     publishedAt: "2026-03-20",
     author: "PolymerPlatform editorial",
     excerpt:
@@ -32,17 +32,17 @@ export const insights: Insight[] = [
   },
   {
     slug: "ppwr-packaging-mandate-what-buyers-need-to-know",
-    title: "PPWR — What Procurement Teams Need to Know",
+    title: "PPWR: What Procurement Teams Need to Know",
     publishedAt: "2026-02-28",
     author: "PolymerPlatform editorial",
     excerpt:
-      "The Packaging and Packaging Waste Regulation reshapes specifications across PET, PP and flexible PE. Recycled-content thresholds, design-for-recycling, and reuse targets — the operational checklist for 2025–2030.",
+      "The Packaging and Packaging Waste Regulation reshapes specifications across PET, PP and flexible PE. Recycled-content thresholds, design-for-recycling, and reuse targets: the operational checklist for 2025–2030.",
     topics: ["Regulation", "Sustainability"],
     readMinutes: 12,
   },
   {
     slug: "recycled-content-mandates-eu-2026",
-    title: "Recycled Content Mandates — EU 2026 State of Play",
+    title: "Recycled Content Mandates: EU 2026 State of Play",
     publishedAt: "2026-01-30",
     author: "PolymerPlatform editorial",
     excerpt:
@@ -52,11 +52,11 @@ export const insights: Insight[] = [
   },
   {
     slug: "polymer-prices-vs-oil-correlation-2020-2026",
-    title: "Polymer Prices vs Oil — Six-Year Correlation",
+    title: "Polymer Prices vs Oil: Six-Year Correlation",
     publishedAt: "2026-01-10",
     author: "PolymerPlatform editorial",
     excerpt:
-      "We rebuilt the PE, PP, PVC and PET price series against Brent and Henry Hub from 2020 to early 2026. The correlation breaks down in two distinct regimes — and the 2024–2025 spread compression hints at a third.",
+      "We rebuilt the PE, PP, PVC and PET price series against Brent and Henry Hub from 2020 to early 2026. The correlation breaks down in two distinct regimes, and the 2024–2025 spread compression hints at a third.",
     topics: ["Market commentary", "Data"],
     readMinutes: 14,
   },

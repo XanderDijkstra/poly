@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 
 export default function AboutPage() {
   usePageMeta({
-    title: `About ${SITE.name} — independent polymer marketplace`,
+    title: `About ${SITE.name}: independent polymer marketplace`,
     description:
       "Independent of any single trader. Built for procurement teams. How PolymerPlatform works, our editorial standards, and supplier criteria.",
     canonical: "/about",
@@ -46,11 +46,11 @@ export default function AboutPage() {
           Editorial standards
         </h2>
         <p className="text-sm text-foreground">
-          Our editorial pages — polymer types, grades, applications, learn, insights — are
+          Our editorial pages (polymer types, grades, applications, learn, insights) are
           written and maintained independently. Producers (Borealis, LyondellBasell,
           ExxonMobil, INEOS, SABIC etc) are named for technical context. Suppliers are not
           named or ranked in editorial pages, regardless of their lead-buying status.
-          Suppliers pay only for matched leads — never for placement.
+          Suppliers pay only for matched leads, never for placement.
         </p>
       </section>
 

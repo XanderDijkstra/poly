@@ -18,7 +18,7 @@ export default function PolymerDetail() {
 
   usePageMeta({
     title: polymer
-      ? `${polymer.name} suppliers in Europe — grades and specs | ${SITE.name}`
+      ? `${polymer.name} suppliers in Europe: grades and specs | ${SITE.name}`
       : `Polymer not found | ${SITE.name}`,
     description: polymer
       ? `Source ${polymer.name} from verified European suppliers. ${
@@ -47,9 +47,9 @@ export default function PolymerDetail() {
 
   const specs = [
     { property: "Density", value: polymer.density },
-    { property: "MFI range", value: polymer.mfiRange ?? "—" },
-    { property: "Melting point", value: polymer.meltingPoint ?? "—" },
-    { property: "Formula", value: polymer.formula ?? "—" },
+    { property: "MFI range", value: polymer.mfiRange ?? "" },
+    { property: "Melting point", value: polymer.meltingPoint ?? "" },
+    { property: "Formula", value: polymer.formula ?? "" },
     { property: "Recyclable", value: polymer.recyclable ? "Yes" : "No" },
   ];
 
@@ -88,7 +88,7 @@ export default function PolymerDetail() {
         { label: polymer.name },
       ]}
       eyebrow={`${polymer.family} · ${polymer.abbreviation}`}
-      title={`${polymer.name} — grades, applications, and European suppliers`}
+      title={`${polymer.name}: grades, applications, and European suppliers`}
       lede={polymer.shortDescription}
       wide
     >
@@ -166,8 +166,8 @@ export default function PolymerDetail() {
             ))}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            Producers listed for technical context. PolymerPlatform is independent — we
-            do not accept payment for editorial placement.
+            Producers listed for technical context. PolymerPlatform is independent and
+            does not accept payment for editorial placement.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function PolymerDetail() {
             <strong className="text-primary">Distributors</strong> (e.g. Resinex, Ravago Distribution, Vinmar Polymers Europe) break bulk, hold local stock, and offer credit. Lead times 1–3 days for stock items.
           </p>
           <p>
-            <strong className="text-primary">Traders</strong> work the spot market for prime, near-prime and off-grade lots — typically 5–20% above or below contract reflecting near-term tightness. PolymerPlatform routes RFQs to verified traders and distributors with the right grade and region match.
+            <strong className="text-primary">Traders</strong> work the spot market for prime, near-prime and off-grade lots, typically 5–20% above or below contract reflecting near-term tightness. PolymerPlatform routes RFQs to verified traders and distributors with the right grade and region match.
           </p>
         </div>
       </section>

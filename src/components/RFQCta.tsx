@@ -50,7 +50,7 @@ export function RFQCta({
               Ready to source polymers?
             </div>
             <div className="text-sm text-primary-foreground/80 mt-1">
-              Submit one RFQ — get quotes from multiple verified suppliers within 48h.
+              Submit one RFQ. Get quotes from multiple verified suppliers within 48h.
             </div>
           </div>
           <Link

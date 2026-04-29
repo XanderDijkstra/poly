@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export default function ContactPage() {
   usePageMeta({
     title: `Contact ${SITE.name}`,
-    description: "Get in touch with the PolymerPlatform team — buyers, suppliers, press.",
+    description: "Get in touch with the PolymerPlatform team. Buyers, suppliers, press.",
     canonical: "/contact",
   });
 
@@ -17,12 +17,12 @@ export default function ContactPage() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ContactCard
-          heading="Buyers — RFQ support"
+          heading="Buyers: RFQ support"
           email="rfq@polymerplatform.eu"
           body="Already submitted an RFQ? Email us if a supplier hasn't responded within 48 hours."
         />
         <ContactCard
-          heading="Suppliers — apply for leads"
+          heading="Suppliers: apply for leads"
           email="suppliers@polymerplatform.eu"
           body="Polymer traders and distributors looking to receive qualified RFQs."
         />

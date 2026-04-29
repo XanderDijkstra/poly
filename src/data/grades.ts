@@ -15,7 +15,7 @@ export interface Grade {
 export const grades: Grade[] = [
   {
     slug: "pp-homopolymer-injection-molding",
-    name: "PP Homopolymer — Injection Molding",
+    name: "PP Homopolymer Injection Molding",
     polymerSlug: "polypropylene",
     mfi: "12 g/10 min",
     density: "0.905 g/cm³",
@@ -29,7 +29,7 @@ export const grades: Grade[] = [
   },
   {
     slug: "pp-homopolymer-thin-wall-packaging",
-    name: "PP Homopolymer — Thin-Wall Packaging",
+    name: "PP Homopolymer Thin-Wall Packaging",
     polymerSlug: "polypropylene",
     mfi: "45 g/10 min",
     process: "Injection molding",
@@ -88,7 +88,7 @@ export const grades: Grade[] = [
   },
   {
     slug: "hdpe-blow-molding-bottles",
-    name: "HDPE Blow Molding — Bottles",
+    name: "HDPE Blow Molding Bottles",
     polymerSlug: "polyethylene-hd",
     mfi: "0.3 g/10 min (HLMI 8)",
     density: "0.952 g/cm³",
@@ -191,7 +191,7 @@ export const grades: Grade[] = [
     process: "Cast film",
     application: "Pallet stretch film",
     shortDescription:
-      "Octene-1 metallocene LLDPE for cast stretch film. High puncture and cling — best in class for pallet wrap.",
+      "Octene-1 metallocene LLDPE for cast stretch film. High puncture and cling, best in class for pallet wrap.",
   },
   {
     slug: "mdpe-pipe-grade",
@@ -271,7 +271,7 @@ export const grades: Grade[] = [
     process: "Injection molding",
     application: "Cosmetics, optical, disposable",
     shortDescription:
-      "Crystal-clear GPPS for injection molded parts. Brittle — alloy with HIPS or use SBC for impact applications.",
+      "Crystal-clear GPPS for injection molded parts. Brittle, alloy with HIPS or use SBC for impact applications.",
   },
   {
     slug: "hips-extrusion",

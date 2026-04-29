@@ -22,7 +22,7 @@ const homepageApplications = [
 
 export default function HomePage() {
   usePageMeta({
-    title: `Find polymer suppliers in Europe — submit one RFQ | ${SITE.name}`,
+    title: `Find polymer suppliers in Europe. Submit one RFQ | ${SITE.name}`,
     description:
       "Connect with verified European polymer traders. Get quotes for PP, PE, PVC, PET and recycled grades. Free for buyers.",
     canonical: "/",
@@ -73,7 +73,7 @@ export default function HomePage() {
             <Step
               n="2"
               title="Verified suppliers respond"
-              body="Matched to traders and distributors with the right grade, region and tonnage range — typically within 48 hours."
+              body="Matched to traders and distributors with the right grade, region and tonnage range, typically within 48 hours."
             />
             <Step
               n="3"
@@ -186,7 +186,7 @@ export default function HomePage() {
               />
               <Reason
                 title="No fees for buyers"
-                body="Free for procurement teams. Suppliers pay only for qualified leads — never for editorial placement."
+                body="Free for procurement teams. Suppliers pay only for qualified leads, never for editorial placement."
               />
             </div>
           </div>

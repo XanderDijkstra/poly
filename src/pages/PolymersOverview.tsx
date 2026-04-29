@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 
 export default function PolymersOverview() {
   usePageMeta({
-    title: `Polymer types — PP, PE, PVC, PET and more | ${SITE.name}`,
+    title: `Polymer types: PP, PE, PVC, PET and more | ${SITE.name}`,
     description:
       "Browse 12 polymer families and 30+ grades sourced across Europe. Each page covers specs, applications and suppliers.",
     canonical: "/polymers",
@@ -20,7 +20,7 @@ export default function PolymersOverview() {
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Polymers" }]}
       eyebrow="Overview"
       title="Polymer types we source"
-      lede="Twelve polymer families covering virtually every European industrial application — from commodity polyolefins to specialty engineering plastics and recycled grades."
+      lede="Twelve polymer families covering virtually every European industrial application, from commodity polyolefins to specialty engineering plastics and recycled grades."
       wide
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

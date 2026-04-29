@@ -13,7 +13,7 @@ export default function LearnTermDetail() {
 
   usePageMeta({
     title: term
-      ? `${term.name} — what it means for polymer procurement | ${SITE.name}`
+      ? `${term.name}: what it means for polymer procurement | ${SITE.name}`
       : `Term not found | ${SITE.name}`,
     description: term?.shortDescription,
     canonical: term ? `/learn/${term.slug}` : undefined,

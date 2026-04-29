@@ -89,7 +89,7 @@ if (!existsSync(PUBLIC_DIR)) mkdirSync(PUBLIC_DIR, { recursive: true });
 writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), xml);
 
 console.log(
-  `[sitemap] wrote public/sitemap.xml — ${all.length} URLs:\n` +
+  `[sitemap] wrote public/sitemap.xml: ${all.length} URLs.\n` +
     `  ${polymers.length} polymers · ${grades.length} grades · ${applications.length} applications · ` +
     `${regions.length} regions · ${learnTerms.length} learn · ${insights.length} insights`
 );

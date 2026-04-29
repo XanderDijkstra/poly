@@ -132,7 +132,7 @@ export const learnTerms: LearnTerm[] = [
     name: "Mechanical vs Chemical Recycling",
     category: "regulatory",
     shortDescription:
-      "Mechanical: shredding, washing, extrusion — preserves polymer chain. Chemical: depolymerisation back to monomer (e.g. PET glycolysis, PE pyrolysis); produces virgin-equivalent output.",
+      "Mechanical: shredding, washing, extrusion preserves the polymer chain. Chemical: depolymerisation back to monomer (e.g. PET glycolysis, PE pyrolysis) produces virgin-equivalent output.",
     related: ["virgin-vs-recycled-polymer", "ppwr-packaging-mandate-2030"],
   },
   {
@@ -153,7 +153,7 @@ export const learnTerms: LearnTerm[] = [
   },
   {
     slug: "polymer-pricing-monomer-link",
-    name: "Polymer Pricing — Monomer Linkage",
+    name: "Polymer Pricing and Monomer Linkage",
     category: "commercial",
     shortDescription:
       "PE/PP track ethylene/propylene contract prices (ICIS monthly). PVC follows ethylene + chlorine. PET tracks paraxylene + MEG. Margin spread = polymer minus monomer cost.",
@@ -236,7 +236,7 @@ export const learnTerms: LearnTerm[] = [
     name: "Bio-PE vs Recycled PE",
     category: "regulatory",
     shortDescription:
-      "Bio-PE (e.g. Braskem I'm Green) is virgin polymer made from sugarcane ethanol — chemically identical to fossil PE. Recycled PE comes from end-of-life material. Different sustainability arguments.",
+      "Bio-PE (e.g. Braskem I'm Green) is virgin polymer made from sugarcane ethanol, chemically identical to fossil PE. Recycled PE comes from end-of-life material. Different sustainability arguments.",
     related: ["virgin-vs-recycled-polymer", "mechanical-vs-chemical-recycling"],
   },
   {

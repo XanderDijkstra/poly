@@ -25,7 +25,7 @@ export function TechSpecsTable({ rows }: { rows: SpecRow[] }) {
                 {r.unit ? <span className="text-muted-foreground"> {r.unit}</span> : null}
               </td>
               <td className="px-4 py-3 text-muted-foreground font-mono text-xs">
-                {r.standard ?? "—"}
+                {r.standard ?? ""}
               </td>
             </tr>
           ))}

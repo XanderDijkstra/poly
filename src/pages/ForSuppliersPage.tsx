@@ -45,7 +45,7 @@ export default function ForSuppliersPage() {
     >
       <section>
         <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-3">
-          Pricing — pay per qualified lead
+          Pricing: pay per qualified lead
         </h2>
         <div className="overflow-x-auto rounded-lg border border-border">
           <table className="w-full text-sm">
@@ -84,7 +84,7 @@ export default function ForSuppliersPage() {
         </h2>
         <ul className="space-y-2 text-sm text-foreground">
           <li>· VAT number validated against the EU VIES database (real-time, cached 24h)</li>
-          <li>· Business email domain checked — free providers (gmail, yahoo) flagged</li>
+          <li>· Business email domain checked, with free providers (gmail, yahoo) flagged</li>
           <li>· Polymer type, tonnage band, delivery region and application captured per RFQ</li>
           <li>· Lead scored on a 0–100+ scale with transparent weights</li>
         </ul>

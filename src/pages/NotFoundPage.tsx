@@ -19,7 +19,7 @@ export default function NotFoundPage() {
         <NotFoundLink to="/grades" label="Polymer grades" />
         <NotFoundLink to="/applications" label="Applications" />
         <NotFoundLink to="/suppliers" label="Suppliers by region" />
-        <NotFoundLink to="/learn" label="Learn — glossary" />
+        <NotFoundLink to="/learn" label="Learn glossary" />
         <NotFoundLink to="/get-quotes" label="Submit an RFQ" />
       </div>
     </PageLayout>

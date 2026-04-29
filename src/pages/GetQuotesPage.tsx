@@ -37,74 +37,147 @@ const FREE_EMAIL_DOMAINS = [
   "mail.ru",
 ];
 
+interface RFQState {
+  contactName: string;
+  email: string;
+  phone: string;
+  company: string;
+  country: string;
+  vat: string;
+  polymer: string;
+  grade: string;
+  application: string;
+  quantity: string;
+  frequency: string;
+  delivery: string;
+  requiredBy: string;
+  existingSupplier: string;
+  targetPrice: string;
+  notes: string;
+  consent: boolean;
+}
+
+const INITIAL_STATE: RFQState = {
+  contactName: "",
+  email: "",
+  phone: "",
+  company: "",
+  country: "",
+  vat: "",
+  polymer: "",
+  grade: "",
+  application: "",
+  quantity: "",
+  frequency: "",
+  delivery: "",
+  requiredBy: "",
+  existingSupplier: "",
+  targetPrice: "",
+  notes: "",
+  consent: false,
+};
+
+const STEPS = [
+  { id: 1, label: "Your contact" },
+  { id: 2, label: "Your company" },
+  { id: 3, label: "What you need" },
+  { id: 4, label: "Quantity & delivery" },
+  { id: 5, label: "Final details" },
+];
+
 export default function GetQuotesPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [submitting, setSubmitting] = useState(false);
+  const [step, setStep] = useState(1);
+  const [state, setState] = useState<RFQState>(INITIAL_STATE);
   const [error, setError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const polymerParam = searchParams.get("polymer") ?? "";
   const applicationParam = searchParams.get("application") ?? "";
 
-  const [polymer, setPolymer] = useState(polymerParam);
-  const [application, setApplication] = useState(applicationParam);
-
   useEffect(() => {
-    if (polymerParam) setPolymer(polymerParam);
-    if (applicationParam) setApplication(applicationParam);
+    setState((s) => ({
+      ...s,
+      polymer: polymerParam || s.polymer,
+      application: applicationParam || s.application,
+    }));
   }, [polymerParam, applicationParam]);
 
   usePageMeta({
-    title: `Request polymer quotes — RFQ form | ${SITE.name}`,
+    title: `Request polymer quotes | ${SITE.name}`,
     description:
       "Submit one RFQ, get quotes from multiple verified suppliers within 48 hours. Free for procurement teams.",
     canonical: "/get-quotes",
   });
 
+  const update = <K extends keyof RFQState>(key: K, value: RFQState[K]) => {
+    setState((s) => ({ ...s, [key]: value }));
+    setError(null);
+  };
+
+  function validateStep(current: number): string | null {
+    if (current === 1) {
+      if (!state.contactName.trim()) return "Enter your name.";
+      if (!state.email.trim()) return "Enter your business email.";
+      if (!state.email.includes("@")) return "Enter a valid email address.";
+      if (!state.phone.trim()) return "Enter your phone number.";
+      return null;
+    }
+    if (current === 2) {
+      if (!state.company.trim()) return "Enter your company name.";
+      if (!state.country) return "Select your country.";
+      if (!state.vat.trim()) return "Enter your VAT number.";
+      return null;
+    }
+    if (current === 3) {
+      if (!state.polymer) return "Select a polymer type.";
+      if (!state.application) return "Select an application.";
+      return null;
+    }
+    if (current === 4) {
+      if (!state.quantity) return "Select a tonnage band.";
+      if (!state.frequency) return "Select a frequency.";
+      if (!state.delivery) return "Select a delivery region.";
+      return null;
+    }
+    if (current === 5) {
+      if (!state.consent) return "Please confirm consent to be contacted.";
+      return null;
+    }
+    return null;
+  }
+
+  function next() {
+    const message = validateStep(step);
+    if (message) {
+      setError(message);
+      return;
+    }
+    setError(null);
+    setStep((s) => Math.min(s + 1, STEPS.length));
+  }
+
+  function back() {
+    setError(null);
+    setStep((s) => Math.max(s - 1, 1));
+  }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const message = validateStep(step);
+    if (message) {
+      setError(message);
+      return;
+    }
     setSubmitting(true);
-    setError(null);
 
-    const fd = new FormData(e.currentTarget);
-    const email = String(fd.get("email") ?? "").trim();
-    const domain = email.split("@")[1]?.toLowerCase() ?? "";
-
-    if (!domain) {
-      setError("Enter a valid business email address.");
-      setSubmitting(false);
-      return;
-    }
-
-    const freeDomain = FREE_EMAIL_DOMAINS.includes(domain);
-
+    const domain = state.email.split("@")[1]?.toLowerCase() ?? "";
     const payload = {
-      company: fd.get("company"),
-      country: fd.get("country"),
-      vat: fd.get("vat"),
-      polymer: fd.get("polymer"),
-      grade: fd.get("grade"),
-      quantity: fd.get("quantity"),
-      frequency: fd.get("frequency"),
-      delivery: fd.get("delivery"),
-      requiredBy: fd.get("requiredBy"),
-      application: fd.get("application"),
-      existingSupplier: fd.get("existingSupplier"),
-      targetPrice: fd.get("targetPrice"),
-      contactName: fd.get("contactName"),
-      email,
-      phone: fd.get("phone"),
-      notes: fd.get("notes"),
-      consent: fd.get("consent") === "on",
+      ...state,
       submittedAt: new Date().toISOString(),
-      freeDomainFlag: freeDomain,
+      freeDomainFlag: FREE_EMAIL_DOMAINS.includes(domain),
     };
-
-    if (!payload.consent) {
-      setError("Please confirm consent to be contacted by verified suppliers.");
-      setSubmitting(false);
-      return;
-    }
 
     if (typeof window !== "undefined") {
       try {
@@ -114,12 +187,14 @@ export default function GetQuotesPage() {
         queue.push(payload);
         window.localStorage.setItem("rfq_queue", JSON.stringify(queue));
       } catch {
-        /* localStorage unavailable - non-fatal for the demo */
+        /* localStorage unavailable; non-fatal in the demo flow */
       }
     }
 
-    navigate("/get-quotes/sent", { state: { polymer: payload.polymer } });
+    navigate("/get-quotes/sent", { state: { polymer: state.polymer } });
   }
+
+  const progressPct = ((step - 1) / (STEPS.length - 1)) * 100;
 
   return (
     <PageLayout
@@ -127,228 +202,308 @@ export default function GetQuotesPage() {
         { label: "Home", href: "/" },
         { label: "Get Quotes" },
       ]}
-      eyebrow="Conversion engine"
+      eyebrow={`Step ${step} of ${STEPS.length}`}
       title="Request quotes from European polymer suppliers"
-      lede="Submit your requirement once. Verified traders respond within 48 hours. Free for buyers — suppliers pay only for qualified matches."
+      lede="Answer a few questions and verified traders respond within 48 hours. Free for buyers."
     >
+      <div>
+        <div className="flex items-center justify-between text-xs text-muted-foreground font-mono mb-2">
+          <span>{STEPS[step - 1].label}</span>
+          <span className="tabular">
+            {step}/{STEPS.length}
+          </span>
+        </div>
+        <div className="h-1.5 rounded-full bg-surface overflow-hidden">
+          <div
+            className="h-full bg-secondary transition-all duration-300"
+            style={{ width: `${progressPct}%` }}
+          />
+        </div>
+      </div>
+
       <form
         onSubmit={handleSubmit}
-        className="rounded-lg border border-border bg-background p-6 md:p-8 space-y-6"
+        className="rounded-lg border border-border bg-background p-6 md:p-8"
         noValidate
       >
-        <Field label="Company name" required>
-          <input
-            name="company"
-            type="text"
-            required
-            className="input"
-            placeholder="e.g. Acme Packaging GmbH"
-          />
-        </Field>
+        {step === 1 && (
+          <Step heading="Tell us who you are" body="We use these details to send you quotes from verified suppliers.">
+            <Field label="Full name" required>
+              <input
+                type="text"
+                required
+                className="input"
+                value={state.contactName}
+                onChange={(e) => update("contactName", e.target.value)}
+                autoFocus
+              />
+            </Field>
+            <Field label="Business email" required>
+              <input
+                type="email"
+                required
+                className="input"
+                value={state.email}
+                onChange={(e) => update("email", e.target.value)}
+                placeholder="you@company.com"
+              />
+            </Field>
+            <Field label="Phone" required>
+              <input
+                type="tel"
+                required
+                className="input font-mono"
+                value={state.phone}
+                onChange={(e) => update("phone", e.target.value)}
+                placeholder="+49 ..."
+              />
+            </Field>
+          </Step>
+        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Country" required>
-            <select name="country" required className="input">
-              <option value="">Select country</option>
-              {regions
-                .filter((r) => r.countryCode)
-                .map((r) => (
-                  <option key={r.slug} value={r.countryCode}>
-                    {r.name}
+        {step === 2 && (
+          <Step heading="Your company" body="Suppliers prefer to work with verified businesses, so a VAT number unlocks faster routing.">
+            <Field label="Company name" required>
+              <input
+                type="text"
+                required
+                className="input"
+                value={state.company}
+                onChange={(e) => update("company", e.target.value)}
+                placeholder="e.g. Acme Packaging GmbH"
+                autoFocus
+              />
+            </Field>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Field label="Country" required>
+                <select
+                  required
+                  className="input"
+                  value={state.country}
+                  onChange={(e) => update("country", e.target.value)}
+                >
+                  <option value="">Select country</option>
+                  {regions
+                    .filter((r) => r.countryCode)
+                    .map((r) => (
+                      <option key={r.slug} value={r.countryCode}>
+                        {r.name}
+                      </option>
+                    ))}
+                </select>
+              </Field>
+              <Field label="VAT number" required>
+                <input
+                  type="text"
+                  required
+                  className="input font-mono"
+                  value={state.vat}
+                  onChange={(e) => update("vat", e.target.value)}
+                  placeholder="e.g. DE123456789"
+                />
+              </Field>
+            </div>
+          </Step>
+        )}
+
+        {step === 3 && (
+          <Step heading="What polymer do you need?" body="Tell us the material and the end use. Specifics let suppliers route the exact right grade.">
+            <Field label="Polymer type" required>
+              <select
+                required
+                className="input"
+                value={state.polymer}
+                onChange={(e) => update("polymer", e.target.value)}
+                autoFocus
+              >
+                <option value="">Select polymer</option>
+                {polymers.map((p) => (
+                  <option key={p.slug} value={p.slug}>
+                    {p.name} ({p.abbreviation})
                   </option>
                 ))}
-            </select>
-          </Field>
-          <Field label="VAT number" required hint="Auto-filters tire-kickers.">
-            <input
-              name="vat"
-              type="text"
-              required
-              className="input font-mono"
-              placeholder="e.g. DE123456789"
-            />
-          </Field>
-        </div>
+              </select>
+            </Field>
+            <Field label="Specific grade or technical specs">
+              <textarea
+                rows={3}
+                className="input"
+                value={state.grade}
+                onChange={(e) => update("grade", e.target.value)}
+                placeholder="e.g. PP homopolymer, MFI 12, food-contact certified, Borealis HF136MO equivalent"
+              />
+            </Field>
+            <Field label="Application" required>
+              <select
+                required
+                className="input"
+                value={state.application}
+                onChange={(e) => update("application", e.target.value)}
+              >
+                <option value="">Select application</option>
+                {applications.map((a) => (
+                  <option key={a.slug} value={a.slug}>
+                    {a.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </Step>
+        )}
 
-        <Field label="Polymer type" required>
-          <select
-            name="polymer"
-            required
-            value={polymer}
-            onChange={(e) => setPolymer(e.target.value)}
-            className="input"
-          >
-            <option value="">Select polymer</option>
-            {polymers.map((p) => (
-              <option key={p.slug} value={p.slug}>
-                {p.name} ({p.abbreviation})
-              </option>
-            ))}
-          </select>
-        </Field>
+        {step === 4 && (
+          <Step heading="How much, how often, where" body="Tonnage and frequency drive supplier matching and pricing.">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Field label="Quantity" required>
+                <select
+                  required
+                  className="input"
+                  value={state.quantity}
+                  onChange={(e) => update("quantity", e.target.value)}
+                  autoFocus
+                >
+                  <option value="">Select tonnage band</option>
+                  {QUANTITY_BANDS.map((q) => (
+                    <option key={q} value={q}>
+                      {q}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Frequency" required>
+                <select
+                  required
+                  className="input"
+                  value={state.frequency}
+                  onChange={(e) => update("frequency", e.target.value)}
+                >
+                  <option value="">Select frequency</option>
+                  {FREQUENCY_OPTIONS.map((f) => (
+                    <option key={f} value={f}>
+                      {f}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Field label="Delivery region" required>
+                <select
+                  required
+                  className="input"
+                  value={state.delivery}
+                  onChange={(e) => update("delivery", e.target.value)}
+                >
+                  <option value="">Select delivery country</option>
+                  {regions.map((r) => (
+                    <option key={r.slug} value={r.slug}>
+                      {r.name}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Required by date">
+                <input
+                  type="date"
+                  className="input"
+                  value={state.requiredBy}
+                  onChange={(e) => update("requiredBy", e.target.value)}
+                />
+              </Field>
+            </div>
+          </Step>
+        )}
 
-        <Field
-          label="Specific grade or technical specs"
-          hint="Optional — helps suppliers route to the right grade."
-        >
-          <textarea
-            name="grade"
-            rows={3}
-            className="input"
-            placeholder="e.g. PP homopolymer, MFI 12, food-contact certified, Borealis HF136MO equivalent"
-          />
-        </Field>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Quantity" required>
-            <select name="quantity" required className="input">
-              <option value="">Select tonnage band</option>
-              {QUANTITY_BANDS.map((q) => (
-                <option key={q} value={q}>
-                  {q}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Frequency" required>
-            <select name="frequency" required className="input">
-              <option value="">Select frequency</option>
-              {FREQUENCY_OPTIONS.map((f) => (
-                <option key={f} value={f}>
-                  {f}
-                </option>
-              ))}
-            </select>
-          </Field>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Delivery region" required>
-            <select name="delivery" required className="input">
-              <option value="">Select delivery country</option>
-              {regions.map((r) => (
-                <option key={r.slug} value={r.slug}>
-                  {r.name}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Required by date">
-            <input name="requiredBy" type="date" className="input" />
-          </Field>
-        </div>
-
-        <Field label="Application" required>
-          <select
-            name="application"
-            required
-            value={application}
-            onChange={(e) => setApplication(e.target.value)}
-            className="input"
-          >
-            <option value="">Select application</option>
-            {applications.map((a) => (
-              <option key={a.slug} value={a.slug}>
-                {a.name}
-              </option>
-            ))}
-          </select>
-        </Field>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Existing supplier" hint="Optional — useful market intel.">
-            <input
-              name="existingSupplier"
-              type="text"
-              className="input"
-              placeholder="e.g. Resinex"
-            />
-          </Field>
-          <Field
-            label="Current target price (EUR/t)"
-            hint="Optional — signals seriousness."
-          >
-            <input
-              name="targetPrice"
-              type="number"
-              min="0"
-              step="1"
-              className="input font-mono"
-              placeholder="e.g. 1250"
-            />
-          </Field>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Field label="Contact name" required>
-            <input name="contactName" type="text" required className="input" />
-          </Field>
-          <Field
-            label="Business email"
-            required
-            hint="Free providers (gmail, yahoo) flagged for manual review."
-          >
-            <input
-              name="email"
-              type="email"
-              required
-              className="input"
-              placeholder="you@company.com"
-            />
-          </Field>
-        </div>
-
-        <Field label="Phone" hint="Required for orders 100+ t.">
-          <input
-            name="phone"
-            type="tel"
-            className="input font-mono"
-            placeholder="+49 ..."
-          />
-        </Field>
-
-        <Field label="Additional notes">
-          <textarea
-            name="notes"
-            rows={4}
-            className="input"
-            placeholder="Anything else suppliers should know about this requirement"
-          />
-        </Field>
-
-        <label className="flex items-start gap-3 text-sm">
-          <input
-            name="consent"
-            type="checkbox"
-            required
-            className="mt-1 h-4 w-4 rounded border-border text-secondary focus:ring-secondary"
-          />
-          <span className="text-muted-foreground">
-            I agree to be contacted by verified suppliers about this requirement.{" "}
-            <a href="/privacy" className="text-secondary hover:underline">
-              View Privacy Policy
-            </a>
-            .
-          </span>
-        </label>
+        {step === 5 && (
+          <Step heading="Almost done" body="A few optional details that help suppliers respond faster.">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Field label="Existing supplier (optional)">
+                <input
+                  type="text"
+                  className="input"
+                  value={state.existingSupplier}
+                  onChange={(e) => update("existingSupplier", e.target.value)}
+                  placeholder="e.g. Resinex"
+                />
+              </Field>
+              <Field label="Current target price (optional, EUR/t)">
+                <input
+                  type="number"
+                  min="0"
+                  step="1"
+                  className="input font-mono"
+                  value={state.targetPrice}
+                  onChange={(e) => update("targetPrice", e.target.value)}
+                  placeholder="e.g. 1250"
+                />
+              </Field>
+            </div>
+            <Field label="Additional notes">
+              <textarea
+                rows={4}
+                className="input"
+                value={state.notes}
+                onChange={(e) => update("notes", e.target.value)}
+                placeholder="Anything else suppliers should know about this requirement"
+              />
+            </Field>
+            <label className="flex items-start gap-3 text-sm">
+              <input
+                type="checkbox"
+                required
+                checked={state.consent}
+                onChange={(e) => update("consent", e.target.checked)}
+                className="mt-1 h-4 w-4 rounded border-border text-secondary focus:ring-secondary"
+              />
+              <span className="text-muted-foreground">
+                I agree to be contacted by verified suppliers about this
+                requirement.{" "}
+                <a href="/privacy" className="text-secondary hover:underline">
+                  View Privacy Policy
+                </a>
+                .
+              </span>
+            </label>
+          </Step>
+        )}
 
         {error && (
-          <div className="rounded-md bg-error/10 border border-error/30 px-4 py-3 text-sm text-error">
+          <div className="mt-6 rounded-md bg-error/10 border border-error/30 px-4 py-3 text-sm text-error">
             {error}
           </div>
         )}
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full md:w-auto inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-base font-medium text-secondary-foreground hover:bg-secondary/90 disabled:opacity-60"
-        >
-          {submitting ? "Submitting…" : "Submit RFQ — get quotes within 48h"}
-        </button>
+        <div className="mt-8 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-border pt-6">
+          <button
+            type="button"
+            onClick={back}
+            disabled={step === 1}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            ← Back
+          </button>
+          {step < STEPS.length ? (
+            <button
+              type="button"
+              onClick={next}
+              className="inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground hover:bg-secondary/90"
+            >
+              Continue →
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={submitting}
+              className="inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground hover:bg-secondary/90 disabled:opacity-60"
+            >
+              {submitting ? "Submitting…" : "Submit RFQ"}
+            </button>
+          )}
+        </div>
 
-        <p className="text-xs text-muted-foreground border-t border-border pt-4">
-          Free for buyers · GDPR compliant · No spam — suppliers contact you only
-          about this requirement.
+        <p className="mt-6 text-xs text-muted-foreground">
+          Free for buyers. GDPR compliant. Suppliers contact you only about this
+          requirement.
         </p>
       </form>
 
@@ -389,15 +544,37 @@ export default function GetQuotesPage() {
   );
 }
 
+function Step({
+  heading,
+  body,
+  children,
+}: {
+  heading: string;
+  body?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary">
+          {heading}
+        </h2>
+        {body && (
+          <p className="mt-2 text-sm text-muted-foreground">{body}</p>
+        )}
+      </div>
+      {children}
+    </div>
+  );
+}
+
 function Field({
   label,
   required,
-  hint,
   children,
 }: {
   label: string;
   required?: boolean;
-  hint?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -407,7 +584,6 @@ function Field({
         {required && <span className="text-error"> *</span>}
       </span>
       {children}
-      {hint && <span className="block text-xs text-muted-foreground mt-1.5">{hint}</span>}
     </label>
   );
 }

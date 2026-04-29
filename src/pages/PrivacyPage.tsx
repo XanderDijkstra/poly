@@ -42,7 +42,7 @@ export default function PrivacyPage() {
         </p>
       </Section>
 
-      <Section heading="4. Lead routing — controller-to-controller">
+      <Section heading="4. Lead routing: controller-to-controller">
         <p>
           When we route your RFQ to a supplier, that supplier becomes a separate data
           controller for any further communication. Each supplier signs Standard

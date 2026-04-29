@@ -17,7 +17,7 @@ export default function GradeDetail() {
 
   usePageMeta({
     title: grade
-      ? `${grade.name} — properties and suppliers | ${SITE.name}`
+      ? `${grade.name}: properties and suppliers | ${SITE.name}`
       : `Grade not found | ${SITE.name}`,
     description: grade
       ? `${grade.name} specifications, equivalent grades, and procurement notes. Get quotes from European suppliers.`
@@ -37,8 +37,8 @@ export default function GradeDetail() {
 
   const specs = [
     { property: "Polymer family", value: polymer?.name ?? grade.polymerSlug },
-    { property: "MFI", value: grade.mfi ?? "—", standard: "ISO 1133" },
-    { property: "Density", value: grade.density ?? polymer?.density ?? "—" },
+    { property: "MFI", value: grade.mfi ?? "", standard: "ISO 1133" },
+    { property: "Density", value: grade.density ?? polymer?.density ?? "" },
     { property: "Process", value: grade.process },
     { property: "Typical application", value: grade.application },
   ];
@@ -51,7 +51,7 @@ export default function GradeDetail() {
         { label: grade.name },
       ]}
       eyebrow={polymer ? `${polymer.name} · ${polymer.abbreviation}` : undefined}
-      title={`${grade.name} — Specifications and suppliers`}
+      title={`${grade.name}: Specifications and suppliers`}
       lede={grade.shortDescription}
       wide
     >
@@ -78,7 +78,7 @@ export default function GradeDetail() {
             ))}
           </ul>
           <p className="mt-3 text-xs text-muted-foreground">
-            Equivalents listed for technical context only — they are starting points
+            Equivalents listed for technical context only. They are starting points
             for specification, not endorsements. Always validate with the producer's
             own technical data sheet.
           </p>

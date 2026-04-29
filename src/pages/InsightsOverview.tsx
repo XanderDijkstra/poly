@@ -18,7 +18,7 @@ export default function InsightsOverview() {
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Insights" }]}
       eyebrow="Insights"
       title="Polymer market insights"
-      lede="Quarterly market reports, supply-chain analysis, and regulatory deep-dives. Written for procurement teams that already read ICIS — focused on the working takeaway, not the hot take."
+      lede="Quarterly market reports, supply-chain analysis, and regulatory deep-dives. Written for procurement teams that already read ICIS, focused on the working takeaway rather than the hot take."
       wide
     >
       <div className="space-y-3">

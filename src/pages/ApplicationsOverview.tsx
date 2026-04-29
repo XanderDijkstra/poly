@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 
 export default function ApplicationsOverview() {
   usePageMeta({
-    title: `Polymer applications — recommended materials by use case | ${SITE.name}`,
+    title: `Polymer applications: recommended materials by use case | ${SITE.name}`,
     description:
       "15 application categories with recommended polymers, regulatory considerations, and grade options. Source polymers for your specific end use.",
     canonical: "/applications",
