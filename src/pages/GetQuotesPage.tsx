@@ -23,19 +23,6 @@ const FREQUENCY_OPTIONS = [
   "Annual contract",
 ];
 
-const FREE_EMAIL_DOMAINS = [
-  "gmail.com",
-  "yahoo.com",
-  "yahoo.co.uk",
-  "outlook.com",
-  "hotmail.com",
-  "live.com",
-  "icloud.com",
-  "aol.com",
-  "gmx.com",
-  "gmx.de",
-  "mail.ru",
-];
 
 interface RFQState {
   contactName: string;
@@ -163,7 +150,7 @@ export default function GetQuotesPage() {
     setStep((s) => Math.max(s - 1, 1));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const message = validateStep(step);
     if (message) {
@@ -171,27 +158,29 @@ export default function GetQuotesPage() {
       return;
     }
     setSubmitting(true);
+    setError(null);
 
-    const domain = state.email.split("@")[1]?.toLowerCase() ?? "";
-    const payload = {
-      ...state,
-      submittedAt: new Date().toISOString(),
-      freeDomainFlag: FREE_EMAIL_DOMAINS.includes(domain),
-    };
+    try {
+      const res = await fetch("/api/rfq", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(state),
+      });
 
-    if (typeof window !== "undefined") {
-      try {
-        const queue = JSON.parse(
-          window.localStorage.getItem("rfq_queue") ?? "[]"
-        );
-        queue.push(payload);
-        window.localStorage.setItem("rfq_queue", JSON.stringify(queue));
-      } catch {
-        /* localStorage unavailable; non-fatal in the demo flow */
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body as { error?: string }).error ?? "Submission failed");
       }
-    }
 
-    navigate("/get-quotes/sent", { state: { polymer: state.polymer } });
+      navigate("/get-quotes/sent", { state: { polymer: state.polymer } });
+    } catch (err) {
+      setSubmitting(false);
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    }
   }
 
   const progressPct = ((step - 1) / (STEPS.length - 1)) * 100;
