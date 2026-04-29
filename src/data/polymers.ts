@@ -87,6 +87,18 @@ export const polymers: Polymer[] = [
     formula: "(C₂H₄)ₙ",
     producers: ["LyondellBasell", "ExxonMobil", "SABIC", "Dow", "Versalis"],
     recyclable: true,
+    marketContext: [
+      "European LDPE capacity sits around 3 million tonnes per year, with LyondellBasell, ExxonMobil, SABIC, Dow, and Versalis (Italy) the largest producers. Demand is dominated by film — carrier bags, shrink, agriculture, and extrusion coating make up roughly 60% of volume; the balance is extrusion coating, lamination tie-layers, and squeeze bottles.",
+      "LDPE is a mature, low-growth segment. Many producers have converted ageing high-pressure tubular reactors to LLDPE swing capacity since 2015, tightening LDPE-specific supply during peak demand seasons. Procurement teams should track which European sites can swing between LDPE and LLDPE — it's the dominant signal for medium-term availability.",
+    ],
+    pricingDrivers: [
+      "Like HDPE, LDPE follows the monthly Ethylene Contract Price (ECP) plus a polymer margin. LDPE-specific high-pressure plants are smaller and older than the swing HDPE/LLDPE units, so spreads widen sharply during tight supply. The LDPE-LLDPE spread is a key procurement signal: when LDPE trades €100+/t over LLDPE on contract, converters with formulation flexibility frequently switch.",
+      "Imports from US Gulf and the Middle East landed in Antwerp or Rotterdam typically arrive 5–10% below European contract during arbitrage windows. Coating-grade and clarity-grade LDPE carry persistent premiums over commodity film grade.",
+    ],
+    regulatoryContext: [
+      "EU 10/2011 governs food-contact LDPE film. Mulch and silage film follow EN 13655 and EN 13207 respectively. The Single-Use Plastics Directive has compressed European demand for LDPE carrier bags as Member States impose taxes and bans — a structural headwind on volume.",
+      "PPWR design-for-recycling rules push converters toward mono-PE structures (LDPE/LLDPE/HDPE blends) replacing PE-PA and PE-PET laminates from 2030. This favours LDPE in seal layers and outer print layers of PPWR-compliant flexible packaging.",
+    ],
   },
   {
     slug: "polyethylene-lld",
@@ -102,6 +114,18 @@ export const polymers: Polymer[] = [
     formula: "(C₂H₄)ₙ + comonomer",
     producers: ["ExxonMobil", "Dow", "SABIC", "Borealis"],
     recyclable: true,
+    marketContext: [
+      "European LLDPE capacity is approximately 2.5 million tonnes per year. ExxonMobil, Dow, SABIC, and Borealis lead production, supplemented by significant imports from US Gulf gas-cracker producers (Dow, ExxonMobil, Formosa). End-use demand splits across stretch film (~40%), food packaging film (~30%), and liners, agricultural film, and rotomolding (~30%).",
+      "Comonomer choice drives mechanical performance and pricing. Butene LLDPE is the commodity baseline; hexene grades dominate premium stretch and lamination; octene LLDPE — produced via metallocene catalysis — sits at the top of the food-contact and high-stretch market. Octene grades carry a structural €150–300/t premium over butene.",
+    ],
+    pricingDrivers: [
+      "LLDPE tracks the European Ethylene Contract Price (ECP) plus a comonomer adjustment. ICIS publishes butene LLDPE and hexene/octene LLDPE separately — watch both indices, as they decouple during specialty demand surges.",
+      "Spot from US Gulf imports (gas-cracked, structurally lower-cost) lands €80–120/t below European contract during arbitrage windows. The arbitrage opens episodically — when freight rates ease and Asian markets soften, US producers redirect cargoes to Antwerp and Rotterdam.",
+    ],
+    regulatoryContext: [
+      "EU 10/2011 governs food-contact LLDPE — clarified hexene and octene grades dominate cling and barrier film. Mulch and silage film follow EN 13655 and EN 13207.",
+      "PPWR's design-for-recycling rule increases LLDPE use as the structural layer in fully-PE laminate constructions targeting recyclability. The shift away from PE-PET and PE-PA multi-layer film is the biggest structural demand driver through 2030.",
+    ],
   },
   {
     slug: "polyethylene-md",
@@ -117,6 +141,18 @@ export const polymers: Polymer[] = [
     formula: "(C₂H₄)ₙ",
     producers: ["Borealis", "INEOS", "SABIC"],
     recyclable: true,
+    marketContext: [
+      "MDPE is a niche segment within polyethylene, with European demand around 500 kt/year. The dominant application is gas distribution pipe (PE80), with smaller volumes in rotomolded tanks, heavy-duty film, and cable jacketing. Most MDPE volume comes from swing-grade plants (Borealis, INEOS, SABIC) rather than dedicated lines.",
+      "Pipe-grade MDPE for gas distribution is highly specified. Buyers procure against EN 1555 with documented Long-Term Hydrostatic Strength performance under ISO 9080. Distributor stock for non-pipe MDPE is thinner than HDPE — buyers needing small volumes often substitute with low-MFI HDPE or LLDPE depending on the application.",
+    ],
+    pricingDrivers: [
+      "MDPE tracks HDPE pricing closely, typically with a small negative or positive delta depending on grade and market conditions. Pipe-grade MDPE for gas (PE80) trades a structural premium of €100–150/t over commodity grade due to certification cost and limited dedicated supply.",
+      "When HDPE bimodal capacity tightens, MDPE prices firm faster than the rest of the PE complex. ICIS publishes a dedicated MDPE pipe weekly assessment alongside HDPE.",
+    ],
+    regulatoryContext: [
+      "EN 1555 governs polyethylene pipe systems for gas distribution; PE80 grades require continuous compliance with ISO 9080 LTHS testing. Cable jacketing applications follow IEC 60332 and the CPR EN 50575 reaction-to-fire classification framework where deployed in buildings.",
+      "Recycled content in MDPE pipe remains rare due to long-term performance liability. PPWR pressure on packaging-grade MDPE (rigid containers) is moderate and primarily passed through as voluntary brand-owner targets.",
+    ],
   },
   {
     slug: "pvc-rigid",
@@ -131,6 +167,18 @@ export const polymers: Polymer[] = [
     formula: "(C₂H₃Cl)ₙ",
     producers: ["INOVYN", "Vestolit", "Vynova", "SCG", "Kem One"],
     recyclable: true,
+    marketContext: [
+      "European PVC capacity totals roughly 5.5 million tonnes per year (rigid + flexible combined), led by INOVYN (INEOS), Vestolit, Vynova, Kem One, and SCG/Cires. Rigid PVC (PVC-U) takes around 70% of total volume — pipe (sewer, drainage, conduit), profiles (windows, sidings), rigid sheet, and bottle. Window profile is the single largest application across Europe.",
+      "Suspension-grade PVC dominates supply for rigid applications. K-value (a measure of molecular weight) defines processability: K57–K60 for injection molding, K65–K68 for pipe and profile extrusion, K70+ for plasticized formulations. Most rigid converters specify K65 or K67 from a familiar formulation house.",
+    ],
+    pricingDrivers: [
+      "PVC follows the European Vinyl Chloride Monomer (VCM) contract, which itself tracks ethylene plus chlorine economics. Chlorine pricing is set by chlor-alkali balance — caustic soda is the byproduct, and caustic demand swings drive chlorine availability and PVC margins by hundreds of euros per tonne.",
+      "Watch ICIS PVC suspension-grade weekly. The PVC-VCM-ethylene cost stack reveals whether margin pressure sits with the chlor-alkali producer or the PVC compounder. European producers run at 75–85% utilization in normal years; sub-70% triggers force majeure declarations and price spikes.",
+    ],
+    regulatoryContext: [
+      "REACH heavily impacts PVC formulation. Phthalate plasticizers DEHP, DBP, BBP, and DIBP are SVHC-restricted under Annex XVII; rigid PVC is mostly unplasticized but stabilizer chemistry (lead, tin, calcium-zinc) has shifted dramatically — lead stabilizers were voluntarily phased out by VinylPlus in 2015.",
+      "VinylPlus 2030 commitments push recycled content adoption in profile and pipe. CPR EN 50575 governs cable conduit fire performance. Pressure pipe is certified under EN 1452 (water) and EN 1401 (sewer drainage).",
+    ],
   },
   {
     slug: "pvc-flexible",
@@ -145,6 +193,18 @@ export const polymers: Polymer[] = [
     formula: "(C₂H₃Cl)ₙ + plasticiser",
     producers: ["INOVYN", "Vynova", "Benvic", "Mexichem", "SCG"],
     recyclable: true,
+    marketContext: [
+      "European flexible PVC volume sits at roughly 1.5 million tonnes per year. Cable sheathing is the largest single application, followed by flooring, medical tubing, automotive interior trim, and hose. PVC compound houses — Benvic, Mexichem (now Orbia), Tarkett, ALPHAGARY — sit between the resin producers and converters, formulating to specific customer requirements.",
+      "Plasticizer chemistry has shifted decisively under REACH pressure. DINP and DOTP have replaced DEHP across most consumer applications; bio-based DEHA and Hexamoll DINCH (BASF) dominate medical and toy applications. Selecting a compounder with the right plasticizer system is often more important than selecting the resin producer.",
+    ],
+    pricingDrivers: [
+      "Flexible PVC compound pricing tracks PVC-U pricing plus a plasticizer overlay. Plasticizer cost is 30–50% of compound cost — DOTP and DINP track ~€1,800–2,400/t with phthalate prices moving with C8/C9 alcohol availability and cracker C4 cuts.",
+      "Compound houses publish stock indications and quote against hot/cold cycles. For volume buyers, direct compounder contracts with plasticizer pass-through clauses are standard. Watch the C8/C9 alcohol contract reports alongside PVC for the full cost stack.",
+    ],
+    regulatoryContext: [
+      "REACH SVHC list — DEHP, DBP, BBP, DIBP all restricted in articles. EU 10/2011 governs food-contact compounds (DOTP and DINCH only; no phthalates). Cable sheathing falls under CPR EN 50575 reaction-to-fire performance and IEC 60332 flame propagation.",
+      "Medical tubing follows ISO 10993 biocompatibility and EU MDR 2017/745. DEHP-free compounds are now standard for blood bags, infusion sets, and peristaltic tubing. The toy applications standard EN 71-3 limits heavy metal migration regardless of plasticizer.",
+    ],
   },
   {
     slug: "polyethylene-terephthalate",
@@ -186,6 +246,18 @@ export const polymers: Polymer[] = [
     formula: "(C₈H₈)ₙ",
     producers: ["INEOS Styrolution", "Versalis", "Trinseo", "Synthos"],
     recyclable: true,
+    marketContext: [
+      "European GPPS capacity is approximately 1 million tonnes per year. INEOS Styrolution, Trinseo, Versalis, and Synthos are the major producers. End-use demand splits across rigid packaging — yogurt cups, deli trays, cosmetics bottles (~40%) — thermoformed sheet, foam (XPS, EPS for insulation), and consumer goods.",
+      "The market has structurally declined since 2015 as PET took share in clear food packaging and PP gained ground in injection-molded containers. European producers have responded by closing older lines and focusing on specialty and high-clarity grades. Spot availability is generally ample outside cracker turnaround windows.",
+    ],
+    pricingDrivers: [
+      "GPPS tracks the European Styrene Monomer Contract Price (SCP), which itself tracks benzene and ethylene economics. Benzene is sourced from refinery reformate or steam cracker pyrolysis gasoline — its price sets the floor for styrene and downstream styrenics.",
+      "Margins (SCP-to-GPPS) typically run €200–350/t and have compressed since 2020 as new Asian capacity arrived and European demand fell. ICIS publishes weekly GPPS assessments for general-purpose, high-flow injection, and high-heat grades separately.",
+    ],
+    regulatoryContext: [
+      "EU 10/2011 sets specific migration limits for residual styrene monomer (max 0.25% for food contact applications). Producers issue grade-specific Declarations of Compliance.",
+      "PPWR design-for-recycling rules disadvantage GPPS in beverage cup and deli applications versus PP and PET — neither stream collects polystyrene at scale across most Member States. Toy-grade GPPS must comply with EN 71-3 heavy metal migration limits.",
+    ],
   },
   {
     slug: "polystyrene-impact",
@@ -200,6 +272,18 @@ export const polymers: Polymer[] = [
     formula: "(C₈H₈)ₙ + butadiene",
     producers: ["INEOS Styrolution", "Versalis", "Trinseo", "Synthos"],
     recyclable: true,
+    marketContext: [
+      "European HIPS capacity is around 600 kt/year. INEOS Styrolution, Trinseo, Versalis, and Synthos produce HIPS alongside their GPPS lines, often via in-line rubber compounding. Major end uses are white-goods interiors (refrigerator liners), yogurt and dairy lids, electronics housings, packaging trays, and point-of-purchase displays.",
+      "HIPS holds defensible niches against PP through its rigidity, dimensional stability, and high-quality printability. White-goods OEMs (Whirlpool, Electrolux, BSH) are sticky customers — qualification and tooling investment makes resin substitution costly.",
+    ],
+    pricingDrivers: [
+      "HIPS is GPPS plus a butadiene-rubber compounding cost. Pricing tracks the Styrene Monomer Contract Price plus a butadiene contract premium. The HIPS-to-GPPS spread (typically €100–200/t) widens when butadiene tightens — for example during European cracker turnarounds that reduce C4 availability.",
+      "Watch ICIS HIPS weekly alongside butadiene contract data. Asian HIPS imports (LG Chem, Chi Mei) episodically pressure European pricing during periods of soft regional demand.",
+    ],
+    regulatoryContext: [
+      "EU 10/2011 governs food-contact applications (yogurt and dairy lids) with residual styrene monomer limits identical to GPPS. RoHS 2011/65/EU and the WEEE directive govern flame-retardant additive choices in electronic housings — brominated FRs (TBBPA, deca-BDE) are being phased out where halogen-free alternatives perform adequately.",
+      "Toy-grade HIPS follows EN 71-3 heavy metal limits. Refrigerator liner applications must meet relevant food-contact requirements via the EU framework regulation 1935/2004.",
+    ],
   },
   {
     slug: "acrylonitrile-butadiene-styrene",
@@ -214,6 +298,18 @@ export const polymers: Polymer[] = [
     formula: "Terpolymer",
     producers: ["INEOS Styrolution", "Trinseo", "LG Chem", "ELIX Polymers"],
     recyclable: true,
+    marketContext: [
+      "European ABS demand sits around 700 kt/year. INEOS Styrolution, ELIX Polymers (Spain), and Trinseo are the major European producers; Asian imports — particularly from LG Chem and Chi Mei — supply 30–40% of demand. Major end uses: automotive trim and exterior parts, electronic housings, appliance components, consumer goods, and toys.",
+      "PC/ABS blends form the premium segment, used for laptop enclosures, automotive instrument panels, and high-impact electronics. The blend is alloyed at the compounder rather than the resin producer, with specific grades for paintability, flame retardancy, and chemical resistance commanding €500–1,000/t over commodity ABS.",
+    ],
+    pricingDrivers: [
+      "ABS pricing tracks three monomers — acrylonitrile (ACN), butadiene (BD), and styrene (SM). Continuous-mass and emulsion ABS production differs in feedstock leverage. Acrylonitrile is the swing factor: propylene-based, it spikes during cracker turnarounds and ammonia plant outages.",
+      "ICIS ABS weekly publishes natural and colored grades separately. Imports from Korea and Taiwan land in Antwerp and Rotterdam at typically 5–15% below European contract during arbitrage windows. The PC/ABS blend price is a layered calculation — track polycarbonate weekly alongside ABS for the full picture.",
+    ],
+    regulatoryContext: [
+      "UL94 V-0 flame retardancy is widely required in electronics housings. RoHS 2011/65/EU restricts halogenated FRs (PBB, PBDE) — most ABS for electronics now uses phosphorus-based or PC/ABS-with-phosphate alternatives.",
+      "Automotive grades meet VDA 270 odor and ISO 16750 thermal cycling. REACH SVHC tracking covers residual ACN monomer and stabilizer systems. Toy-grade ABS must comply with EN 71-3 heavy metal migration limits.",
+    ],
   },
   {
     slug: "recycled-polyolefins",
@@ -226,6 +322,18 @@ export const polymers: Polymer[] = [
     density: "Varies by stream",
     producers: ["Borealis (Borcycle)", "LyondellBasell (CirculenRecover)", "SABIC", "Veolia", "Plastic Energy"],
     recyclable: true,
+    marketContext: [
+      "European mechanical recycling capacity for rPE and rPP totals approximately 3 million tonnes per year and is growing at ~10% annually. The largest operators include LyondellBasell QCP (Netherlands), Borealis Borcycle, Veolia / SABIC TRUCIRCLE, and Plastic Energy (chemical recycling pyrolysis). Quality bifurcates sharply: post-consumer rPE and rPP from packaging streams trades €500–1,200/t below virgin; chemically recycled (advanced recycling) rPP for food contact often trades a premium over virgin.",
+      "The collection-to-pellet flow has structural bottlenecks. Bale availability sets the floor: Germany's DSD (Dual System), France's Citeo, and Spain's Ecoembes drive the bulk of post-consumer collection. Sorting capacity (NIR-based in MRFs) is the first capacity constraint; food-contact-grade decontamination capacity is the second.",
+    ],
+    pricingDrivers: [
+      "rPO pricing decouples from virgin contract. Bale supply (kerbside collection economics) sets the floor; converter demand (PPWR compliance) sets the ceiling. The virgin-to-rPO spread inverts during demand shocks — autumn 2022 saw rPO trade above virgin briefly as PPWR-anticipating brand owners locked in supply.",
+      "ICIS publishes rPE flake (for film and bottle) and rPP pellet weekly indices separately. For chemically-recycled material, mass-balance accounting under ISCC PLUS allows premium pricing tied to a virgin-equivalent specification. Buyers committing to multi-year volume often secure volume in advance via offtake agreements directly with recyclers.",
+    ],
+    regulatoryContext: [
+      "EU 2022/1616 governs recycled plastics in food contact applications. Only EFSA-approved decontamination processes can place rPO into food contact — coverage for rPP is significantly broader than for rPE due to chemistry and historical EFSA review patterns.",
+      "PPWR mandates 10–35% recycled content depending on packaging type by 2030. Supply-chain traceability via mass-balance accounting (ISCC PLUS) is the dominant verification scheme for both mechanically and chemically recycled material. Brand owners running their own recycled-content commitments (Unilever, Nestlé, P&G) often demand third-party certification beyond the regulatory minimum.",
+    ],
   },
 ];
 
