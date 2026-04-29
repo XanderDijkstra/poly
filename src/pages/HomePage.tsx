@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { RFQCta } from "@/components/RFQCta";
+import { LogisticsMap } from "@/components/LogisticsMap";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { polymers } from "@/data/polymers";
 import { applications } from "@/data/applications";
@@ -38,27 +39,32 @@ export default function HomePage() {
       <SiteHeader />
       <main className="flex-1">
         <section className="container max-w-7xl mx-auto pt-12 pb-16 md:pt-20 md:pb-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-success" />
-              Independent European polymer marketplace
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                Independent European polymer marketplace
+              </div>
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary">
+                Find the right polymer supplier. Submit one RFQ, get multiple quotes.
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-muted-foreground border-l-4 border-secondary pl-4">
+                For procurement teams sourcing 1–500 tonnes of PP, PE, PVC, PET or
+                recycled grades. We connect you to verified European traders and
+                distributors. Free for buyers.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <RFQCta label="Get Quotes" />
+                <Link
+                  to="/polymers"
+                  className="text-sm font-medium text-secondary hover:underline"
+                >
+                  Browse polymer types →
+                </Link>
+              </div>
             </div>
-            <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-primary">
-              Find the right polymer supplier. Submit one RFQ, get multiple quotes.
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground border-l-4 border-secondary pl-4">
-              For procurement teams sourcing 1–500 tonnes of PP, PE, PVC, PET or
-              recycled grades. We connect you to verified European traders and
-              distributors. Free for buyers.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <RFQCta label="Get Quotes" />
-              <Link
-                to="/polymers"
-                className="text-sm font-medium text-secondary hover:underline"
-              >
-                Browse polymer types →
-              </Link>
+            <div className="lg:col-span-6">
+              <LogisticsMap />
             </div>
           </div>
         </section>
