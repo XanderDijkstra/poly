@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 interface RFQ {
   id: number;
@@ -37,16 +38,10 @@ const STATUS_COLOR: Record<string, string> = {
 };
 
 export default function AdminPage() {
-  useEffect(() => {
-    document.title = "Admin · RFQ inbox";
-    let robots = document.querySelector('meta[name="robots"]');
-    if (!robots) {
-      robots = document.createElement("meta");
-      robots.setAttribute("name", "robots");
-      document.head.appendChild(robots);
-    }
-    robots.setAttribute("content", "noindex, nofollow");
-  }, []);
+  usePageMeta({
+    title: "Admin · RFQ inbox",
+    noindex: true,
+  });
 
   const [token, setToken] = useState<string>(() =>
     typeof window !== "undefined"

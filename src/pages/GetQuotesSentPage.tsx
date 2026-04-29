@@ -13,6 +13,7 @@ export default function GetQuotesSentPage() {
     title: `RFQ received | ${SITE.name}`,
     description: "Your RFQ has been received. Verified suppliers will respond within 48 hours.",
     canonical: "/get-quotes/sent",
+    noindex: true,
   });
 
   return (

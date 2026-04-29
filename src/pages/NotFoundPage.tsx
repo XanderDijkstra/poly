@@ -7,6 +7,7 @@ export default function NotFoundPage() {
   usePageMeta({
     title: `Page not found | ${SITE.name}`,
     description: "The page you requested doesn't exist on PolymerPlatform.",
+    noindex: true,
   });
 
   return (

@@ -6,6 +6,7 @@ interface PageMeta {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 function setMeta(name: string, content: string) {
@@ -55,5 +56,9 @@ export function usePageMeta(meta: PageMeta) {
     setProperty("og:site_name", SITE.name);
     if (meta.ogImage) setProperty("og:image", meta.ogImage);
     setMeta("twitter:card", "summary_large_image");
-  }, [meta.title, meta.description, meta.canonical, meta.ogImage]);
+    setMeta(
+      "robots",
+      meta.noindex ? "noindex, nofollow" : "index, follow"
+    );
+  }, [meta.title, meta.description, meta.canonical, meta.ogImage, meta.noindex]);
 }
