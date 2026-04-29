@@ -60,6 +60,34 @@ function bezierPath(from: Node, to: Node, curvature = 0.2): string {
   return `M${from.x},${from.y} Q${mx + offsetX},${my + offsetY} ${to.x},${to.y}`;
 }
 
+// Simplified Europe silhouette in viewBox 600x480, anchored so all
+// city nodes (Rotterdam, Hamburg, Gdansk, Stockholm, Marseille, Genoa,
+// Madrid, Istanbul, Mersin, etc.) sit on land.
+const EUROPE_MAINLAND =
+  "M 85,420 L 70,395 L 78,360 L 100,345 L 130,335 L 145,318 " +
+  "L 150,295 L 132,280 L 150,268 L 178,252 L 205,212 L 240,188 " +
+  "L 275,180 L 295,196 L 325,196 L 360,186 L 395,182 L 425,200 " +
+  "L 450,232 L 462,268 L 478,300 L 470,328 L 458,352 L 478,366 " +
+  "L 510,360 L 540,378 L 548,406 L 530,425 L 478,428 L 430,428 " +
+  "L 380,425 L 340,425 L 312,418 L 305,432 L 290,420 L 278,395 " +
+  "L 270,372 L 252,358 L 232,360 L 215,366 L 192,370 L 170,382 " +
+  "L 148,398 L 122,418 Z";
+
+// United Kingdom (Felixstowe and London nodes sit on this).
+const EUROPE_UK =
+  "M 132,202 L 152,192 L 172,200 L 178,218 L 175,238 L 160,250 " +
+  "L 142,248 L 128,235 L 124,218 Z";
+
+// Ireland.
+const EUROPE_IRELAND =
+  "M 92,222 L 108,215 L 122,222 L 124,238 L 110,245 L 95,238 Z";
+
+// Scandinavia (Norway / Sweden / Finland — Oslo, Stockholm sit here).
+const EUROPE_SCAND =
+  "M 250,168 L 235,135 L 235,105 L 248,78 L 268,68 L 290,75 " +
+  "L 318,90 L 352,108 L 388,125 L 400,150 L 385,168 L 352,172 " +
+  "L 320,168 L 296,162 L 275,160 Z";
+
 function nodeSize(size?: "lg" | "md" | "sm") {
   if (size === "lg") return { dot: 2.6, ringMax: 18, pulse: 3 };
   if (size === "md") return { dot: 2.1, ringMax: 14, pulse: 3.4 };
@@ -103,10 +131,44 @@ export function LogisticsMap() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <radialGradient id="lm-fade" cx="48%" cy="55%" r="55%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
+            <stop offset="55%" stopColor="#FFFFFF" stopOpacity="0.85" />
+            <stop offset="85%" stopColor="#FFFFFF" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+          </radialGradient>
+          <mask id="lm-mask" maskUnits="userSpaceOnUse">
+            <rect width="600" height="480" fill="url(#lm-fade)" />
+          </mask>
         </defs>
 
         <rect width="600" height="480" fill="url(#lm-bg)" />
         <rect width="600" height="480" fill="url(#lm-dots)" />
+
+        <g mask="url(#lm-mask)">
+          <g
+            fill="rgba(96,165,250,0.10)"
+            stroke="rgba(148,197,255,0.35)"
+            strokeWidth="0.8"
+            strokeLinejoin="round"
+          >
+            <path d={EUROPE_MAINLAND} />
+            <path d={EUROPE_UK} />
+            <path d={EUROPE_IRELAND} />
+            <path d={EUROPE_SCAND} />
+          </g>
+          <g
+            fill="none"
+            stroke="rgba(148,197,255,0.18)"
+            strokeWidth="0.4"
+            strokeDasharray="1 2"
+          >
+            <path d={EUROPE_MAINLAND} />
+            <path d={EUROPE_UK} />
+            <path d={EUROPE_IRELAND} />
+            <path d={EUROPE_SCAND} />
+          </g>
+        </g>
 
         <g opacity="0.6">
           <circle cx="200" cy="240" r="180" fill="url(#lm-glow)" />
