@@ -24,17 +24,17 @@ export default function GetQuotesSentPage() {
         { label: "Sent" },
       ]}
       eyebrow="RFQ received"
-      title="We're matching you with suppliers now."
-      lede="You'll hear back within 48 hours via email and phone. Tier-3 hot leads (500+ t exclusive) are routed first."
+      title="Thanks — we've received your request."
+      lede="Verified European suppliers will respond by email and phone within 48 hours. There's nothing else you need to do."
     >
       <div className="rounded-lg border border-success/30 bg-success/5 p-6">
         <h2 className="font-heading text-lg font-semibold text-success">
-          Next steps
+          What happens next
         </h2>
         <ul className="mt-3 space-y-2 text-sm text-foreground">
-          <li>· VAT validation runs in the background (VIES API).</li>
-          <li>· Lead scoring assigns Tier 1, 2 or 3 based on tonnage and frequency.</li>
-          <li>· Matched suppliers are notified by email; you receive their quotes directly.</li>
+          <li>· Suppliers matching your polymer, region and tonnage are notified.</li>
+          <li>· They contact you directly with quotes — typically within 48 hours.</li>
+          <li>· You contract with the supplier of your choice. We don't take a cut.</li>
         </ul>
       </div>
 
