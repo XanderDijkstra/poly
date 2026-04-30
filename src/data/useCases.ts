@@ -57,6 +57,54 @@ export const useCases: UseCase[] = [
     procurementNotes:
       "UV-stabilised PP impact copolymer with HALS additives is the dominant chemistry. Talc-filled grades (10–20% loading) increase stiffness for chair backs and table tops without adding cycle-time penalty. Curver and Keter are the largest European converters and source via 3–5 year contracts with the major producers. Spot or near-prime PP at €100–200/t below contract is common for non-load-bearing parts (planters, decorative).",
   },
+  {
+    slug: "yogurt-pots",
+    applicationSlug: "food-packaging-rigid",
+    name: "Yogurt and dairy pots",
+    shortDescription:
+      "Thermoformed or injection-moulded tubs for yogurt, cream, and dessert. Thin-wall PP dominates at sub-0.5 mm; HIPS for white opaque body with PP lid.",
+    recommendedPolymers: ["polypropylene", "polystyrene-impact"],
+    keyRequirements: [
+      "EU 10/2011 food-contact compliance with grade-specific Declaration of Compliance",
+      "Wall thickness ≤ 0.4 mm with ≤ ±5% variation across thermoformed web",
+      "Hot-fill resistance to 85 °C without deformation",
+      "Peelable lidding adhesion of 8–15 N per EN 15171",
+    ],
+    procurementNotes:
+      "PP homopolymer (MFI 10–20) in sheet extrusion grade is the workhorse for clear-lidded dairy pots; HIPS thermoform sheet handles opaque white body tubs. Borealis, LyondellBasell and INEOS Styrolution supply the dominant grades. Volume converters (Faerch, Huhtamaki, Greiner Packaging) run annual contracts at 500–2,000 t per line; smaller dairies typically source via Resinex or Kloeckner Plastics distributor stock.",
+  },
+  {
+    slug: "fresh-produce-trays",
+    applicationSlug: "food-packaging-rigid",
+    name: "Fresh produce and salad trays",
+    shortDescription:
+      "Rigid APET or PP trays for supermarket fresh produce, meat, and ready-to-eat salads. Modified atmosphere film-lid sealing common.",
+    recommendedPolymers: ["polyethylene-terephthalate", "polypropylene"],
+    keyRequirements: [
+      "MAP (modified atmosphere packaging) compatibility — no plasticiser migration",
+      "EU 10/2011 and FDA 21 CFR 177 compliance for direct food contact",
+      "30–50% PCR content for retail brand-owner sustainability targets",
+      "Optical clarity in APET for visual merchandising in retail chillers",
+    ],
+    procurementNotes:
+      "APET sheet (IV 0.72–0.78, 200–800 μm) is thermoformed by specialists like Faerch and Ilip. rPET inclusion is rising — branded retailers mandate 30–50% recycled content. Indorama Ventures, Selenis, Equipolymers and SABIC are the main European APET sheet suppliers. PP is preferred for heated-environment applications and where sealing to PP lidding film is required for monomaterial recyclability.",
+  },
+  {
+    slug: "ready-meal-trays",
+    applicationSlug: "food-packaging-rigid",
+    name: "Ready meal and ovenable trays",
+    shortDescription:
+      "Dual-ovenable trays for chilled and frozen ready meals. CPET handles conventional and microwave ovens; PP for microwave-only formats.",
+    recommendedPolymers: ["polyethylene-terephthalate", "polypropylene"],
+    keyRequirements: [
+      "Dual-ovenable performance to 220 °C (CPET) or microwave-safe to 900 W (PP)",
+      "Dimensional stability after -18 °C to 220 °C thermal cycling",
+      "Seal peel strength 8–20 N with OPP or PET lidding film",
+      "EU 10/2011 food contact compliance with no migration above thresholds",
+    ],
+    procurementNotes:
+      "CPET (crystallised PET) tray extrusion requires specialist crystallisable grades — Indorama Ventures and Equipolymers supply the resin. PP random copolymer or clarified PP is used for microwave-only variants. Meal-kit operators and supermarket own-brand converters typically run 12-month supply agreements; spot purchases are common for new SKU launches with uncertain volumes.",
+  },
 ];
 
 export const useCasesByApplication = (slug: string) =>
