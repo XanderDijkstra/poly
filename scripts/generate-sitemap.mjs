@@ -25,6 +25,20 @@ function readSlugs(filename) {
   return slugs;
 }
 
+// Use cases: each entry needs (applicationSlug, slug) for /applications/:slug/:useCase URLs.
+function readUseCases() {
+  const path = join(DATA_DIR, "useCases.ts");
+  if (!existsSync(path)) return [];
+  const src = readFileSync(path, "utf8");
+  const re = /slug:\s*"([a-z0-9-]+)",\s*applicationSlug:\s*"([a-z0-9-]+)"/g;
+  const out = [];
+  let match;
+  while ((match = re.exec(src)) !== null) {
+    out.push({ slug: match[1], applicationSlug: match[2] });
+  }
+  return out;
+}
+
 function readBaseUrl() {
   if (!existsSync(SITE_FILE)) return "https://polymerplatform.eu";
   const src = readFileSync(SITE_FILE, "utf8");
@@ -40,6 +54,7 @@ const applications = readSlugs("applications.ts");
 const regions = readSlugs("regions.ts");
 const learnTerms = readSlugs("learnTerms.ts");
 const insights = readSlugs("insights.ts");
+const useCases = readUseCases();
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -63,6 +78,10 @@ const dynamicUrls = [
   ...polymers.map((s) => ({ path: `/polymers/${s}`, priority: 0.8 })),
   ...grades.map((s) => ({ path: `/grades/${s}`, priority: 0.8 })),
   ...applications.map((s) => ({ path: `/applications/${s}`, priority: 0.8 })),
+  ...useCases.map((u) => ({
+    path: `/applications/${u.applicationSlug}/${u.slug}`,
+    priority: 0.7,
+  })),
   ...regions.map((s) => ({ path: `/suppliers/${s}`, priority: 0.8 })),
   ...learnTerms.map((s) => ({ path: `/learn/${s}`, priority: 0.6 })),
   ...insights.map((s) => ({ path: `/insights/${s}`, priority: 0.7 })),
@@ -91,5 +110,5 @@ writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), xml);
 console.log(
   `[sitemap] wrote public/sitemap.xml: ${all.length} URLs.\n` +
     `  ${polymers.length} polymers · ${grades.length} grades · ${applications.length} applications · ` +
-    `${regions.length} regions · ${learnTerms.length} learn · ${insights.length} insights`
+    `${useCases.length} use cases · ${regions.length} regions · ${learnTerms.length} learn · ${insights.length} insights`
 );

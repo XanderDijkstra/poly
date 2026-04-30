@@ -8,6 +8,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import { applicationBySlug, applications } from "@/data/applications";
 import { polymerBySlug } from "@/data/polymers";
 import { grades } from "@/data/grades";
+import { useCasesByApplication } from "@/data/useCases";
 import { SITE } from "@/lib/site";
 import NotFoundPage from "./NotFoundPage";
 
@@ -31,6 +32,7 @@ export default function ApplicationDetail() {
     .map((slug) => polymerBySlug(slug))
     .filter(Boolean);
   const linkedGrades = grades.filter((g) => g.applicationSlug === application.slug);
+  const useCases = useCasesByApplication(application.slug);
   const relatedApps = applications
     .filter((a) => a.slug !== application.slug && a.category === application.category)
     .slice(0, 3);
@@ -88,6 +90,28 @@ export default function ApplicationDetail() {
           )}
         </div>
       </section>
+
+      {useCases.length > 0 && (
+        <section>
+          <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-4">
+            Sub-application use cases
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {useCases.map((u) => (
+              <Link
+                key={u.slug}
+                to={`/applications/${application.slug}/${u.slug}`}
+                className="block rounded-md border border-border bg-background p-4 hover:border-secondary transition-colors"
+              >
+                <div className="font-medium text-foreground">{u.name}</div>
+                <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                  {u.shortDescription}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {linkedGrades.length > 0 && (
         <section>

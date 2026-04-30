@@ -9,6 +9,7 @@ import GradesOverview from "@/pages/GradesOverview";
 import GradeDetail from "@/pages/GradeDetail";
 import ApplicationsOverview from "@/pages/ApplicationsOverview";
 import ApplicationDetail from "@/pages/ApplicationDetail";
+import UseCaseDetail from "@/pages/UseCaseDetail";
 import SuppliersOverview from "@/pages/SuppliersOverview";
 import RegionDetail from "@/pages/RegionDetail";
 import LearnOverview from "@/pages/LearnOverview";
@@ -45,6 +46,10 @@ export default function App() {
         <Route path="/grades/:slug" element={<GradeDetail />} />
         <Route path="/applications" element={<ApplicationsOverview />} />
         <Route path="/applications/:slug" element={<ApplicationDetail />} />
+        <Route
+          path="/applications/:slug/:useCase"
+          element={<UseCaseDetail />}
+        />
         <Route path="/suppliers" element={<SuppliersOverview />} />
         <Route path="/suppliers/:slug" element={<RegionDetail />} />
         <Route path="/learn" element={<LearnOverview />} />
