@@ -208,6 +208,104 @@ export const insights: Insight[] = [
       "The Packaging and Packaging Waste Regulation reshapes specifications across PET, PP and flexible PE. Recycled-content thresholds, design-for-recycling, and reuse targets: the operational checklist for 2025–2030.",
     topics: ["Regulation", "Sustainability"],
     readMinutes: 12,
+    keyTakeaways: [
+      "PPWR replaces the 1994 Packaging Directive with a directly-binding regulation — no national transposition delay. Headline obligations apply from 2025–2040.",
+      "PET beverage bottles must contain ≥25% recycled content from 2025 and ≥30% from 2030. Other plastic packaging follows in 2030 at 10–35% depending on polymer and contact use.",
+      "From 2030, all packaging must be 'designed for recycling' against five performance grades — failure pushes a SKU into the prohibition track from 2035.",
+      "Reuse targets begin in 2030 for transport packaging, large-format beverage and certain take-away contexts; 10–40% reuse by 2040 depending on category.",
+      "The biggest procurement risk is rPET supply availability — physical food-grade rPET is structurally short of demand under the 30% 2030 threshold.",
+    ],
+    sections: [
+      {
+        heading: "What PPWR is — and what changes vs the old Directive",
+        paragraphs: [
+          "PPWR (Regulation EU 2025/40) replaces the 1994 Packaging and Packaging Waste Directive with a directly-applicable regulation. The legal mechanism matters: under the previous Directive, member states had two years to transpose obligations into national law, creating fragmentation and enforcement variance. PPWR applies uniformly across all 27 member states from its effective dates, with no transposition window.",
+          "The regulation covers all packaging placed on the EU market, regardless of where it was produced. Importers are responsible for compliance of imported packaged goods — a procurement consideration for buyers sourcing finished packaged products from outside the EU.",
+          "Three pillars dominate the regulation operationally: recycled-content thresholds (which raise demand for recyclate); design-for-recycling rules (which constrain material choices and structures); and reuse and refill targets (which create new packaging system requirements). A fourth pillar — bans on unnecessary packaging types — affects specific SKUs (single-serving condiments, miniature toiletries) but is narrower in scope.",
+        ],
+      },
+      {
+        heading: "Recycled content thresholds",
+        paragraphs: [
+          "PET beverage bottles must contain a minimum of 25% recycled plastic from 2025 (already in force) and 30% from 2030. This threshold applies as a brand-level average, calculated across the SKU portfolio for a calendar year, which gives flexibility but does not relax the absolute volume of rPET required.",
+          "Other plastic packaging is brought into the recycled-content scope in 2030. Contact-sensitive packaging (food, cosmetics, pharmaceutical primary packaging) faces 10% minimum from 2030 rising to 25% from 2040. Non-contact plastic packaging faces 35% from 2030 rising to 65% from 2040. Different polymers face the same percentage thresholds, but the supply situations vary materially.",
+          "Mass-balance accounting under ISCC Plus is permitted for the recycled-content claim, but the mass-balance share allocation rules are restrictive: only physical post-consumer feedstock counts, and chemical recycling outputs must trace to genuine waste-derived feed (not refinery off-gas or virgin reroutes). This limits how much the chemical recycling industry can effectively contribute to compliance in the near term.",
+        ],
+        table: {
+          headers: ["Packaging type", "From 2025", "From 2030", "From 2040"],
+          rows: [
+            ["PET beverage bottles", "25%", "30%", "—"],
+            ["Contact-sensitive plastic", "—", "10%", "25%"],
+            ["Single-use plastic beverage bottles (non-PET)", "—", "30%", "65%"],
+            ["All other plastic packaging", "—", "35%", "65%"],
+          ],
+          caption: "Minimum recycled content by packaging category. Article 7, PPWR.",
+        },
+      },
+      {
+        heading: "Design-for-recycling: the five-grade scoring",
+        paragraphs: [
+          "From 2030, all packaging placed on the EU market must be 'designed for recycling' under harmonised criteria. The Commission is finalising delegated acts that will assign each packaging format to a Grade A through E based on recyclability performance — sortability, removability of contaminants, polymer compatibility with recycling streams, and yield through the recycling process.",
+          "Grade D and E packaging will be progressively prohibited from 2035, beginning with categories where viable design-for-recycling alternatives exist. Grade C packaging faces market disadvantage via EPR fee modulation: producers pay higher contributions per tonne for lower-grade packaging, with the modulation factor applied at the national EPR scheme level.",
+          "For procurement, the practical effect is that material and structural choices need to be re-evaluated against design-for-recycling criteria. PVC is the highest-risk polymer in flexible packaging — it is incompatible with PE and PP recycling streams and contaminates recyclate. Multilayer aluminium-PET-PE laminates face similar scrutiny in flexible food packaging. Even within the PE family, ethylene-vinyl-alcohol (EVOH) barrier layers above 5% loading drop a structure to Grade C or below.",
+        ],
+        callout: {
+          label: "Specification implication",
+          text: "Procurement should ask suppliers for written design-for-recycling self-assessments referencing the harmonised criteria. By 2027 these will be required to be embedded in the EPR registration process — converters not delivering them will be unable to place packaging on the market.",
+        },
+      },
+      {
+        heading: "Reuse and refill targets",
+        paragraphs: [
+          "Reuse targets are the most operationally disruptive part of PPWR for sectors not already running reusable systems. Transport packaging (pallets, crates, bulk containers) faces a 40% reuse target by 2030 rising to 70% by 2040 in B2B contexts. Beverage take-away (HoReCa) faces 10% reuse by 2030 and 40% by 2040.",
+          "Large-format soft drinks and water (>1.5L) face a reuse target of 10% in 2030 and 25% by 2040, with member-state derogation possible where infrastructure does not support the target. The derogation mechanism is contested — France and Germany have signalled they will not seek derogations, while several Eastern member states are likely to.",
+          "Reusable systems require step-change infrastructure: returnable container logistics, deposit-and-return scheme expansion (DRS), washing and sanitisation capacity, and packaging design for repeated mechanical loading. The polymer specification implications are significant: HDPE and PP grades for reusable bottles need fatigue resistance for 25+ wash cycles, and dimensional stability through hot-water sanitisation.",
+        ],
+      },
+      {
+        heading: "Impact by polymer",
+        bullets: [
+          "PET — 25% rPET pulled into beverage bottles since 2025; the 2030 step to 30% will tighten food-grade rPET supply further. Expect the rPET premium over virgin PET to widen from current levels (€200–350/t) toward €400–500/t in 2028–2030.",
+          "PP — Contact-sensitive PP (food packaging, cosmetics) faces 10% rPCR from 2030. Food-grade rPP at scale is technically harder than rPET — physical recycling streams contain more contamination diversity. Mass-balance ISCC Plus PP is the most likely route to compliance for major brands.",
+          "PE — Flexible film: monomaterial PE structures (PE/PE) replace PET/PE laminates to enable recyclability. Brand-owners (Unilever, Nestlé, P&G) have been driving this shift since 2022; PPWR formalises the deadline. Rigid PE for detergent and personal-care bottles benefits — strong rHDPE supply chain already exists.",
+          "PVC — Flexible PVC in food packaging is effectively excluded by design-for-recycling rules. Cling-film PVC is being replaced by PE alternatives, food-tray flexibles by PE/EVOH/PE structures (where EVOH content is constrained).",
+          "PS / EPS — High-impact polystyrene for yogurt pots faces design-for-recycling pressure where recycling streams cannot handle PS content. Some member states (Germany, France) have proactive moves to remove PS from food packaging entirely.",
+        ],
+      },
+      {
+        heading: "Operational checklist for procurement",
+        bullets: [
+          "Map every plastic-packaging SKU your business places on the EU market against PPWR scope. Identify which polymer, which contact category, and the volume in tonnes per year.",
+          "For PET-bottle SKUs: confirm current rPET inclusion percentage and forward supply contract for 30% rPET availability through 2030.",
+          "Request design-for-recycling self-assessment from each converter for each SKU. The Commission delegated acts publish the formal grading methodology in 2026; converters should be benchmarking ahead.",
+          "Identify SKUs at risk of moving to Grade D/E under expected criteria. Build re-engineering programmes for 2027–2029 implementation; bans begin 2035 but EPR fee modulation hits earlier.",
+          "For reuse-impacted categories (large-format beverage, HoReCa, B2B transport): scenario-plan reusable-system economics including container float, return logistics, and washing capacity.",
+          "Track member-state implementation: while PPWR is directly applicable, EPR fee schedules and reuse infrastructure investment are nationally driven.",
+        ],
+      },
+      {
+        heading: "Common pitfalls and misconceptions",
+        paragraphs: [
+          "Mass-balance ISCC Plus claims do not automatically count toward PPWR thresholds. The regulation's recycled-content definition is tighter than ISCC Plus's broader feedstock allocation rules — only post-consumer waste-derived material counts. Buyers relying on bulk mass-balance certificates without scrutinising the feedstock origin risk non-compliance.",
+          "Brand-owners using portfolio averaging for PET rPET inclusion still need to ensure each importing member state's enforcement authority can verify the claim. National enforcement regimes vary in their tolerance for portfolio averaging vs SKU-level verification — Germany and France lean toward SKU-level scrutiny.",
+          "The reuse targets apply per Member State rather than EU-wide. A brand with 80% reuse in Germany and 0% reuse in Greece is not compliant in Greece even though the EU average exceeds the threshold. This creates inconsistent commercial economics across the single market.",
+        ],
+      },
+      {
+        heading: "Phased timeline 2025–2040",
+        table: {
+          headers: ["Year", "Obligation"],
+          rows: [
+            ["2025", "PET beverage bottle 25% rPET threshold takes effect."],
+            ["2026", "Commission publishes delegated acts on design-for-recycling grading methodology."],
+            ["2027", "Producer EPR registration includes design-for-recycling self-assessment."],
+            ["2030", "30% rPET in PET bottles. 10% rPCR in contact-sensitive plastics. Reuse targets begin (transport, HoReCa, large-format beverage)."],
+            ["2035", "Phase-out begins for Grade D/E packaging in categories with viable alternatives."],
+            ["2040", "Step-up to 25% rPCR contact-sensitive, 65% rPCR non-contact. Higher reuse targets (40–70%)."],
+          ],
+        },
+      },
+    ],
   },
   {
     slug: "recycled-content-mandates-eu-2026",
