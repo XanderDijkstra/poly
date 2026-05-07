@@ -98,6 +98,24 @@ export const applications: Application[] = [
       "PE100 and MDPE for water and gas distribution. PVC-O for irrigation. ISO 4427, EN 12201, EN 1555 governing.",
     recommendedPolymers: ["polyethylene-hd", "polyethylene-md", "pvc-rigid"],
     regulations: ["EN 12201", "EN 1555", "ISO 4427"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for water pipes?",
+        a: "European water distribution mains are predominantly made from PE100 (high-density polyethylene). PE100 pipes carry potable water at pressures up to 16 bar with a 50-year design life under ISO 4427 and EN 12201. PVC-U is also used for water distribution, particularly in southern Europe, while PVC-O (molecularly oriented PVC) is gaining share for large-diameter irrigation mains.",
+      },
+      {
+        q: "Is PE pipe better than PVC for water?",
+        a: "It depends on the application. PE100 is more flexible, fusion-weldable (which means leak-free joints), and tolerates ground movement and freezing without cracking — strengths in water distribution networks. PVC is stiffer, lighter and cheaper for the same pressure rating, and is preferred for indoor plumbing and certain irrigation systems. Most modern European utilities standardise on PE for new mains.",
+      },
+      {
+        q: "How long does plastic pipe last?",
+        a: "PE100 and PVC-U pressure pipes are designed for a 50-year service life when installed correctly. Real-world performance often exceeds this — plastic pipes installed in the 1970s are still operating across Europe. The main failure modes are mechanical damage during excavation, joint failures, and slow crack growth in older PE grades that pre-date the PE100 specification.",
+      },
+      {
+        q: "Why is gas pipe yellow and water pipe blue?",
+        a: "European utility pipes are colour-coded for safety and identification during excavation. Yellow PE pipe is for natural gas distribution (governed by EN 1555). Blue, or black-with-blue-stripes, PE pipe is for potable water (EN 12201). The colour comes from pigment master-batch added during extrusion. It's part of the regulatory specification — using the wrong colour disqualifies the pipe from utility approval.",
+      },
+    ],
   },
   {
     slug: "pipe-extrusion-non-pressure",
@@ -107,6 +125,24 @@ export const applications: Application[] = [
       "Sewer, drainage, cable conduit. PVC-U dominant; structured-wall PP and PE for larger diameters.",
     recommendedPolymers: ["pvc-rigid", "polypropylene", "polyethylene-hd"],
     regulations: ["EN 1401", "EN 13476"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for sewer pipes?",
+        a: "Most modern sewer and gravity drainage pipes are PVC-U (unplasticised PVC), which dominates diameters up to 400 mm under EN 1401. For larger diameters and culvert applications, structured-wall PP and HDPE pipes (under EN 13476) are increasingly used because they combine the required ring stiffness with lighter weight and longer pipe lengths.",
+      },
+      {
+        q: "Is plastic drainage pipe better than concrete?",
+        a: "Plastic pipes are lighter, faster to install, and resist H₂S corrosion better than concrete in sewer applications. Concrete still wins on very large diameters (>1200 mm) and where structural load capacity matters more than chemical resistance. For most municipal drainage and stormwater applications under 1000 mm, plastic has become the European default.",
+      },
+      {
+        q: "What plastic is used for cable conduit?",
+        a: "Corrugated cable conduit and ducting is typically made from polypropylene (PP) or HDPE. The corrugated profile gives crush resistance per EN 61386 while keeping the conduit flexible for trenching. Halogen-free variants are mandated for tunnels and underground railways. The recent FTTH broadband roll-out has driven demand for HDPE microducts (small-bore conduit for blown-fibre installation).",
+      },
+      {
+        q: "Are plastic pipes recyclable?",
+        a: "Yes — PVC, PP and PE pipes are all mechanically recyclable, and the European pipe industry runs an active take-back scheme (VinylPlus and similar). Recycled pipe content is most common in non-pressure applications (drainage, conduit). Pressure pipes for potable water typically use virgin material because traceability and regulatory approval are harder to maintain with recycled feedstock.",
+      },
+    ],
   },
   {
     slug: "automotive-interior",
@@ -143,6 +179,24 @@ export const applications: Application[] = [
       "TPO (PP/EPDM) compounds for bumpers. Thick-wall injection molding with low CLTE for paintability.",
     recommendedPolymers: ["polypropylene"],
     regulations: ["ECE R42 impact"],
+    commonQuestions: [
+      {
+        q: "What plastic are car bumpers made of?",
+        a: "Modern car bumper fascias are made from thermoplastic olefin (TPO) — a compound of polypropylene (PP) and EPDM rubber. The PP backbone provides stiffness and paintability; the EPDM rubber phase absorbs low-speed impact and prevents cracking in cold weather. Behind the visible fascia, a separate energy-absorbing structure (often expanded PP foam or a glass-filled PP beam) handles crash energy.",
+      },
+      {
+        q: "Why do plastic bumpers crack in cold weather?",
+        a: "Older non-modified PP bumpers became brittle below freezing because PP has a glass transition temperature near -10 °C. Modern automotive bumper compounds blend PP with EPDM elastomer at 10–30% loading, which keeps the part ductile down to -30 °C or lower. Sub-zero impact testing is part of standard OEM qualification for any cold-climate market.",
+      },
+      {
+        q: "Can plastic bumpers be repaired?",
+        a: "Yes. Polypropylene bumpers can be plastic-welded with PP rod, sanded, primed and painted. Repair is cost-effective for cosmetic damage and minor cracks. Structural damage to the energy-absorbing components behind the fascia usually requires replacement to maintain crash performance under ECE R42.",
+      },
+      {
+        q: "Are car bumpers recyclable?",
+        a: "Polypropylene bumpers are technically recyclable, and several European OEMs have closed-loop programmes that recover end-of-life bumpers and reformulate the PP for non-visible automotive parts. Practical recovery is limited because end-of-life vehicle dismantling typically shreds plastic with metal rather than separating polymer types. Recycled-content PP bumpers (10–25% rPP) are now appearing in new-vehicle programmes.",
+      },
+    ],
   },
   {
     slug: "automotive-under-hood",
