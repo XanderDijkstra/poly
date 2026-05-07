@@ -408,6 +408,97 @@ export const insights: Insight[] = [
       "We rebuilt the PE, PP, PVC and PET price series against Brent and Henry Hub from 2020 to early 2026. The correlation breaks down in two distinct regimes, and the 2024–2025 spread compression hints at a third.",
     topics: ["Market commentary", "Data"],
     readMinutes: 14,
+    keyTakeaways: [
+      "PE and PP correlation with Brent ran ~0.78 from 2010–2019. Since 2020 it has dropped to ~0.42, with three distinct regime shifts.",
+      "Regime 1 (2020–2022): pandemic and Ukraine — extreme cost-push from naphtha and energy created abnormally high producer margins.",
+      "Regime 2 (2022–2024): margin compression as polymer demand softened while feedstocks held — producer profitability collapsed.",
+      "Regime 3 (2024–2026 candidate): persistent oversupply from US ethane crackers and Middle East PE expansions has further weakened the cost-pass-through mechanism.",
+      "Practical implication: oil-price hedges no longer track polymer pricing well. Polymer-specific hedges (where available) or fixed-price contract durations are more relevant tools.",
+    ],
+    sections: [
+      {
+        heading: "Methodology",
+        paragraphs: [
+          "We rebuilt monthly price series for European LDPE, HDPE, PP, PVC and PET from January 2020 through March 2026 using ICIS contract data. Feedstocks were aligned: Brent crude (front-month) and Henry Hub natural gas (front-month) for the energy reference; European naphtha and ethane proxies for the chemistry-relevant feedstock layer.",
+          "Polymer prices are normalised to net-prime contract grades on a delivered-Antwerp basis. Spot indications and discount tiers are excluded to keep the series comparable across the period. Currency conversion uses monthly average ECB reference rates where applicable.",
+          "Correlation analysis uses 24-month rolling windows on log returns. We tested both contemporaneous (same-month) and lagged correlations (1, 2, 3 months) to capture the cracker-to-converter pricing transmission lag.",
+        ],
+        callout: {
+          label: "Caveat upfront",
+          text: "All correlations are descriptive, not causal. Polymer prices are influenced by feedstock cost, demand, capacity utilisation, inventory cycles, trade flows, and policy — not just oil. We use oil correlation as a useful summary statistic, not a complete model.",
+        },
+      },
+      {
+        heading: "Regime 1 (Q1 2020 – Q2 2022): pandemic and energy shock",
+        paragraphs: [
+          "The 2020–2022 period saw three discrete shocks layered on top of each other: COVID demand collapse and recovery (Q2 2020 – Q4 2021); the European energy crisis triggered by Russia's invasion of Ukraine (Q1 2022 onwards); and a generalised commodity inflation regime that affected both oil and polymer feedstocks.",
+          "PE and PP showed unusually strong cost-push transmission during this period. The polymer-Brent correlation rose to 0.85+ on a 12-month rolling basis through 2021 — far above the 2010–2019 baseline of ~0.78. Producer margins expanded materially: European LDPE-naphtha spreads peaked at €600–700/t in early 2022 versus a 2015–2019 average of €350–400/t.",
+          "PVC outperformed even PE during the energy crisis. Suspension PVC prices doubled from January 2021 to August 2022 as European producers passed through escalating ECVM (electrochemical chlorine) and electricity costs. The energy-intensity of chlor-alkali production made PVC unusually responsive to gas prices, creating a strong PVC-Henry Hub correlation that was historically modest.",
+          "PET correlation behaviour was more complex. Paraxylene (PX) and MEG feedstock costs tracked oil tightly, but rPET emergence began to decouple bottle-grade pricing dynamics from virgin PX/MEG mathematics. The rPET premium first emerged meaningfully in late 2021 as brand-owner sustainability commitments accelerated.",
+        ],
+      },
+      {
+        heading: "Regime 2 (Q3 2022 – Q4 2024): margin compression",
+        paragraphs: [
+          "The second regime began as European demand visibly weakened from late 2022. Inventory destocking ran through 2023 and into the first half of 2024 as converters worked through 2021–2022 buying-binge stockpiles. Polymer demand fell -8 to -12% YoY across multiple categories through this period.",
+          "Producer margins collapsed. LDPE-naphtha spreads compressed back to €200–280/t by mid-2024 — below the 2015–2019 baseline. The cost-push mechanism that worked so cleanly in 2020–2022 stopped working: when oil rose, polymer producers couldn't pass through the cost because demand wouldn't accept it.",
+          "Brent-polymer correlation collapsed to 0.20–0.35 on rolling-24-month basis through 2023. The cost-push channel was effectively broken; polymer pricing was set primarily by demand-side dynamics (destocking pace, end-application weakness) rather than feedstock cost.",
+          "Several European cracker operators idled or rationalised capacity through this period: ExxonMobil's Gravenchon cracker, INEOS rationalisations in Lavera, Versalis Brindisi shutdown announcements. The capacity rationalisation provided a partial floor under polymer pricing but did not restore producer margins to 2020–2022 levels.",
+        ],
+        table: {
+          headers: ["Period", "PE-Brent corr", "LDPE-naphtha spread", "Margin context"],
+          rows: [
+            ["2010–2019 avg", "~0.78", "€350–400/t", "Stable cost-push regime"],
+            ["2020–2022", "~0.85", "€500–700/t", "Cost-push amplified"],
+            ["2023–2024", "~0.30", "€200–280/t", "Margin compression"],
+            ["2025–early 2026", "~0.42", "€220–310/t", "New regime forming?"],
+          ],
+          caption: "PE-Brent correlation (24m rolling) and producer margin proxies, 2010–2026.",
+        },
+      },
+      {
+        heading: "Regime 3 candidate (2025 – early 2026): structural oversupply",
+        paragraphs: [
+          "The 2024–2025 period introduced new dynamics that may constitute a third regime. US ethane-cracker capacity additions (ExxonMobil Baytown, Shell Pennsylvania, Sasol Lake Charles operating fully, plus 2025 Q4 startups at Aramco Motiva and ChevronPhillips Ras Tanura JV) added structural PE supply. Borouge 4 in the UAE delivered new PE capacity. Combined, the 2023–2025 capacity additions exceeded 6 Mt/y of new PE supply globally.",
+          "European producers face a structural disadvantage: naphtha-based crackers are less cost-competitive than US ethane-based crackers, and Middle East producers benefit from advantaged feedstock contracts. The cost curve has steepened, meaning European producers operate at the high-cost end of the global supply stack.",
+          "In this environment, oil correlation has partially recovered (to ~0.42) but at a lower level than the 2010–2019 norm. The reason: when oil rises, US ethane and Middle East feedstock advantages widen, increasing import pressure on Europe and capping the upside pass-through. The feedstock-polymer transmission is asymmetric — costs flow through faster on the way down than on the way up.",
+        ],
+      },
+      {
+        heading: "Why the correlation breaks down: structural drivers",
+        bullets: [
+          "Capacity oversupply: Global PE/PP capacity has outpaced demand growth since 2022. Producers cannot enforce cost-push pricing when import alternatives exist.",
+          "Demand mix shift: PPWR and recycled-content mandates redirect demand toward rPCR, partially insulating finished-product pricing from virgin polymer cost dynamics.",
+          "Feedstock diversification: US ethane, Middle East advantaged ethane, and naphtha cracking compete in global PE markets. Brent alone no longer captures the relevant cost picture.",
+          "Energy intensity differences: PVC is more electricity-intensive than PE/PP — its correlation with gas prices and electricity has risen while oil correlation has weakened.",
+          "Logistics frictions: Red Sea routing changes, tariff actions, and freight cost volatility add a noise layer that decorrelates regional polymer prices from global oil benchmarks.",
+        ],
+      },
+      {
+        heading: "Implications for procurement",
+        paragraphs: [
+          "Oil-based hedging is a poor proxy for polymer cost management in the current regime. Where a 1% Brent move once translated into a 0.6–0.7% polymer move with 1–2 month lag, that transmission has weakened materially since 2022. Procurement teams running Brent-linked indexes for polymer purchases are left with significant basis risk.",
+          "Fixed-price contract durations are more practical. Quarterly fixed pricing with a documented adjustment formula (tied to ICIS contract index, not directly to oil) gives better predictability than oil-linked formulas. Twelve-month fixed pricing is feasible for major buyers but typically requires committed volume.",
+          "For SKU-level cost forecasting, separate the polymer cost component from the conversion cost component. Conversion costs (electricity, labour, packaging) have their own dynamics that have decorrelated from polymer cost since 2022. Building separate index-tracking for each component improves forecast accuracy.",
+        ],
+      },
+      {
+        heading: "Hedging strategies",
+        paragraphs: [
+          "True polymer-specific financial hedges remain underdeveloped. ICIS publishes settlement indices that some bilateral derivatives reference, but liquidity is thin and counterparty risk is concentrated. CME polypropylene and polyethylene futures (US-focused) have grown in liquidity but remain a poor hedge for European delivered pricing because of trans-Atlantic basis volatility.",
+          "Fixed-price swaps with major distributors (Resinex, Univar) cover a meaningful share of mid-market hedging needs. These are bilateral OTC arrangements priced at the distributor's cost-plus and provide certainty but at a premium. For 6–12 month fixed-price coverage on standard grades, the premium typically runs €30–80/t over expected spot.",
+          "For brand-owner level cost management, the most effective tool remains supplier diversification and contractual flexibility — multiple qualified sources with the ability to flex volumes between them as relative pricing moves. This is operationally demanding but provides natural hedging without explicit financial instruments.",
+        ],
+      },
+      {
+        heading: "Limitations and outlook",
+        paragraphs: [
+          "The analysis above is descriptive of European delivered prices and does not necessarily generalise to US or Asian regional markets, which have different cost-curve positions and demand dynamics. US PE prices have shown higher Henry Hub correlation than European PE because US producers are gas-feedstock-led; Chinese PP prices have shown stronger crude oil correlation due to coal-to-olefins (CTO) and methanol-to-olefins (MTO) being marginal cost setters domestically.",
+          "Looking forward, the third-regime hypothesis depends on whether new capacity continues to outpace demand. If global PE demand growth (~3% YoY) catches up with capacity by 2027–2028, producer margins could recover and cost-push transmission could re-strengthen. The opposite scenario — additional capacity from China-led aromatic/olefin projects — would entrench the current regime.",
+          "We will refresh this analysis quarterly. The next update is scheduled for July 2026 incorporating Q2 2026 contract settlements and the spring turnaround impact on European cracker run rates.",
+        ],
+      },
+    ],
   },
 ];
 
