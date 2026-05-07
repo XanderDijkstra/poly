@@ -125,6 +125,79 @@ export const insights: Insight[] = [
       "Cape-routing has added 14–18 days to Middle East and Asian polymer arrivals. We map how the disruption rebalances supply share between Antwerp, Rotterdam and Mediterranean entry points.",
     topics: ["Supply chain", "Logistics"],
     readMinutes: 10,
+    keyTakeaways: [
+      "Cape of Good Hope routing adds 14–18 days transit and roughly $1,400–2,200 per FEU to Middle East and Asia → North Europe lanes.",
+      "Roughly 28% of European polymer imports historically transited Suez; Saudi and Indian PE/PP have been most affected.",
+      "Mediterranean ports (Genoa, Barcelona, Piraeus) lost relative share; Antwerp and Rotterdam are absorbing more of the rerouted volume.",
+      "Spot prices for Asian-origin LDPE and PP into Europe rose €60–100/t through Q4 2025; arbitrage windows are now intermittent rather than persistent.",
+      "Buyers should plan 3–4 week safety stocks for Asian-origin specs and qualify a European secondary source where possible.",
+    ],
+    sections: [
+      {
+        heading: "Quantifying the disruption",
+        paragraphs: [
+          "Houthi attacks on commercial shipping in the Red Sea, which intensified through 2024 and continued into 2026, have pushed major container lines (Maersk, MSC, CMA CGM, Hapag-Lloyd) to route Asia–Europe services around the Cape of Good Hope. The detour adds approximately 3,500 nautical miles versus the Suez routing, translating to 14–18 additional days of transit on standard 22-knot Asia–North Europe services.",
+          "Container freight rates spiked in Q1 2024 and have remained structurally elevated. As of early 2026, North Europe-bound FEU rates from Shanghai sit roughly 60–90% above pre-disruption baselines, with Middle East to North Europe up by 40–70%. Bunker surcharges, war-risk premiums, and re-positioning costs all contribute. Freight remains the single largest cost change to the landed price of imported polymer.",
+          "Insurance and security overlays add further friction. War-risk insurance for any vessel transiting the Bab el-Mandeb has remained elevated even as some carriers have selectively returned, with quotes ranging 0.7–1.0% of hull value compared to 0.05% pre-2023.",
+        ],
+        callout: {
+          label: "What changed",
+          text: "Pre-2023, Asia → North Europe via Suez took 30–32 days door-to-door. Today, Cape routing pushes that to 46–50 days. For polymer buyers running just-in-time inventory, that meant three weeks of stockouts in early 2024 and a permanent shift toward larger safety stocks since.",
+        },
+      },
+      {
+        heading: "Polymer flows: who depends on Suez",
+        paragraphs: [
+          "Approximately 28% of European polymer imports historically transited the Suez Canal. The most exposed origins are Saudi Arabia (SABIC, Petro Rabigh — primarily PE and PP), the UAE (Borouge — PE and PP), India (Reliance, GAIL — PE, PP, PVC), and Southeast Asia (Indonesia, Malaysia, Thailand — PP and PE). South Korean and Chinese origins are also affected, though northern routings via the Northern Sea Route or trans-Pacific via Panama are not viable substitutes for the bulk volumes involved.",
+          "Of these flows, Saudi and Indian PE and PP have shown the largest landed-price impact. Saudi LDPE arbitrage to Europe — open for most of 2020–2023 — has been intermittent since 2024, with arbitrage windows lasting 3–6 weeks rather than the previous semi-permanent state. Indian PVC, historically a marginal source, has effectively withdrawn from European markets except for opportunistic spot deals.",
+          "European producers (Borealis, LyondellBasell, INEOS, SABIC's European assets) have benefited from the import friction. Contract negotiation positions strengthened in Q1–Q2 2024 and have remained more favourable to producers than in the 2018–2019 import-glut years.",
+        ],
+      },
+      {
+        heading: "Port rebalancing: north vs south",
+        paragraphs: [
+          "Mediterranean entry ports have lost share relative to North European ports. Genoa, Barcelona, and Piraeus historically captured polymer flows from Asia and the Middle East destined for Italian, Spanish, and Eastern European converters. With the Cape routing, the geographic disadvantage of stopping in the Med disappears — vessels routing around Africa cross the equator before reaching the Med, and the marginal time saving versus continuing to Antwerp or Rotterdam is small.",
+          "Antwerp and Rotterdam are absorbing more of the total. Antwerp's polymer-handling tonnage rose roughly 6% YoY in 2024 and held those gains through 2025. Rotterdam's share has been more stable but its absolute volumes remain higher than pre-disruption. The shift has tightened container terminal capacity at both ports during peak periods, with reefer and special-handling slots particularly stretched.",
+          "Hamburg has not benefited proportionally. Its hinterland skews toward Baltic, Polish, and Czech demand which is structurally weaker than Iberian or Italian markets, and the inland rail/barge connections from Rotterdam and Antwerp to those geographies are more competitive than from Hamburg.",
+        ],
+        table: {
+          headers: ["Origin", "Pre-2023 transit (days)", "Cape routing (days)", "Lane delta"],
+          rows: [
+            ["Yanbu (KSA) → Antwerp", "16–18", "30–34", "+14–16"],
+            ["Mumbai (IND) → Rotterdam", "22–24", "36–40", "+14–16"],
+            ["Singapore → Antwerp", "28–30", "44–48", "+16–18"],
+            ["Shanghai → Rotterdam", "30–32", "46–50", "+16–18"],
+            ["Houston (USA) → Antwerp", "13–15", "13–15", "0 (unaffected)"],
+          ],
+          caption: "Indicative door-to-door transit. Actual times vary with port congestion and service routing.",
+        },
+      },
+      {
+        heading: "Spot prices and arbitrage windows",
+        paragraphs: [
+          "Asian-origin LDPE and PP spot offers landed in Europe rose €60–100/t through Q4 2025 versus the pre-disruption baseline, narrowing the arbitrage to European producer pricing. The arbitrage now opens episodically — typically when European spot tightens around turnaround season or when freight rates ease temporarily — rather than running continuously as it did in 2020–2023.",
+          "PVC arbitrage has effectively closed. The freight cost increase plus DG Trade scrutiny of US imports (anti-dumping investigation) has left European PVC buyers with limited alternative sources beyond regional production. Pipe-grade and profile-grade PVC compounders are seeing the most direct impact.",
+          "Specialty grades (mLLDPE, EVA, controlled-rheology PP) where European producer offerings are limited remain harder to source. Buyers of these specs report longer qualification times for European secondary sources and have absorbed the freight cost increase rather than switching origin.",
+        ],
+      },
+      {
+        heading: "Buyer playbook",
+        bullets: [
+          "Carry 3–4 week safety stocks on any Asian or Middle East-origin specification — single-week buffers no longer accommodate the routing variability.",
+          "Qualify a European secondary source where commercially viable. The qualification cost (test moulding, application validation) is paid back inside two reorder cycles if it eliminates one stockout.",
+          "On contract negotiations, request landed-Antwerp or landed-Rotterdam pricing rather than FOB origin. This shifts the freight risk to the supplier and aligns commercial terms with actual delivered cost.",
+          "For PVC specifically, expect tighter European supply if anti-dumping duties on US imports take effect later in 2026. Consider locking in 2H volumes earlier than usual.",
+          "Build relationships with multiple distributors (Resinex, Albis, Univar) for spot top-up — single-distributor reliance amplifies stockout risk under current logistics conditions.",
+        ],
+      },
+      {
+        heading: "Outlook: when does it normalise?",
+        paragraphs: [
+          "A return to Suez routing requires a sustained de-escalation of attacks combined with multiple major carriers committing to resume the route. Both conditions are necessary — partial resumption would not restore the freight rate baseline because vessel capacity must be repositioned and insurance markets must adjust. Industry consensus places any meaningful return at 6–12 months after a credible ceasefire, which itself remains uncertain.",
+          "Even under a return-to-Suez scenario, freight rates are unlikely to return to pre-2023 levels. Carrier consolidation, post-pandemic capacity discipline, and structurally higher bunker fuel costs all point to a permanently elevated baseline. Polymer buyers should plan for landed costs to remain €40–80/t above 2019–2022 norms even after Suez fully reopens.",
+        ],
+      },
+    ],
   },
   {
     slug: "ppwr-packaging-mandate-what-buyers-need-to-know",
