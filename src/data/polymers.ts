@@ -492,6 +492,24 @@ export const polymers: Polymer[] = [
       "UL94 V-0 flame retardancy is widely required in electronics housings. RoHS 2011/65/EU restricts halogenated FRs (PBB, PBDE) — most ABS for electronics now uses phosphorus-based or PC/ABS-with-phosphate alternatives.",
       "Automotive grades meet VDA 270 odor and ISO 16750 thermal cycling. REACH SVHC tracking covers residual ACN monomer and stabilizer systems. Toy-grade ABS must comply with EN 71-3 heavy metal migration limits.",
     ],
+    commonQuestions: [
+      {
+        q: "What is ABS plastic?",
+        a: "ABS (acrylonitrile-butadiene-styrene) is a tough, rigid, opaque thermoplastic — the standard material for Lego bricks, electronics housings, automotive interior trim, suitcases and 3D printer filament. It combines acrylonitrile's chemical resistance and rigidity, butadiene's impact toughness, and styrene's gloss and processability. ABS is hard but not brittle: drop a TV remote on the floor and the housing dents but doesn't shatter — that's ABS doing its job.",
+      },
+      {
+        q: "Is ABS plastic toxic or safe?",
+        a: "ABS in finished products is safe for consumer use and is approved for toys (EN 71-3 heavy metal limits) and many food-contact applications. Concerns sometimes cited around 'ABS fumes' relate to thermal decomposition during 3D printing or processing — heated ABS can release small amounts of styrene and other VOCs, which is why FDM 3D printing should be done in ventilated areas. ABS does NOT contain BPA. It's commonly used for children's toys, including LEGO bricks, where it has decades of safe-use track record.",
+      },
+      {
+        q: "ABS vs PC (polycarbonate) — which is better?",
+        a: "Different optimal use cases. ABS is cheaper, easier to mould, and gives a high-quality matte or gloss finish — ideal for visible plastic parts on appliances and electronics. PC is more impact-resistant, transparent (clear), and handles higher temperatures (continuous service to 120 °C vs ABS at 80 °C) — preferred for safety helmets, eyewear lenses, and impact-rated glazing. PC/ABS blends combine the best of both and dominate premium laptop and automotive instrument panel applications.",
+      },
+      {
+        q: "Why is ABS used for 3D printing?",
+        a: "ABS was one of the original FDM 3D-printing filaments because it extrudes well, layer-bonds reliably, and the printed parts are tough and machinable (you can sand, drill, paint and acetone-smooth ABS prints). It does require a heated bed (typically 100–110 °C) to prevent warping during printing, which is why PLA — easier to print but more brittle — has overtaken ABS in hobbyist 3D printing. Industrial 3D printing still favours ABS for functional prototypes that need real mechanical performance.",
+      },
+    ],
   },
   {
     slug: "recycled-polyolefins",
@@ -515,6 +533,24 @@ export const polymers: Polymer[] = [
     regulatoryContext: [
       "EU 2022/1616 governs recycled plastics in food contact applications. Only EFSA-approved decontamination processes can place rPO into food contact — coverage for rPP is significantly broader than for rPE due to chemistry and historical EFSA review patterns.",
       "PPWR mandates 10–35% recycled content depending on packaging type by 2030. Supply-chain traceability via mass-balance accounting (ISCC PLUS) is the dominant verification scheme for both mechanically and chemically recycled material. Brand owners running their own recycled-content commitments (Unilever, Nestlé, P&G) often demand third-party certification beyond the regulatory minimum.",
+    ],
+    commonQuestions: [
+      {
+        q: "What is recycled plastic and how is it made?",
+        a: "Recycled plastic comes from two streams: post-consumer recycled (PCR) plastic recovered from household waste, and post-industrial recycled (PIR) plastic from manufacturing scrap. Mechanical recycling — the dominant route — washes, sorts, shreds and re-pelletises used plastic into new resin. Chemical recycling (pyrolysis, depolymerisation) breaks plastic back to monomer or oil-equivalent and re-polymerises it; it produces virgin-equivalent quality but at higher cost and lower volume currently.",
+      },
+      {
+        q: "Is recycled plastic as good as new plastic?",
+        a: "It depends on the polymer and recycling route. Recycled HDPE for non-food bottles and recycled PET for fibre and bottles are mature streams that perform indistinguishably from virgin in their target applications. Mechanically recycled PP is more variable in quality and is typically used in non-critical applications. Chemically recycled rPP (LyondellBasell Circulen, SABIC TRUCIRCLE) delivers virgin-equivalent performance with full food-contact certification, at a price premium of €300–500/t over virgin.",
+      },
+      {
+        q: "What is PCR plastic in packaging?",
+        a: "PCR stands for Post-Consumer Recycled — plastic recovered from household waste streams (kerbside collection, deposit-return schemes) and re-pelletised for new packaging. Major brand owners — Unilever, P&G, Nestlé, L'Oréal — set voluntary PCR targets ahead of EU PPWR thresholds, typically 25–50% PCR content by 2025–2030 in shampoo bottles, detergent bottles, and other personal-care and household packaging. PCR-HDPE for personal care and PCR-PET for beverage bottles are the most established streams.",
+      },
+      {
+        q: "Why does recycled plastic cost more than virgin sometimes?",
+        a: "Counter-intuitively, recycled plastic regularly trades above virgin in Europe. Three reasons: (1) PPWR-driven brand-owner demand outpaces collected supply, (2) food-grade decontamination capacity is limited and expensive, and (3) collection and sorting costs are largely fixed regardless of virgin polymer pricing. The rPET-to-virgin spread inverted in 2022 and has held a €200–350/t premium since. The market expects this premium to compress only when collection capacity catches up — likely 2027–2028.",
+      },
     ],
   },
 ];
