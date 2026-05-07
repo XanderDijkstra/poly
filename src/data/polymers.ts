@@ -15,6 +15,8 @@ export interface Polymer {
   marketContext?: string[];
   pricingDrivers?: string[];
   regulatoryContext?: string[];
+  /** PAA-style FAQs targeting broad-search "plastic" terminology. */
+  commonQuestions?: { q: string; a: string }[];
 }
 
 export const polymers: Polymer[] = [
@@ -44,6 +46,24 @@ export const polymers: Polymer[] = [
       "Food-contact PP must comply with EU 10/2011, the EU framework for plastics in food contact materials. The regulation governs monomer residuals, additive overall migration limits, and specific migration limits for individual substances. Producers issue a Declaration of Compliance per grade. Recycled PP for food contact additionally requires an EFSA-evaluated process under EU 2022/1616.",
       "The Packaging and Packaging Waste Regulation (PPWR), entering force progressively from 2026, mandates 10% recycled content in contact-sensitive plastic packaging by 2030 and 25% in non-contact. PP is well-positioned for compliance via mechanical recycling for non-food applications, but food-contact rPP currently relies on chemical recycling routes still scaling commercially.",
     ],
+    commonQuestions: [
+      {
+        q: "What is PP plastic and what is it used for?",
+        a: "PP (polypropylene) is one of the most widely used plastics in the world. It's a stiff, lightweight, semi-crystalline thermoplastic produced from propylene monomer. Common uses include reusable food containers, yogurt and butter tubs, ready-meal trays, automotive dashboards and bumpers, BOPP film for crisp packets, fibre for nonwoven fabrics, and pipes and fittings. PP combines low density (it floats on water), good chemical resistance and excellent fatigue performance — the so-called 'living hinge' on flip-top caps is possible only in PP.",
+      },
+      {
+        q: "Is PP plastic safe for food and microwaving?",
+        a: "Yes. Food-contact PP grades are approved under EU 10/2011 and FDA 21 CFR 177.1520. PP is the only commodity plastic that combines food-contact compliance with microwave use — it stays dimensionally stable up to 100–110 °C continuously and tolerates short bursts to 130 °C. Modern PP is BPA-free and does not contain phthalate plasticisers. Always check the symbol on the container — the recycling code is 5 (PP) and a microwave-safe icon on the base is the operative indicator.",
+      },
+      {
+        q: "PP vs PE plastic — what's the difference?",
+        a: "Both are polyolefins but differ in stiffness, heat resistance and clarity. PP is stiffer and harder than PE, with a higher melting point (160–170 °C vs PE's 105–135 °C) — this is why PP is used for microwave-safe containers and PE is not. PE (especially HDPE) is more impact-resistant in cold conditions and has better chemical resistance to oxidising acids. In film, BOPP gives crisp clarity for snack packaging; PE film is softer and used for stretch wrap and carrier bags.",
+      },
+      {
+        q: "Is polypropylene recyclable?",
+        a: "Yes. PP is mechanically recyclable and carries the resin identification code 5. Collection rates lag PET and HDPE because PP packaging is more diverse (yogurt pots, ready-meal trays, caps, films), making sortation harder at MRFs. Food-grade recycled PP at scale is still emerging — most rPP today goes into non-food applications like garden pots, paint trays and automotive non-visible parts. Mass-balance ISCC Plus rPP is now widely available from Borealis, LyondellBasell and SABIC for food-contact use.",
+      },
+    ],
   },
   {
     slug: "polyethylene-hd",
@@ -72,6 +92,24 @@ export const polymers: Polymer[] = [
       "PE100 pipe carries dual certification: EN 12201 for potable water and EN 1555 for gas distribution. Both standards mandate continuous compliance with LTHS testing under ISO 9080. Producers maintain Material Quality Control certificates per batch, and pipe extruders qualify the resin for their specific equipment and processing window.",
       "Food-contact HDPE complies with EU 10/2011 for bottles, caps, and crates. PPWR pressure on bottle-grade rHDPE is intense — milk and juice carton replacements, household cleaning, and cosmetics packaging brand owners are voluntarily moving to 25–50% rHDPE ahead of 2030 mandates. Pipe applications remain virgin-only due to long-term performance liability.",
     ],
+    commonQuestions: [
+      {
+        q: "What is HDPE plastic and where do I find it?",
+        a: "HDPE (high-density polyethylene) is a stiff, opaque polymer found in milk and juice bottles, shampoo and detergent bottles, supermarket carrier bags (the rustly thicker kind), water and gas pipes, jerry cans, and crates. It carries the resin identification code 2 and is one of the easiest plastics to recycle — almost every kerbside scheme in Europe accepts it. HDPE feels harder and more brittle than LDPE; you can recognise it by the slight 'crackle' when squeezed.",
+      },
+      {
+        q: "Is HDPE plastic safe?",
+        a: "Yes. HDPE is approved for direct food contact under EU 10/2011 and FDA 21 CFR 177.1520. It contains no BPA, no phthalates and no halogens. HDPE does not leach into stored liquids — it is the standard material for milk, water, household chemicals and personal care. Pigmented HDPE (white milk bottles, coloured shampoo bottles) uses food-grade pigments embedded during extrusion blow moulding.",
+      },
+      {
+        q: "HDPE vs LDPE — how do they differ?",
+        a: "Both are polyethylene, but the molecular structure differs. HDPE is linear (no branching), giving it higher density (>0.941 g/cm³), stiffness and tensile strength — that's why it's used for rigid bottles and pressure pipes. LDPE has heavily branched chains, lower density (0.910–0.940 g/cm³), and is softer and more flexible — used for plastic bags, squeeze bottles and shrink film. HDPE handles higher temperatures (continuous service to about 110 °C) and resists chemicals better than LDPE.",
+      },
+      {
+        q: "Is HDPE recyclable?",
+        a: "Yes — HDPE is one of the most recyclable plastics. It has well-established kerbside collection across Europe, sorts cleanly at MRFs (its density makes float-sink separation easy), and recycles into new bottles, pipes and crates. Food-grade rHDPE is approved under EU 2022/1616 and is widely used in milk and dairy bottles. Detergent and personal-care brands now target 30–50% rHDPE content in line with PPWR sustainability commitments.",
+      },
+    ],
   },
   {
     slug: "polyethylene-ld",
@@ -99,6 +137,24 @@ export const polymers: Polymer[] = [
       "EU 10/2011 governs food-contact LDPE film. Mulch and silage film follow EN 13655 and EN 13207 respectively. The Single-Use Plastics Directive has compressed European demand for LDPE carrier bags as Member States impose taxes and bans — a structural headwind on volume.",
       "PPWR design-for-recycling rules push converters toward mono-PE structures (LDPE/LLDPE/HDPE blends) replacing PE-PA and PE-PET laminates from 2030. This favours LDPE in seal layers and outer print layers of PPWR-compliant flexible packaging.",
     ],
+    commonQuestions: [
+      {
+        q: "What is LDPE plastic and what is it used for?",
+        a: "LDPE (low-density polyethylene) is a soft, flexible plastic produced under high pressure. You'll find it in plastic carrier bags, bread bags, six-pack rings, freezer bags, squeezable bottles, and the inner liner of milk and juice cartons. It carries the resin identification code 4. LDPE film stretches and tears easily — that softness is the property that makes it useful for cling-film-style applications. Density is in the 0.910–0.940 g/cm³ range.",
+      },
+      {
+        q: "Is LDPE recyclable in household bins?",
+        a: "Soft LDPE film recyclability varies across Europe. Some countries (UK, Germany, Netherlands) have dedicated soft-plastics collection at supermarkets and store front-of-store schemes. Most kerbside bins do NOT accept LDPE film — it tangles in MRF sorting equipment. Look for the 'recycle with carrier bags at supermarket' logo on bread bags, frozen-food bags and shrink wrap. Rigid LDPE items (squeeze bottles) can typically go in the standard rigid plastics bin.",
+      },
+      {
+        q: "Why is LDPE used for plastic bags?",
+        a: "LDPE's branched molecular structure gives it the unique combination of softness, drawability, and heat-sealability that bag manufacturing requires. The film extrudes well into thin gauges (10–30 microns), seals easily on packaging machines, and tears at controlled forces — properties harder to match in HDPE or PP. LLDPE is now blended with LDPE in modern bag manufacturing because LLDPE adds toughness while LDPE provides processability.",
+      },
+      {
+        q: "LDPE vs LLDPE — which is better?",
+        a: "Neither is universally better — they are optimised for different jobs. LDPE has better optical clarity, easier processing, and superior heat-sealability. LLDPE has higher tensile strength, better puncture resistance and improved tear resistance — the reasons stretch wrap and silage film are predominantly LLDPE. Most modern flexible packaging uses LDPE/LLDPE blends to combine the best of both. LLDPE is generally cheaper to produce because it uses gas-phase polymerisation rather than the high-pressure tubular reactors LDPE requires.",
+      },
+    ],
   },
   {
     slug: "polyethylene-lld",
@@ -125,6 +181,24 @@ export const polymers: Polymer[] = [
     regulatoryContext: [
       "EU 10/2011 governs food-contact LLDPE — clarified hexene and octene grades dominate cling and barrier film. Mulch and silage film follow EN 13655 and EN 13207.",
       "PPWR's design-for-recycling rule increases LLDPE use as the structural layer in fully-PE laminate constructions targeting recyclability. The shift away from PE-PET and PE-PA multi-layer film is the biggest structural demand driver through 2030.",
+    ],
+    commonQuestions: [
+      {
+        q: "What is LLDPE plastic?",
+        a: "LLDPE (linear low-density polyethylene) is a copolymer of ethylene with a small amount of butene, hexene or octene. The short side branches give it density similar to LDPE (0.915–0.935 g/cm³) but with much higher tensile strength, puncture resistance and tear resistance. It is the workhorse polymer for stretch film, food packaging film, agricultural film, and pouch structures. Most modern flexible packaging contains LLDPE either alone or blended with LDPE.",
+      },
+      {
+        q: "What is LLDPE used for?",
+        a: "Major LLDPE end-uses include pallet-stretch wrap film (the cling film around shipped pallets), silage film for agricultural bale wrapping, fresh produce flow-wrap, frozen food bags, refuse sacks, shrink film, and rotational-moulded tanks and toys. Metallocene LLDPE (mLLDPE) — produced with single-site catalysts — has the best stretch and cling performance and dominates the premium stretch-wrap segment.",
+      },
+      {
+        q: "LLDPE vs LDPE — which film is better?",
+        a: "Depends on the application. LLDPE is tougher, has better puncture and tear resistance, and stretches further before breaking — ideal for stretch wrap and silage film. LDPE has better optical clarity, easier processing on conventional film lines, and superior heat-sealability — preferred for bread bags and decorative packaging. Most film today is an LDPE/LLDPE blend to combine the strength of LLDPE with the processability of LDPE.",
+      },
+      {
+        q: "Is LLDPE recyclable?",
+        a: "Yes, LLDPE is recyclable, and it shares collection streams with LDPE under resin identification code 4. Soft-film recovery in Europe is improving with PPWR pressure but still lags rigid plastic recycling. Used silage film and pallet wrap are major contributors to soft-PE recyclate streams; specialised European programmes (APE Europe, ERDE in Germany) recover several hundred thousand tonnes per year. Recycled LLDPE is used in lower-grade applications like garbage bags and construction film.",
+      },
     ],
   },
   {

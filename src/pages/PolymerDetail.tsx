@@ -54,6 +54,7 @@ export default function PolymerDetail() {
   ];
 
   const faqs = [
+    ...(polymer.commonQuestions ?? []),
     {
       q: `Is ${polymer.name} food-contact safe?`,
       a: polymer.recyclable
