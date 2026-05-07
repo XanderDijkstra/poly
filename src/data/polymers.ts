@@ -227,6 +227,24 @@ export const polymers: Polymer[] = [
       "EN 1555 governs polyethylene pipe systems for gas distribution; PE80 grades require continuous compliance with ISO 9080 LTHS testing. Cable jacketing applications follow IEC 60332 and the CPR EN 50575 reaction-to-fire classification framework where deployed in buildings.",
       "Recycled content in MDPE pipe remains rare due to long-term performance liability. PPWR pressure on packaging-grade MDPE (rigid containers) is moderate and primarily passed through as voluntary brand-owner targets.",
     ],
+    commonQuestions: [
+      {
+        q: "What is MDPE plastic?",
+        a: "MDPE (medium-density polyethylene) sits between LDPE and HDPE in density (0.926–0.940 g/cm³) and properties. It combines moderate stiffness with good environmental stress crack resistance and impact strength. The most visible use is yellow gas distribution pipe (PE80) — almost every gas main installed in Europe over the last 30 years is MDPE. Other uses include rotomoulded tanks, cable jacketing, and heavy-duty industrial film.",
+      },
+      {
+        q: "Is MDPE used for gas pipes?",
+        a: "Yes — MDPE is the standard material for low-pressure gas distribution under EN 1555. The yellow colour identification is regulatory: any gas main excavated must be visually identifiable as gas. PE80 MDPE pipes have a 50-year design life at distribution pressures (typically 2–4 bar) and are joined by electrofusion or butt-fusion, giving leak-free networks. PE100 HDPE is increasingly used alongside MDPE in modern gas networks for higher-pressure applications.",
+      },
+      {
+        q: "MDPE vs HDPE — what's the difference?",
+        a: "Both are linear polyethylenes but MDPE has slightly lower density and slightly more side branching, giving it better impact resistance and slow-crack-growth performance at the cost of some stiffness. HDPE is preferred for water mains (PE100) where higher pressure and stiffness matter; MDPE is preferred for gas distribution (PE80) where the lower-pressure service emphasises crack resistance and cold-temperature impact.",
+      },
+      {
+        q: "Is MDPE recyclable?",
+        a: "MDPE is technically recyclable like other polyethylenes (resin identification code 4 in some classifications, often grouped under HDPE depending on regional sortation). In practice, gas pipe MDPE is rarely recycled in volume because the regulatory liability of trace contaminants in pressure pipe recyclate keeps utilities on virgin material. Cable jacketing and packaging-grade MDPE follow standard PE recycling streams.",
+      },
+    ],
   },
   {
     slug: "pvc-rigid",
@@ -253,6 +271,24 @@ export const polymers: Polymer[] = [
       "REACH heavily impacts PVC formulation. Phthalate plasticizers DEHP, DBP, BBP, and DIBP are SVHC-restricted under Annex XVII; rigid PVC is mostly unplasticized but stabilizer chemistry (lead, tin, calcium-zinc) has shifted dramatically — lead stabilizers were voluntarily phased out by VinylPlus in 2015.",
       "VinylPlus 2030 commitments push recycled content adoption in profile and pipe. CPR EN 50575 governs cable conduit fire performance. Pressure pipe is certified under EN 1452 (water) and EN 1401 (sewer drainage).",
     ],
+    commonQuestions: [
+      {
+        q: "What is PVC plastic?",
+        a: "PVC (polyvinyl chloride) is one of the most widely produced plastics in the world. Rigid PVC (PVC-U) is the unplasticised form used for window frames, water and sewer pipes, rainwater goods, cladding, and rigid sheet. Flexible PVC (PVC-P) contains plasticisers that make it soft and is used for cables, flooring, hoses and medical tubing. PVC is the third-most-produced plastic in Europe by volume after PE and PP, with roughly 5 million tonnes per year of capacity.",
+      },
+      {
+        q: "Is PVC plastic safe?",
+        a: "Modern PVC sold in Europe is safe for its intended use. Rigid PVC contains no plasticisers and is approved for potable water (EN 1452) and food contact (EU 10/2011) where appropriate. Flexible PVC has shifted away from problematic phthalate plasticisers (DEHP, DBP, BBP, DIBP — all REACH-restricted as SVHC) toward DOTP, DINP and bio-based DEHA. Lead stabilisers were voluntarily phased out by the European industry in 2015 under VinylPlus.",
+      },
+      {
+        q: "Is PVC recyclable?",
+        a: "Yes. The European VinylPlus programme has recycled over 9 million tonnes of post-consumer PVC since 2000, focused on profiles (window frames), pipes, flooring and cables. PVC carries the resin identification code 3 — kerbside recycling acceptance varies by country but window-frame and pipe take-back schemes are widespread. The main barrier is contamination of PE/PP recyclate streams; PVC bottles in clear-plastic bins reduce recycler value, so most consumer PVC packaging has been phased out.",
+      },
+      {
+        q: "PVC pipe vs HDPE pipe — which is better?",
+        a: "It depends on the application. PVC is stiffer, lighter for the same pressure rating, and cheaper — preferred for residential cold-water plumbing, irrigation laterals and many sewer applications. HDPE (PE100) is more flexible, fusion-weldable for leak-free joints, and tolerates ground movement and freezing without cracking — preferred for water mains, gas distribution, and large-diameter applications. European utilities increasingly standardise on PE for new networks; PVC retains the dominant share in legacy installations and indoor plumbing.",
+      },
+    ],
   },
   {
     slug: "pvc-flexible",
@@ -278,6 +314,24 @@ export const polymers: Polymer[] = [
     regulatoryContext: [
       "REACH SVHC list — DEHP, DBP, BBP, DIBP all restricted in articles. EU 10/2011 governs food-contact compounds (DOTP and DINCH only; no phthalates). Cable sheathing falls under CPR EN 50575 reaction-to-fire performance and IEC 60332 flame propagation.",
       "Medical tubing follows ISO 10993 biocompatibility and EU MDR 2017/745. DEHP-free compounds are now standard for blood bags, infusion sets, and peristaltic tubing. The toy applications standard EN 71-3 limits heavy metal migration regardless of plasticizer.",
+    ],
+    commonQuestions: [
+      {
+        q: "What is flexible PVC and where is it used?",
+        a: "Flexible PVC (PVC-P, plasticised PVC) is rigid PVC blended with plasticisers (typically 20–50% by weight) to make it soft and rubbery. The plasticiser amount controls how flexible the compound is — from semi-rigid roofing membranes to soft medical tubing and clothing-style coatings. Major uses include cable insulation and sheathing, vinyl flooring, hoses, medical tubing (IV sets, blood bags), inflatable products and automotive interior trim.",
+      },
+      {
+        q: "Is vinyl the same as PVC?",
+        a: "Yes — 'vinyl' in common usage means PVC. The term comes from polyvinyl chloride. 'Vinyl flooring', 'vinyl records', 'vinyl wallpaper' and 'vinyl raincoats' are all PVC-based products. The 'vinyl' label often signals flexible PVC specifically (where the softness is the selling point), but technically applies to both rigid and flexible PVC. The EU industry usually uses 'PVC' rather than 'vinyl' in product specifications.",
+      },
+      {
+        q: "Is PVC vinyl safe — what about phthalates?",
+        a: "Modern flexible PVC sold in Europe is safe for its intended use. Phthalate plasticisers DEHP, DBP, BBP and DIBP are restricted under REACH SVHC and largely eliminated from consumer products. Replacement plasticisers — DOTP, DINP, DINCH (Hexamoll), DEHA — have undergone extensive safety review. Children's toys and food-contact applications are subject to even tighter limits under EN 71-3 and EU 10/2011 respectively, including a phthalate ban in toys.",
+      },
+      {
+        q: "What's replacing PVC in medical applications?",
+        a: "Hospitals concerned about phthalates and end-of-life disposal are increasingly specifying non-PVC alternatives: polyolefin tubing (PE/PP blends) for IV sets, thermoplastic elastomers (SEBS, polyurethane) for soft medical tubing, and silicone for peristaltic pump tubing. PVC remains dominant by volume because the alternatives are more expensive and require device re-validation, but DEHP-free PVC formulations have addressed most of the historical safety concerns.",
+      },
     ],
   },
   {
