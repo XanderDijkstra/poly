@@ -287,6 +287,24 @@ export const applications: Application[] = [
       "Greenhouse, mulch, silage films. UV-stabilised LDPE/LLDPE blends. Biodegradable mulch films grow under EU CAP incentives.",
     recommendedPolymers: ["polyethylene-ld", "polyethylene-lld"],
     regulations: ["EN 13655 (mulch)", "EN 13207 (silage)"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for greenhouses?",
+        a: "Greenhouse cladding film is multi-layer LDPE/LLDPE coextruded film, typically 150–200 μm thick, with UV stabilisers and IR-blocking additives. The films last 3–5 seasons depending on UV exposure intensity (Mediterranean vs Northern European climates). EVA-modified layers improve thermicity (heat retention) and an anti-drip coating manages condensation that would otherwise drip on crops.",
+      },
+      {
+        q: "Why is mulch film black?",
+        a: "Black mulch film blocks sunlight and prevents weed germination — that's the primary agronomic function. The carbon black pigment (typically 2% loading in LLDPE) also provides UV stability so the film survives a single growing season under direct sun. Coloured mulch films (silver, white-on-black, IR-reflective green) target specific crop and pest applications, but plain black remains the workhorse.",
+      },
+      {
+        q: "Is silage wrap recyclable?",
+        a: "Yes. Silage stretch-wrap film (LLDPE) is collected by farmer cooperatives and recyclers across Europe — programmes like APE Europe, ERDE in Germany, and ADIVALOR in France handle several hundred thousand tonnes annually. The recycled output goes into garbage bags, agricultural irrigation pipe, and other non-food-contact applications. Clean, dry collection is the main quality determinant.",
+      },
+      {
+        q: "What's biodegradable mulch film made of?",
+        a: "Biodegradable mulch films are typically PBAT/PLA blends or PHA-based polymers, formulated to break down into CO₂, water and biomass under the EN 17033 in-soil disintegration standard. Major suppliers include Novamont (Mater-Bi), BASF (Ecoflex/Ecovio) and TotalEnergies. These films cost 2–4× conventional LLDPE mulch, but eliminate film-removal labour and reduce field plastic accumulation — an EU CAP incentive driver.",
+      },
+    ],
   },
   {
     slug: "construction-cable-sheathing",
@@ -296,6 +314,24 @@ export const applications: Application[] = [
       "Low-voltage and instrumentation cables. HFFR PE compounds replacing PVC in tunnel/CPR-classified projects.",
     recommendedPolymers: ["pvc-flexible", "polyethylene-md"],
     regulations: ["CPR EN 50575", "IEC 60332"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for electrical cable insulation?",
+        a: "Plasticised PVC is the dominant material for low-voltage building cable insulation and sheathing in Europe. Cross-linked polyethylene (XLPE) handles medium and high-voltage power cables. Halogen-free flame retardant (HFFR) compounds based on MDPE/EVA replace PVC in public buildings, tunnels and CPR Cca-classified projects. Each application has specific test standards under CPR EN 50575 and IEC 60332.",
+      },
+      {
+        q: "PVC vs polyethylene cable — which is better?",
+        a: "It depends on the application and regulatory context. PVC offers excellent fire retardancy, mechanical robustness and cost — strengths in residential building wiring. Polyethylene-based HFFR compounds win in tunnels, schools, hospitals and metro systems because they emit very low smoke and no acidic fumes when burned, which improves evacuation safety. EU CPR enforcement is shifting share toward HFFR.",
+      },
+      {
+        q: "What is HFFR cable?",
+        a: "HFFR stands for Halogen-Free Flame Retardant. The cable insulation and sheath compound is based on MDPE or EVA filled with mineral flame retardants (typically aluminium trihydrate or magnesium hydroxide) instead of halogenated additives. When burned, HFFR cable releases minimal smoke and no corrosive HCl gas — critical for life safety in tunnels, public buildings, and any enclosed evacuation space.",
+      },
+      {
+        q: "What plastic is used for fibre optic ducts?",
+        a: "Fibre-optic microduct (4–16 mm OD) and spine duct are extruded from HDPE with a low-friction inner liner that allows optical fibre to be blown in by compressed air. Larger telecoms ducts are HDPE or PVC. The European FTTH (fibre-to-the-home) build-out has driven significant HDPE microduct demand — most providers (BT, Deutsche Telekom, KPN) are mid-build on multi-year programmes.",
+      },
+    ],
   },
   {
     slug: "consumer-goods-houseware",
@@ -305,6 +341,24 @@ export const applications: Application[] = [
       "Storage boxes, furniture, kitchenware. Cost-driven applications dominated by PP and HDPE.",
     recommendedPolymers: ["polypropylene", "polyethylene-hd"],
     regulations: ["EN 71 (toys)", "Food contact for kitchenware"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for storage boxes?",
+        a: "Most household and commercial storage boxes are made from polypropylene (PP) impact copolymer for indoor and cold-storage units, or HDPE for budget outdoor/garden boxes. PP gives better drop impact at sub-zero temperatures and accepts pigments and prints well; HDPE is cheaper and is typically pigmented with carbon-black masterbatch for UV protection in outdoor use.",
+      },
+      {
+        q: "Is plastic kitchenware safe for food?",
+        a: "Yes — modern plastic kitchenware sold in Europe must comply with EU 10/2011 food-contact regulations, with a Declaration of Compliance specifying the grade and any migration test results. Polypropylene is the dominant material for reusable food storage (it's microwave-safe and dishwasher-resistant); HDPE handles opaque containers and cutting boards. BPA-containing polycarbonate kitchenware has been largely replaced by PP and Tritan copolyester.",
+      },
+      {
+        q: "Why does plastic furniture get brittle outdoors?",
+        a: "Untreated polyolefins (PP, HDPE) degrade under UV exposure — the molecular chains break, causing colour fading and embrittlement. Modern outdoor plastic furniture is formulated with HALS (Hindered Amine Light Stabilisers) and UV absorbers that extend the service life to 5+ years even under Mediterranean sun. Carbon-black-pigmented HDPE has the longest UV life because the pigment itself blocks UV penetration.",
+      },
+      {
+        q: "Can I microwave plastic Tupperware?",
+        a: "Polypropylene (PP) containers labelled microwave-safe are designed to handle 130–140 °C briefly without deformation. The Tupperware-style food storage boxes sold in Europe are mostly PP. HDPE containers are not microwave-safe — they begin softening above 110 °C. Always check the symbol on the base of the container; the microwave-safe icon is the operative indicator, not the brand.",
+      },
+    ],
   },
   {
     slug: "electronic-housings",
