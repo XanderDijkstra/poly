@@ -4,9 +4,80 @@ import { JsonLd } from "@/components/JsonLd";
 import { RelatedPages } from "@/components/RelatedPages";
 import { RFQCta } from "@/components/RFQCta";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { insightBySlug, insights } from "@/data/insights";
+import { insightBySlug, insights, type InsightSection } from "@/data/insights";
 import { SITE } from "@/lib/site";
 import NotFoundPage from "./NotFoundPage";
+
+function SectionBlock({ section }: { section: InsightSection }) {
+  return (
+    <section className="space-y-4">
+      <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary">
+        {section.heading}
+      </h2>
+      {section.paragraphs?.map((p, idx) => (
+        <p key={idx} className="text-foreground leading-relaxed">
+          {p}
+        </p>
+      ))}
+      {section.bullets && (
+        <ul className="space-y-2 text-foreground">
+          {section.bullets.map((b, idx) => (
+            <li key={idx} className="pl-4 border-l-2 border-secondary/40">
+              {b}
+            </li>
+          ))}
+        </ul>
+      )}
+      {section.table && (
+        <div className="overflow-x-auto rounded-md border border-border">
+          <table className="w-full text-sm">
+            <thead className="bg-surface text-left">
+              <tr>
+                {section.table.headers.map((h) => (
+                  <th
+                    key={h}
+                    className="px-4 py-2 font-medium text-primary border-b border-border"
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {section.table.rows.map((row, idx) => (
+                <tr key={idx} className="border-b border-border last:border-0">
+                  {row.map((cell, ci) => (
+                    <td
+                      key={ci}
+                      className="px-4 py-2 text-foreground font-mono text-xs md:text-sm"
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {section.table.caption && (
+            <div className="px-4 py-2 text-xs text-muted-foreground bg-surface border-t border-border">
+              {section.table.caption}
+            </div>
+          )}
+        </div>
+      )}
+      {section.callout && (
+        <div className="rounded-md border border-secondary/30 bg-secondary/5 p-4">
+          {section.callout.label && (
+            <div className="text-xs uppercase tracking-wider text-secondary font-medium mb-1">
+              {section.callout.label}
+            </div>
+          )}
+          <p className="text-foreground text-sm">{section.callout.text}</p>
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function InsightDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +92,7 @@ export default function InsightDetail() {
   if (!post) return <NotFoundPage />;
 
   const related = insights.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const hasContent = post.sections && post.sections.length > 0;
 
   return (
     <PageLayout
@@ -48,16 +120,35 @@ export default function InsightDetail() {
         <span>{post.readMinutes} min read</span>
       </div>
 
-      <div className="prose prose-sm max-w-none text-foreground">
-        <h2 className="font-heading text-xl font-semibold text-primary mt-0 mb-3">
-          Summary
-        </h2>
-        <p>{post.excerpt}</p>
-        <p className="mt-4">
-          Full article content forthcoming. The launch insights are written by industry
-          editors and reviewed by independent technical contributors before publication.
-        </p>
-      </div>
+      {post.keyTakeaways && post.keyTakeaways.length > 0 && (
+        <div className="rounded-md border border-border bg-surface p-5">
+          <h2 className="font-heading text-base font-semibold text-primary mb-3">
+            Key takeaways
+          </h2>
+          <ul className="space-y-2 text-sm text-foreground">
+            {post.keyTakeaways.map((t, idx) => (
+              <li key={idx} className="flex gap-2">
+                <span className="text-secondary font-mono">·</span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {hasContent ? (
+        <div className="space-y-8">
+          {post.sections!.map((s, idx) => (
+            <SectionBlock key={idx} section={s} />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-md border border-border bg-surface p-5 text-sm text-muted-foreground">
+          Full article content forthcoming. The launch insights are written by
+          industry editors and reviewed by independent technical contributors
+          before publication.
+        </div>
+      )}
 
       <RFQCta variant="card" />
 
