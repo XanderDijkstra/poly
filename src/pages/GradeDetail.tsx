@@ -17,10 +17,10 @@ export default function GradeDetail() {
 
   usePageMeta({
     title: grade
-      ? `${grade.name}: properties and suppliers | ${SITE.name}`
+      ? `${grade.name} — specs, equivalents and European suppliers | ${SITE.name}`
       : `Grade not found | ${SITE.name}`,
     description: grade
-      ? `${grade.name} specifications, equivalent grades, and procurement notes. Get quotes from European suppliers.`
+      ? `${grade.name}: full property datasheet, processing notes, equivalent grades and verified European suppliers. Submit RFQ for quotes within 48 hours.`
       : undefined,
     canonical: grade ? `/grades/${grade.slug}` : undefined,
   });

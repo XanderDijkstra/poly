@@ -12,8 +12,8 @@ export default function GradesOverview() {
   const [polymerFilter, setPolymerFilter] = useState<string>("");
 
   usePageMeta({
-    title: `Polymer grades: comparison and specifications | ${SITE.name}`,
-    description: `${grades.length} polymer grades catalogued across PP, PE, PVC, PET and recycled streams. Filter by polymer family or processing type.`,
+    title: `Polymer grades catalogue: PP, PE, PVC, PET specs | ${SITE.name}`,
+    description: `${grades.length} polymer grades catalogued across PP, PE, PVC, PET and recycled streams. Properties, processing, equivalents, and verified European suppliers.`,
     canonical: "/grades",
   });
 

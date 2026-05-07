@@ -9,9 +9,9 @@ import { SITE } from "@/lib/site";
 
 export default function PolymersOverview() {
   usePageMeta({
-    title: `Polymer types: PP, PE, PVC, PET and more | ${SITE.name}`,
+    title: `Polymer types and grades for European procurement | ${SITE.name}`,
     description:
-      "Browse 12 polymer families and 30+ grades sourced across Europe. Each page covers specs, applications and suppliers.",
+      "12 polymer families covered: PP, PE (HDPE, LDPE, LLDPE, MDPE), PVC, PET, PS and recycled streams. Specifications, market context, applications, and verified suppliers.",
     canonical: "/polymers",
   });
 

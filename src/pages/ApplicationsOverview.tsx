@@ -8,9 +8,9 @@ import { SITE } from "@/lib/site";
 
 export default function ApplicationsOverview() {
   usePageMeta({
-    title: `Polymer applications: recommended materials by use case | ${SITE.name}`,
+    title: `Polymer applications: 15 industries, recommended grades | ${SITE.name}`,
     description:
-      "15 application categories with recommended polymers, regulatory considerations, and grade options. Source polymers for your specific end use.",
+      "Match the right polymer to your application: food packaging, automotive, medical, construction, agriculture and more. Recommended grades, regulations, and verified European suppliers.",
     canonical: "/applications",
   });
 

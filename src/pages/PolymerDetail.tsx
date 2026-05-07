@@ -18,12 +18,12 @@ export default function PolymerDetail() {
 
   usePageMeta({
     title: polymer
-      ? `${polymer.name} suppliers in Europe: grades and specs | ${SITE.name}`
+      ? `Buy ${polymer.name} (${polymer.abbreviation}) in Europe: grades, suppliers, prices | ${SITE.name}`
       : `Polymer not found | ${SITE.name}`,
     description: polymer
-      ? `Source ${polymer.name} from verified European suppliers. ${
+      ? `Source ${polymer.name} (${polymer.abbreviation}) from verified European traders and distributors. ${
           gradesByPolymer(polymer.slug).length
-        } grades catalogued. Submit an RFQ for quotes within 48h.`
+        } grades catalogued, plus market context and pricing drivers. Free RFQ — quotes in 48 hours.`
       : undefined,
     canonical: polymer ? `/polymers/${polymer.slug}` : undefined,
   });

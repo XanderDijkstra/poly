@@ -18,10 +18,10 @@ export default function ApplicationDetail() {
 
   usePageMeta({
     title: application
-      ? `Polymers for ${application.name.toLowerCase()}: recommended grades | ${SITE.name}`
+      ? `Polymers for ${application.name.toLowerCase()}: which grade and where to buy | ${SITE.name}`
       : `Application not found | ${SITE.name}`,
     description: application
-      ? `Polymer recommendations for ${application.name.toLowerCase()}: which materials, which grades, regulatory considerations.`
+      ? `Specifying polymer for ${application.name.toLowerCase()}? Compare PP, PE, PVC and PET options, regulatory requirements, recommended grades, and verified European suppliers. Free RFQ.`
       : undefined,
     canonical: application ? `/applications/${application.slug}` : undefined,
   });

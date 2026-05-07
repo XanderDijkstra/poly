@@ -23,9 +23,9 @@ const homepageApplications = [
 
 export default function HomePage() {
   usePageMeta({
-    title: `Find polymer suppliers in Europe. Submit one RFQ | ${SITE.name}`,
+    title: `${SITE.name} — European polymer sourcing for procurement teams`,
     description:
-      "Connect with verified European polymer traders. Get quotes for PP, PE, PVC, PET and recycled grades. Free for buyers.",
+      "Source PP, PE, PVC, PET and recycled polymers from verified European suppliers. Submit one RFQ, receive multiple quotes within 48 hours. Free for buyers.",
     canonical: "/",
   });
 
