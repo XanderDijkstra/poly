@@ -18,10 +18,10 @@ export default function ApplicationDetail() {
 
   usePageMeta({
     title: application
-      ? `Polymers for ${application.name.toLowerCase()}: which grade and where to buy | ${SITE.name}`
+      ? `${application.name}: which plastic and polymer grade to use | ${SITE.name}`
       : `Application not found | ${SITE.name}`,
     description: application
-      ? `Specifying polymer for ${application.name.toLowerCase()}? Compare PP, PE, PVC and PET options, regulatory requirements, recommended grades, and verified European suppliers. Free RFQ.`
+      ? `Which plastic for ${application.name.toLowerCase()}? Compare polymer options (PP, PE, PVC, PET), regulatory requirements, recommended grades, and verified European suppliers. Free RFQ — quotes in 48 hours.`
       : undefined,
     canonical: application ? `/applications/${application.slug}` : undefined,
   });
@@ -38,6 +38,7 @@ export default function ApplicationDetail() {
     .slice(0, 3);
 
   const faqs = [
+    ...(application.commonQuestions ?? []),
     {
       q: `Which polymers are most common for ${application.name.toLowerCase()}?`,
       a: `Most common materials are ${recommended.map((p) => p?.name).join(", ")}. Choice depends on regulatory requirements, mechanical performance, and cost target.`,

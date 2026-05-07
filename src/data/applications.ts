@@ -5,6 +5,7 @@ export interface Application {
   shortDescription: string;
   recommendedPolymers: string[];
   regulations: string[];
+  commonQuestions?: { q: string; a: string }[];
 }
 
 export const applications: Application[] = [
@@ -16,6 +17,24 @@ export const applications: Application[] = [
       "Trays, tubs, pots and closures in direct food contact. PP, PET and PS dominate; clarified PP and APET for visual presentation.",
     recommendedPolymers: ["polypropylene", "polyethylene-terephthalate", "polystyrene"],
     regulations: ["EU 10/2011", "FDA 21 CFR 177", "EFSA opinion list"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for rigid food packaging in Europe?",
+        a: "Polypropylene (PP), PET and high-impact polystyrene (HIPS) cover the vast majority of rigid food packaging on European supermarket shelves. PP handles tubs, lids and ovenable trays; PET (in its APET sheet form) is thermoformed into fresh produce trays and clear punnets; HIPS is used for opaque yogurt and dessert pots. All three meet EU 10/2011 food contact requirements with grade-specific Declarations of Compliance.",
+      },
+      {
+        q: "Is plastic food packaging safe for hot food?",
+        a: "Polypropylene is the standard material for plastic food packaging that contacts hot or microwaved food — it stays dimensionally stable up to 100–110 °C continuously and tolerates microwave use. PET deforms above 70 °C unless it has been crystallised (CPET), in which case it withstands oven temperatures up to 220 °C. HIPS and APET are for cold and ambient applications only.",
+      },
+      {
+        q: "Is rigid plastic food packaging recyclable?",
+        a: "PET trays and PP tubs are mechanically recyclable in well-functioning collection systems. Recyclability is highest when the format is monomaterial — multi-layer barriers, dark pigmentation and bonded labels all reduce recyclate value. Under PPWR's design-for-recycling rules from 2030, packaging that contaminates major recycling streams (notably PVC mixed into PET sortation) faces phase-out.",
+      },
+      {
+        q: "What is the best plastic for fresh produce trays?",
+        a: "APET (amorphous PET) sheet thermoformed into trays is the European market standard. It offers the optical clarity needed for visual merchandising in chilled cabinets, accepts 30–50% recycled content (rPET), and seals well to lidding films for modified atmosphere packaging. Monomaterial PP trays are growing in share where PP/PP recyclability is the priority under PPWR.",
+      },
+    ],
   },
   {
     slug: "food-packaging-flexible-film",
@@ -25,6 +44,24 @@ export const applications: Application[] = [
       "Mono and laminated films for snack, fresh food, dry goods. PE-only structures rising to comply with PPWR recyclability mandate.",
     recommendedPolymers: ["polyethylene-lld", "polyethylene-ld", "polypropylene"],
     regulations: ["EU 10/2011", "PPWR (2030 design-for-recycling)"],
+    commonQuestions: [
+      {
+        q: "What plastic film is used for food packaging?",
+        a: "Polyethylene (PE) and polypropylene (PP) films cover most food applications: snack bags, fresh produce wrap, stand-up pouches and frozen food packs. Biaxially-oriented PP (BOPP) — often metallised — dominates crisp and snack bags. Cast PP and PE blends handle horizontal flow-wrap for bread and produce. Multilayer PE/PE structures are replacing PET/PE laminates to comply with PPWR recyclability rules.",
+      },
+      {
+        q: "Are plastic food bags recyclable?",
+        a: "Mono-material PE bags (LDPE or LLDPE) are recyclable through soft-plastics collection schemes that exist in some European countries. Multi-layer films combining PET and PE — historically common for snack and pouch packaging — are technically harder to recycle, which is why brand owners are actively redesigning to PE-only or PP-only structures ahead of PPWR's 2030 design-for-recycling thresholds.",
+      },
+      {
+        q: "What plastic is used for crisp packets and snack bags?",
+        a: "The standard structure is metallised BOPP (biaxially-oriented polypropylene) film, sometimes laminated with a PE seal layer. The metallised layer provides oxygen and moisture barrier to keep snacks fresh; the BOPP backbone gives the stiffness needed for stand-up pouch geometry. Newer monomaterial PE structures using high-barrier coatings are emerging to meet PPWR recyclability targets.",
+      },
+      {
+        q: "Is cling film safe for food?",
+        a: "Modern cling films sold in Europe for household and commercial food contact are typically polyethylene (PE) or non-PVC alternatives. Older PVC-based cling films, which contained plasticisers like DEHA that could migrate into fatty foods, have been largely phased out of European retail. Always check the food-contact declaration on the pack — anything compliant should reference EU 10/2011.",
+      },
+    ],
   },
   {
     slug: "beverage-bottles",
