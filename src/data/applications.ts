@@ -71,6 +71,24 @@ export const applications: Application[] = [
       "Water, CSD, juice. PET dominates in Europe with rPET inclusion rising under PPWR. HDPE for dairy and small-volume dosing.",
     recommendedPolymers: ["polyethylene-terephthalate", "polyethylene-hd"],
     regulations: ["EU 10/2011", "SUPD bottle attached cap", "PPWR (25% rPET 2025, 30% 2030)"],
+    commonQuestions: [
+      {
+        q: "What plastic are water bottles made of?",
+        a: "European still and sparkling water bottles are made of PET (polyethylene terephthalate). PET is light, transparent, mechanically strong enough for thin-wall blow-moulded bottles, and recyclable through deposit-and-return schemes. From 2025, all PET beverage bottles sold in the EU must contain at least 25% recycled content, rising to 30% in 2030 under PPWR.",
+      },
+      {
+        q: "Is PET plastic safe to drink from?",
+        a: "Yes. PET is approved for direct food and beverage contact under EU 10/2011 and FDA 21 CFR 177.1630. It does not contain BPA. Acetaldehyde levels in modern bottle-grade PET are below the threshold that would affect water taste — typically under 6 μg/kg in finished bottles. PET is the most widely used plastic for beverage packaging globally.",
+      },
+      {
+        q: "What plastic is used for milk bottles?",
+        a: "Most European milk and dairy bottles are extrusion blow-moulded HDPE (high-density polyethylene), typically pigmented white with TiO₂ to protect light-sensitive vitamins. HDPE is food-contact compliant, robust through cold-chain handling, and recyclable into dairy-bottle-to-dairy-bottle closed loops in countries with deposit-and-return infrastructure.",
+      },
+      {
+        q: "Why are some plastic bottles green or blue?",
+        a: "Coloured PET (green for sparkling water, blue for some still waters) uses pigments added at the resin or master-batch stage. Coloured PET is recyclable but sorts into a separate recyclate stream that commands a lower price than clear PET. Several major brands have moved to clear PET to maximise rPET recovery and meet recycled-content targets.",
+      },
+    ],
   },
   {
     slug: "pipe-extrusion-pressure",
@@ -98,6 +116,24 @@ export const applications: Application[] = [
       "Dashboards, door panels, A/B/C pillars. Glass- or talc-filled PP impact copolymers dominate; ABS for visible trim.",
     recommendedPolymers: ["polypropylene", "acrylonitrile-butadiene-styrene"],
     regulations: ["VDA 270 (odor)", "ISO 16750"],
+    commonQuestions: [
+      {
+        q: "What plastic is used inside cars?",
+        a: "Automotive interiors are dominated by polypropylene (PP) — most often talc-filled or glass-filled grades — for instrument panel carriers, door panels, centre consoles and pillar trims. ABS and PC/ABS blends are used for premium-finish trim where higher gloss or scratch resistance is required. Soft-touch surfaces are typically thermoplastic olefin (TPO) skins moulded over PP foam substrates.",
+      },
+      {
+        q: "What's the difference between ABS and PP for car interiors?",
+        a: "PP is cheaper, lighter and dominates volume parts (dashboards, door panels, structural trims). ABS offers better surface finish, higher gloss and superior scratch resistance — it is used where the visible surface needs a premium look or where parts are touched constantly (centre console buttons, gear-shifter surrounds). PC/ABS blends combine ABS appearance with polycarbonate's heat and impact resistance.",
+      },
+      {
+        q: "Why does car interior plastic smell?",
+        a: "New-car smell comes from volatile organic compounds (VOCs) released by adhesives, plasticisers and additives in interior plastics. Modern automotive PP and ABS grades are formulated to low-emission specifications (VDA 270 odour and VDA 278 emission tests). OEMs like VW Group and BMW maintain strict approval lists; only grades meeting their VOC limits are qualified for interior use.",
+      },
+      {
+        q: "Are car dashboards recyclable?",
+        a: "Polypropylene dashboards are technically recyclable, but recovery in practice is limited because end-of-life vehicle (ELV) dismantling streams typically don't separate plastic parts by polymer type. Talc and glass fillers further reduce recyclability into virgin-equivalent applications. Some OEMs are now specifying recycled-content PP for non-visible structural parts to demonstrate circularity progress under EU ELV regulation revisions.",
+      },
+    ],
   },
   {
     slug: "automotive-bumper-fascia",
