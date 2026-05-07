@@ -8,9 +8,9 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container max-w-7xl mx-auto flex h-14 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-primary text-primary-foreground font-mono text-sm font-bold">
-            P
+        <Link to="/" className="flex items-center gap-2" aria-label={`${SITE.name} home`}>
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-primary text-secondary font-mono text-xs font-bold tracking-tighter">
+            PP
           </span>
           <span className="font-heading text-base font-semibold tracking-tight text-primary">
             {SITE.name}

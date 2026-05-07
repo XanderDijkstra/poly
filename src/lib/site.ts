@@ -1,9 +1,9 @@
 export const SITE = {
-  name: "PolymerPlatform",
+  name: "Polymer Platform",
   domain: "polymerplatform.eu",
   baseUrl: "https://polymerplatform.eu",
   description:
-    "Connect with verified European polymer traders. Get quotes for PP, PE, PVC, PET and recycled grades. Free for buyers.",
+    "European polymer sourcing made simple. Compare PP, PE, PVC, PET and recycled grades from verified suppliers. One RFQ, multiple quotes — free for buyers.",
 };
 
 export const NAV = [
