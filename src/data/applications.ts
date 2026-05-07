@@ -368,6 +368,24 @@ export const applications: Application[] = [
       "IT, white goods and consumer electronics enclosures. UL94 V-0 flame-retarded ABS, PC/ABS and PC for high-end.",
     recommendedPolymers: ["acrylonitrile-butadiene-styrene"],
     regulations: ["UL94", "RoHS 2011/65/EU", "WEEE"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for TV and computer housings?",
+        a: "Flame-retarded ABS (acrylonitrile-butadiene-styrene) and PC/ABS blends dominate consumer electronics housings. They combine UL94 V-0 flame retardance, dimensional stability for thin-walled mouldings, and the surface finish needed for visible product surfaces. Premium displays and laptops sometimes use polycarbonate (PC) for higher impact resistance and slimmer wall thicknesses.",
+      },
+      {
+        q: "Why does plastic in electronics turn yellow?",
+        a: "Yellowing is caused by UV exposure and thermal ageing of brominated flame retardants used in older ABS and HIPS housings. The bromine compounds slowly oxidise and form chromophores. Modern halogen-free flame-retardant systems (phosphorus-based, intumescent) are more colour-stable. RoHS-compliant electronics from the past 5–10 years yellow significantly less than 1990s and 2000s equivalents.",
+      },
+      {
+        q: "Are plastic appliance housings recyclable?",
+        a: "Technically yes, and the EU WEEE directive obligates producers to fund collection and recycling. In practice, large-appliance plastic recovery is hampered by mixed-material assemblies and brominated flame retardants in older units. Newer designs avoid problematic flame retardants and use single-material housings where possible to simplify end-of-life recycling. Some manufacturers (Bosch, Electrolux) use 25%+ recycled-content ABS in new products.",
+      },
+      {
+        q: "What is flame-retardant plastic and why is it used?",
+        a: "Flame-retardant plastic contains additives that slow ignition and reduce flame spread under fire conditions — the standard reference is the UL94 test (ratings HB, V-2, V-1, V-0, with V-0 being best). Mains-powered electronic housings, IT equipment, and white goods all require V-0 rating to limit fire risk from internal electrical faults. Halogen-free FR systems are now preferred over older brominated flame retardants for environmental and health reasons.",
+      },
+    ],
   },
   {
     slug: "personal-care-packaging",
@@ -377,6 +395,24 @@ export const applications: Application[] = [
       "Shampoo, detergent, cosmetics bottles and tubes. HDPE blow molded; PET for clear bottles; PCR content increasingly mandated by brand owners.",
     recommendedPolymers: ["polyethylene-hd", "polyethylene-terephthalate"],
     regulations: ["PPWR", "REACH"],
+    commonQuestions: [
+      {
+        q: "What plastic are shampoo bottles made of?",
+        a: "Most shampoo, conditioner and shower-gel bottles are extrusion blow-moulded HDPE (high-density polyethylene). HDPE handles surfactants, fragrances and silicones without permeation, gives the right squeeze rigidity for pump or flip-cap dispensing, and is recyclable. Major personal care brands (L'Oréal, Unilever, P&G) target 30–50% post-consumer recycled (PCR) HDPE content as part of PPWR-aligned sustainability commitments.",
+      },
+      {
+        q: "Are cosmetic packaging plastics recyclable?",
+        a: "HDPE bottles and PP jars are recyclable through standard kerbside or deposit-and-return systems where infrastructure exists. Smaller cosmetics packaging (under 50 mL) often falls below sortation thresholds at recycling MRFs and ends up in residual waste. Multi-material packaging (pumps, sprayers with metal springs, aluminium-coated tubes) is the hardest to recycle — design-for-recycling improvements are accelerating ahead of PPWR's 2030 thresholds.",
+      },
+      {
+        q: "What plastic is used for cosmetics jars?",
+        a: "Mass-market cosmetics jars (face cream, body lotion) are typically polypropylene (PP) or HDPE injection-moulded. Premium luxury cosmetics often use PMMA (acrylic) for its high-end appearance and weight, sometimes paired with glass for the super-premium tier. PP gives better dimensional control for threaded lid fits and is preferred where the jar must seal against fragrance loss.",
+      },
+      {
+        q: "What is PCR plastic in personal care packaging?",
+        a: "PCR stands for Post-Consumer Recycled — plastic recovered from household waste streams (typically through kerbside collection or deposit-return) and re-pelletised for new packaging. PCR-HDPE for shampoo bottles is the most established stream; PCR-PET for clear cosmetics bottles is also growing. EU PPWR mandates rising PCR content in plastic packaging from 2030, making PCR sourcing a strategic priority for personal-care brands.",
+      },
+    ],
   },
 ];
 
