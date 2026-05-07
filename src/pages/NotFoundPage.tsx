@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export default function NotFoundPage() {
   usePageMeta({
     title: `Page not found | ${SITE.name}`,
-    description: "The page you requested doesn't exist on PolymerPlatform.",
+    description: "The page you requested doesn't exist on Polymer Platform.",
     noindex: true,
   });
 

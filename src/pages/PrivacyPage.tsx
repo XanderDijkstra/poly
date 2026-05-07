@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export default function PrivacyPage() {
   usePageMeta({
     title: `Privacy policy | ${SITE.name}`,
-    description: "How PolymerPlatform processes RFQ submissions and supplier data under GDPR.",
+    description: "How Polymer Platform processes RFQ submissions and supplier data under GDPR.",
     canonical: "/privacy",
   });
 
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
     >
       <Section heading="1. Who we are">
         <p>
-          PolymerPlatform operates this site and processes RFQ submissions and supplier
+          Polymer Platform operates this site and processes RFQ submissions and supplier
           accounts. Contact:{" "}
           <a href="mailto:privacy@polymerplatform.eu" className="text-secondary hover:underline">
             privacy@polymerplatform.eu

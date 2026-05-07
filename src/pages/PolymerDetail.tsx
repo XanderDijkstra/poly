@@ -179,7 +179,7 @@ export default function PolymerDetail() {
             ))}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            Producers listed for technical context. PolymerPlatform is independent and
+            Producers listed for technical context. Polymer Platform is independent and
             does not accept payment for editorial placement.
           </p>
         </div>
@@ -223,7 +223,7 @@ export default function PolymerDetail() {
             <strong className="text-primary">Distributors</strong> (e.g. Resinex, Ravago Distribution, Vinmar Polymers Europe) break bulk, hold local stock, and offer credit. Lead times 1–3 days for stock items.
           </p>
           <p>
-            <strong className="text-primary">Traders</strong> work the spot market for prime, near-prime and off-grade lots, typically 5–20% above or below contract reflecting near-term tightness. PolymerPlatform routes RFQs to verified traders and distributors with the right grade and region match.
+            <strong className="text-primary">Traders</strong> work the spot market for prime, near-prime and off-grade lots, typically 5–20% above or below contract reflecting near-term tightness. Polymer Platform routes RFQs to verified traders and distributors with the right grade and region match.
           </p>
         </div>
       </section>

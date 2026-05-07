@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export default function ContactPage() {
   usePageMeta({
     title: `Contact ${SITE.name}`,
-    description: "Get in touch with the PolymerPlatform team. Buyers, suppliers, press.",
+    description: "Get in touch with the Polymer Platform team. Buyers, suppliers, press.",
     canonical: "/contact",
   });
 

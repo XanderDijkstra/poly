@@ -7,7 +7,7 @@ export default function AboutPage() {
   usePageMeta({
     title: `About ${SITE.name}: independent polymer marketplace`,
     description:
-      "Independent of any single trader. Built for procurement teams. How PolymerPlatform works, our editorial standards, and supplier criteria.",
+      "Independent of any single trader. Built for procurement teams. How Polymer Platform works, our editorial standards, and supplier criteria.",
     canonical: "/about",
   });
 
@@ -16,7 +16,7 @@ export default function AboutPage() {
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
       eyebrow="About"
       title="Built for procurement teams. Independent of suppliers."
-      lede="PolymerPlatform is a neutral marketplace, not a trading house. Buyers post one RFQ and verified suppliers compete on price and service."
+      lede="Polymer Platform is a neutral marketplace, not a trading house. Buyers post one RFQ and verified suppliers compete on price and service."
     >
       <section>
         <h2 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-primary mb-3">
@@ -71,7 +71,7 @@ export default function AboutPage() {
           Independence statement
         </h2>
         <p className="text-sm text-foreground">
-          PolymerPlatform does not own polymer inventory, does not take title in trades, and
+          Polymer Platform does not own polymer inventory, does not take title in trades, and
           does not accept paid placement in editorial content. The only revenue source is
           per-lead supplier subscriptions. If that ever changes, we will state so on this
           page.

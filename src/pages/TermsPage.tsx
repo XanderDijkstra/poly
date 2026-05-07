@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export default function TermsPage() {
   usePageMeta({
     title: `Terms of service | ${SITE.name}`,
-    description: "Terms governing use of PolymerPlatform by buyers and suppliers.",
+    description: "Terms governing use of Polymer Platform by buyers and suppliers.",
     canonical: "/terms",
   });
 
@@ -13,11 +13,11 @@ export default function TermsPage() {
     <PageLayout
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms" }]}
       title="Terms of service"
-      lede="The legal framework for using PolymerPlatform. By submitting an RFQ or registering as a supplier you accept these terms."
+      lede="The legal framework for using Polymer Platform. By submitting an RFQ or registering as a supplier you accept these terms."
     >
       <Section heading="1. Service">
         <p>
-          PolymerPlatform connects polymer buyers with verified suppliers. We do not take
+          Polymer Platform connects polymer buyers with verified suppliers. We do not take
           title to polymer inventory, and we are not party to the resulting commercial
           contract between buyer and supplier.
         </p>
@@ -49,7 +49,7 @@ export default function TermsPage() {
 
       <Section heading="5. Liability">
         <p>
-          PolymerPlatform makes no warranty as to the suitability of any supplier for a
+          Polymer Platform makes no warranty as to the suitability of any supplier for a
           given requirement. Buyers and suppliers are responsible for their own due
           diligence, including any product compliance and contract terms between them.
         </p>

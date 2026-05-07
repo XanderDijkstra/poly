@@ -40,7 +40,7 @@ const STATUS_COLOR: Record<string, string> = {
 };
 
 export default function AdminPage() {
-  usePageMeta({ title: "Admin · PolymerPlatform", noindex: true });
+  usePageMeta({ title: "Admin · Polymer Platform", noindex: true });
 
   const [token, setToken] = useState<string>(() =>
     typeof window !== "undefined"
@@ -197,7 +197,7 @@ function Sidebar({
     <aside className="w-60 shrink-0 border-r border-border bg-surface flex flex-col">
       <div className="px-6 py-5 border-b border-border">
         <div className="font-heading text-base font-bold text-primary">
-          PolymerPlatform
+          Polymer Platform
         </div>
         <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-0.5">
           Admin
