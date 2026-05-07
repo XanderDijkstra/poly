@@ -206,6 +206,24 @@ export const applications: Application[] = [
       "Air-intake manifolds, cooling ducts, battery housings. Glass-filled PA66, PA6, and increasingly PP for cost-down.",
     recommendedPolymers: ["polypropylene"],
     regulations: ["ISO 16750 thermal"],
+    commonQuestions: [
+      {
+        q: "What plastic is used under a car bonnet?",
+        a: "Engine-bay components are typically glass-filled polyamide (PA66 or PA6) for the most thermally demanding parts (intake manifolds, valve covers), and glass-filled or talc-filled polypropylene (PP) for less demanding parts (fan shrouds, battery housings, fluid reservoirs). All grades are formulated to meet ISO 16750 thermal cycling and chemical resistance requirements.",
+      },
+      {
+        q: "Why are some engine parts plastic now?",
+        a: "Plastic engine components weigh 30–50% less than the aluminium or steel parts they replace, which improves fuel economy and CO₂ emissions. Glass-filled PA66 intake manifolds, for example, save about 1.5 kg per vehicle versus aluminium. Plastic also enables more complex internal geometry (like integrated coolant channels) that would require multi-piece metal assemblies.",
+      },
+      {
+        q: "Can plastic engine covers handle high temperatures?",
+        a: "Engine-bay polymers are formulated to specific continuous-service temperatures: glass-filled PA66 handles 150–180 °C continuously; PP-based grades top out around 130 °C. Components placed near the exhaust manifold or turbocharger require higher-grade polymers (PPS, PEEK) or stay in metal. Manufacturers map under-hood thermal zones during platform development to assign the right material to each part.",
+      },
+      {
+        q: "What plastic is used for EV battery housings?",
+        a: "EV battery module housings increasingly use flame-retardant polypropylene (FR-PP) — a halogen-free formulation that meets UL94 V-0 and provides high voltage tracking resistance for bus-bar proximity. Glass-filled PA is also used for some structural components. The shift from aluminium to plastic battery housings can save 30–40% on weight at module level, an important factor in EV range.",
+      },
+    ],
   },
   {
     slug: "medical-devices-rigid",
@@ -215,6 +233,24 @@ export const applications: Application[] = [
       "Syringes, IV components, diagnostic housings. Clear PP, COC and PC dominant; gamma- and EtO-stable grades required.",
     recommendedPolymers: ["polypropylene", "polystyrene"],
     regulations: ["MDR 2017/745", "ISO 10993", "USP Class VI"],
+    commonQuestions: [
+      {
+        q: "What plastic is used in medical devices?",
+        a: "Polypropylene (PP), polystyrene (PS) and polycarbonate (PC) dominate rigid medical applications. PP is the workhorse for syringes, IV components and pharmaceutical containers because it is gamma-sterilisable and chemically inert. PS handles lab consumables and diagnostic instrument internals. PC and cyclic olefin polymers (COP/COC) cover applications where high optical clarity matters, like blood collection tubes.",
+      },
+      {
+        q: "Is medical plastic safe for the body?",
+        a: "Medical-grade plastics are tested under ISO 10993 (biocompatibility) and USP Class VI (extractables and leachables). Approved grades show no cytotoxicity, no irritation, no sensitisation and no mutagenicity in standardised testing. Under EU MDR 2017/745, every medical device sold in Europe must document the safety of its materials in a technical file reviewed by a notified body.",
+      },
+      {
+        q: "Why are syringes made of plastic?",
+        a: "Disposable plastic syringes (typically polypropylene) are sterile, single-use, transparent enough to confirm dose, and dramatically cheaper than glass alternatives. PP withstands gamma sterilisation at 25 kGy without degradation and meets ISO 10993 biocompatibility. Glass syringes still exist for specific drug compatibility scenarios, but PP dominates volume use globally.",
+      },
+      {
+        q: "What plastic is used for IV bags and components?",
+        a: "Flexible IV bags are typically plasticised PVC, with DEHP-free formulations now standard under MDR. Rigid IV components (drip chambers, spikes, connectors) are usually PP or ABS. Newer non-PVC IV bag systems use polyolefin laminates (PE/PP blends) or thermoplastic elastomers (TPE) — a market driven by hospital sustainability programmes and concerns about PVC's end-of-life impact.",
+      },
+    ],
   },
   {
     slug: "medical-flexible-tubing",
@@ -224,6 +260,24 @@ export const applications: Application[] = [
       "Infusion sets, blood bags, peristaltic tubing. DEHP-free PVC compounds and TPE alternatives (SEBS, COPE) growing.",
     recommendedPolymers: ["pvc-flexible"],
     regulations: ["MDR 2017/745", "ISO 10993", "REACH SVHC list"],
+    commonQuestions: [
+      {
+        q: "What plastic is used for IV tubing?",
+        a: "The dominant material is plasticised PVC, formulated with non-DEHP plasticisers (DINCH, TOTM, citrate-based) to meet current MDR and REACH requirements. PVC tubing is clear (allowing visual air-bubble detection), flexible, kink-resistant, and economical for single-use medical devices. Thermoplastic elastomers (SEBS, COPE) are growing as PVC-free alternatives for hospitals with sustainability mandates.",
+      },
+      {
+        q: "Why is PVC used in medical applications?",
+        a: "PVC's specific advantages — flexibility tuned by plasticiser choice, optical clarity, sterilisation compatibility (gamma and EtO), low cost, and decades of clinical track record — are difficult to match in a single alternative material. Many medical procedures (haemodialysis, blood collection, IV infusion) were developed around PVC's properties; switching requires re-validation of the entire device.",
+      },
+      {
+        q: "Is medical PVC safe — what about DEHP?",
+        a: "Medical PVC is safe when formulated to current standards. DEHP, the historical plasticiser, has been progressively replaced under MDR Article 10 and EU Regulation 2022/112 with alternatives like DINCH, TOTM and DEHT. DEHP-free PVC tubing has been the European standard for new infusion sets and blood bags for several years. The remaining DEHP-containing devices are being phased out through device-master-record updates.",
+      },
+      {
+        q: "What's the alternative to PVC tubing in hospitals?",
+        a: "Polyolefin tubing (PE-based) and thermoplastic elastomers (SEBS, polyurethane) are the main PVC alternatives. They eliminate plasticiser concerns entirely but are typically more expensive and have different handling characteristics (stiffness, kink resistance). Hospital procurement decisions usually balance per-procedure cost, sustainability targets and clinical familiarity. Most European hospitals run mixed PVC/non-PVC fleets.",
+      },
+    ],
   },
   {
     slug: "agricultural-film",
