@@ -360,6 +360,24 @@ export const polymers: Polymer[] = [
       "Food-contact PET is governed by EU 10/2011 plus EFSA opinions on individual catalyst systems (typically antimony-based, with germanium and titanium alternatives growing). Each rPET decontamination process requires individual EFSA approval under EU 2022/1616 — there are roughly 50 approved processes as of 2024.",
       "The Single-Use Plastics Directive Article 6 mandates that beverage bottle caps remain attached, in force July 2024. PPWR sets the recycled content schedule and introduces a Design for Recycling requirement that disqualifies most opaque, multi-layer, or sleeved PET formats from 2030.",
     ],
+    commonQuestions: [
+      {
+        q: "What is PET plastic and what is it used for?",
+        a: "PET (polyethylene terephthalate) is a clear, strong polyester used predominantly for beverage bottles — water, soft drinks, juice, and increasingly milk and dairy. It carries the resin identification code 1 (sometimes labelled PETE in older markings). Beyond bottles, PET is used for thermoformed food trays (APET), polyester fibre for clothing and textiles, strapping, and X-ray film. PET is the most widely-used plastic for beverage packaging globally because it is light, transparent, mechanically strong and recyclable.",
+      },
+      {
+        q: "Is PET plastic safe to drink from?",
+        a: "Yes. PET is approved for direct food and beverage contact under EU 10/2011 and FDA 21 CFR 177.1630. It does NOT contain BPA — that's a polycarbonate (PC) issue, not a PET one. Acetaldehyde levels in modern bottle-grade PET are below the threshold that affects water taste (typically under 6 μg/kg). Reusing single-use PET bottles for water is generally safe, though scratches can harbour bacteria over time, which is why dedicated reusable bottles use heavier-walled PET or other materials.",
+      },
+      {
+        q: "PET vs PETE — are they the same?",
+        a: "Yes. PET and PETE are the same plastic — polyethylene terephthalate. The 'PETE' marking dates from older US Society of the Plastics Industry standards; modern resin identification code uses '1' inside the recycling triangle, sometimes accompanied by 'PET' or 'PETE'. Both labels mean the same thing.",
+      },
+      {
+        q: "Is PET recyclable?",
+        a: "Yes — PET is the most recycled plastic globally. European deposit-and-return schemes (Germany's DPG, Sweden, Finland, Romania, Slovakia, and others rolling out) recover PET bottles at 90%+ rates. Recycled PET (rPET) is approved for food contact under EU 2022/1616. The EU PPWR mandates 25% rPET content in beverage bottles from 2025, rising to 30% in 2030. Coloured PET bottles (green, blue) sort into a separate, lower-value recyclate stream than clear PET.",
+      },
+    ],
   },
   {
     slug: "polystyrene",
@@ -386,6 +404,24 @@ export const polymers: Polymer[] = [
       "EU 10/2011 sets specific migration limits for residual styrene monomer (max 0.25% for food contact applications). Producers issue grade-specific Declarations of Compliance.",
       "PPWR design-for-recycling rules disadvantage GPPS in beverage cup and deli applications versus PP and PET — neither stream collects polystyrene at scale across most Member States. Toy-grade GPPS must comply with EN 71-3 heavy metal migration limits.",
     ],
+    commonQuestions: [
+      {
+        q: "What is polystyrene and where do I find it?",
+        a: "Polystyrene is an amorphous styrenic plastic. The crystal-clear rigid version (GPPS, general-purpose polystyrene) is found in disposable cutlery, cosmetics packaging, CD jewel cases, and clear deli trays. The opaque version (HIPS, high-impact polystyrene — see separate entry) is used for yogurt pots and appliance liners. Foamed polystyrene (EPS, expanded polystyrene — 'styrofoam') is the white packaging foam and insulation board. All three carry resin identification code 6.",
+      },
+      {
+        q: "Is polystyrene safe for food?",
+        a: "GPPS approved for food contact (EU 10/2011 with grade-specific Declaration of Compliance) is safe for cold and ambient food applications. Residual styrene monomer is limited to 0.25% by EU regulation. Polystyrene should NOT be used with hot food or microwaved — the glass transition temperature is around 100 °C, above which the material softens and can crack or distort. There is no convincing evidence of styrene migration at consumer-relevant levels in current food-contact GPPS.",
+      },
+      {
+        q: "Is polystyrene recyclable?",
+        a: "Technically yes, but practical recycling rates in Europe are low. Polystyrene contaminates the PET and PP recyclate streams at MRFs, and dedicated PS sortation requires specialist infrastructure. Some countries (Netherlands, Germany) have improving PS recycling capacity. EPS (expanded polystyrene, 'styrofoam') is the harder problem — its 95–98% air content makes transport uneconomical. Several producers have voluntarily moved away from PS in food packaging in favour of PP and PET.",
+      },
+      {
+        q: "Is styrofoam the same as polystyrene?",
+        a: "'Styrofoam' is a brand name owned by Dow that originally referred to a specific extruded polystyrene (XPS) building insulation product. In common usage, 'styrofoam' is used for any expanded polystyrene (EPS) foam — the white packaging beads and food containers. Both are forms of polystyrene, but EPS (the white packaging foam) and XPS (the typically blue or pink insulation board) are different products with different properties.",
+      },
+    ],
   },
   {
     slug: "polystyrene-impact",
@@ -411,6 +447,24 @@ export const polymers: Polymer[] = [
     regulatoryContext: [
       "EU 10/2011 governs food-contact applications (yogurt and dairy lids) with residual styrene monomer limits identical to GPPS. RoHS 2011/65/EU and the WEEE directive govern flame-retardant additive choices in electronic housings — brominated FRs (TBBPA, deca-BDE) are being phased out where halogen-free alternatives perform adequately.",
       "Toy-grade HIPS follows EN 71-3 heavy metal limits. Refrigerator liner applications must meet relevant food-contact requirements via the EU framework regulation 1935/2004.",
+    ],
+    commonQuestions: [
+      {
+        q: "What is HIPS plastic?",
+        a: "HIPS (high-impact polystyrene) is polystyrene toughened with polybutadiene rubber dispersed at 5–10% loading. The rubber phase absorbs impact energy that would shatter unmodified polystyrene (GPPS), giving HIPS the impact resistance needed for thermoformed containers, refrigerator inner liners, and electronics housings. HIPS is opaque (the rubber phase scatters light) and accepts pigments and high-quality printing — that's why it dominates yogurt and dessert pots in European supermarkets.",
+      },
+      {
+        q: "HIPS vs ABS — what's the difference?",
+        a: "Both are styrenic plastics with rubber-modified toughness, but ABS is a terpolymer (acrylonitrile + butadiene + styrene) while HIPS is just polystyrene + butadiene. ABS is harder, more chemically resistant, and gives a higher-quality surface finish — preferred for premium electronics housings, automotive interior trim, and Lego bricks. HIPS is cheaper and easier to thermoform — preferred for high-volume packaging (yogurt pots) and large white-goods inner liners. ABS handles higher service temperatures (continuous to 80 °C vs HIPS at 70 °C).",
+      },
+      {
+        q: "Is HIPS plastic recyclable?",
+        a: "HIPS shares polystyrene's recyclability profile — technically yes, but practical recycling rates are low across most of Europe because PS contaminates PET and PP recycling streams at MRFs. White-goods OEMs (BSH, Electrolux) recover refrigerator inner liners through dedicated end-of-life schemes for closed-loop recycling. Yogurt-pot HIPS recycling is improving in the Netherlands and Germany but is far behind PET and HDPE collection rates.",
+      },
+      {
+        q: "What is HIPS used for?",
+        a: "Three big applications: refrigerator and freezer inner liners (where its thermoformability and food-contact compliance combine), yogurt and dessert pots (high-speed thermoforming with print compatibility), and electronics housings — particularly older TVs, monitors, and appliance front panels. White-goods makers value HIPS for its dimensional stability over thousands of door-open cycles. Some OEMs are switching toward PP for sustainability reasons, but HIPS retains a strong technical position.",
+      },
     ],
   },
   {
