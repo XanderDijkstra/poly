@@ -316,6 +316,88 @@ export const insights: Insight[] = [
       "rPET supply has tightened materially since the 25% beverage-bottle threshold took effect. Mass-balance ISCC Plus volumes for rPE and rPP are growing but remain a fraction of demand under PPWR.",
     topics: ["Sustainability", "Market commentary"],
     readMinutes: 9,
+    keyTakeaways: [
+      "Food-grade rPET supply is structurally short of demand at the current 25% PPWR threshold; the 2030 step to 30% will tighten further.",
+      "The rPET premium over virgin PET held at €200–350/t through Q1 2026 — a 25–35% uplift on virgin price.",
+      "Physical rPE and rPP supply is roughly 800 kt/y combined in 2026; ISCC Plus mass-balance volumes add roughly 400 kt/y on top.",
+      "Chemical recycling (depolymerisation, pyrolysis) capacity is ramping but won't deliver meaningful PCR volumes at scale before 2028.",
+      "Procurement teams should lock multi-year rPET contracts now and build at least one mass-balance ISCC Plus relationship for rPE/rPP.",
+    ],
+    sections: [
+      {
+        heading: "State of play in early 2026",
+        paragraphs: [
+          "The 25% recycled-content requirement for PET beverage bottles took effect in 2025 and has reshaped European recyclate markets in the year since. Demand for food-grade rPET pulled approximately 1.2–1.5 Mt of physical rPCR into beverage bottles, depleting the available bale supply for other applications. Sheet-grade and fibre-grade rPET buyers (textile fibre, strapping, sheet thermoforming) have been priced out or downgraded toward lower-grade flake.",
+          "rPE and rPP physical supply chains are less mature. Combined European physical PCR-PE and PCR-PP supply ran around 800 kt/y in 2026, against PPWR-implied 2030 demand of 3–4 Mt depending on how converters apportion mass-balance vs physical sourcing. Mechanical recycling capacity is being added — Veolia, Suez, Indaver, Plastipak and others have announced new lines — but lead times from announcement to operating capacity run 24–36 months.",
+          "Chemical recycling (depolymerisation for PET, pyrolysis for polyolefins) has progressed from pilot to pre-commercial scale but remains a fraction of physical capacity. Eastman's Kingsport depolymerisation plant, Loop Industries' Indorama partnership, and SABIC's TRUCIRCLE pyrolysis programme are all running but combined chemical recycling output is below 200 kt/y in 2026.",
+        ],
+      },
+      {
+        heading: "rPET — the tightest market",
+        paragraphs: [
+          "Food-grade rPET premium over virgin PET held at €200–350/t through Q1 2026, equivalent to a 25–35% uplift on virgin contract pricing. The premium is structurally supported: physical food-grade rPET requires bottle-to-bottle recycling streams (deposit-and-return scheme bales, super-clean PET flake processing), and the supply chain capacity is finite.",
+          "The deposit-and-return scheme (DRS) ecosystem is the backbone. Germany's longstanding system delivers exceptional bale quality; Sweden, the Netherlands, Romania and Slovakia have functional schemes; France, Spain, Italy and the UK are at various stages of rolling out DRS. Each scheme expansion releases new high-quality bale supply, but the lead time from DRS announcement to operating supply is 24–36 months.",
+          "Sheet and APET buyers (food trays, blister packaging) face the greatest squeeze. Where a few years ago APET sheet routinely contained 30–50% rPET, in 2026 that share is harder to maintain because beverage-bottle buyers can outbid for the limited food-grade flake. Some APET converters have shifted toward ocean-bound or post-industrial PCR streams to maintain claim percentages.",
+        ],
+        callout: {
+          label: "rPET sourcing reality",
+          text: "Spot food-grade rPET pellet ranges €1,400–1,700/t depending on quality tier in early 2026 — virgin bottle-grade PET is around €1,150–1,300/t. The premium is large enough that sourcing strategy now warrants the same attention given to virgin contract negotiations.",
+        },
+      },
+      {
+        heading: "rPE and rPP: supply ramp behind demand",
+        paragraphs: [
+          "Physical rPCR-HDPE supply benefits from the well-established curbside collection of HDPE bottles (milk, detergent, personal care). PCR-HDPE pellet for non-food applications runs €100–200/t below virgin HDPE blow grade — the only PCR market where the recyclate trades at discount rather than premium. Food-grade PCR-HDPE (where regulatory permission has been granted under EU 2022/1616) carries a €100–250/t premium over virgin.",
+          "Physical rPCR-LDPE and rLLDPE supply is more difficult. Flexible film waste streams (commercial film, agricultural film, household soft plastics) require sortation infrastructure that is underdeveloped in much of Europe. PCR-LDPE quality is more variable, and fitness for high-clarity film applications is limited. The bulk of PCR-LDPE goes into garbage bags, construction film, and similar lower-spec applications.",
+          "Physical PCR-PP supply is the least mature of the major polyolefins. PP packaging waste streams are heterogeneous (yogurt pots, ready-meal trays, caps, films) and sortation accuracy at recycling MRFs varies. PCR-PP pellet quality is highly variable; food-grade PCR-PP at scale is not yet commercially available, though pilot lines (Trinseo, Borealis, SABIC) are progressing through regulatory approval.",
+        ],
+        table: {
+          headers: ["Polymer", "2026 physical PCR (kt/y)", "Premium / discount vs virgin"],
+          rows: [
+            ["rPET food-grade", "1,500–1,700", "+€200–350/t (premium)"],
+            ["rHDPE non-food", "350–400", "-€100–200/t (discount)"],
+            ["rHDPE food-grade", "60–90", "+€100–250/t (premium)"],
+            ["rLDPE / rLLDPE", "200–280", "-€50–150/t (discount)"],
+            ["rPP non-food", "180–230", "-€100–150/t (discount)"],
+            ["rPP food-grade", "<10", "+€400–600/t (premium)"],
+          ],
+          caption: "Indicative European physical PCR supply and pricing, early 2026.",
+        },
+      },
+      {
+        heading: "Mass balance vs physical: what counts",
+        paragraphs: [
+          "ISCC Plus mass-balance certification underpins the chemical recycling pathway and is a meaningful supplement to physical PCR supply. The principle: chemically-recycled feedstock (e.g. pyrolysis oil from waste plastic) is fed into a steam cracker alongside fossil naphtha; the certified recycled share is allocated to specific output products under audited rules.",
+          "PPWR's recycled-content definition accepts mass-balance allocation but with restrictions: only post-consumer waste-derived feed counts (not refinery off-gas or virgin reroutes); the chain of custody must be verifiable; and the brand-owner can claim only the certified allocated volume, not the full output of a mass-balance line.",
+          "In practice, mass-balance ISCC Plus PCR-PP at scale is more accessible than physical rPP for procurement teams. Major producers (LyondellBasell Circulen, SABIC TRUCIRCLE, Borealis Bornewables, INEOS Recycl-IN) all offer mass-balance grades qualified for food contact. Pricing typically runs €300–500/t over equivalent virgin grades, depending on the brand and contracted volume.",
+        ],
+      },
+      {
+        heading: "Pricing dynamics in 2026",
+        bullets: [
+          "rPET food-grade: spot €1,400–1,700/t. Q1 2026 saw a brief easing on warmer weather and higher beverage demand, then re-tightened in March. Premium to virgin held at €200–350/t.",
+          "rHDPE food-grade: spot €1,050–1,200/t against virgin HDPE blow at €950–1,050/t. Premium narrower than rPET due to smaller market and easier qualification.",
+          "rPP mass-balance ISCC Plus: contract pricing €1,400–1,650/t depending on grade and certified share. Spot availability limited — most volume tied to multi-year contracts with major brand owners.",
+          "rLDPE physical pellet: €600–850/t depending on quality, against virgin LDPE film at €1,200–1,300/t. Discounted because non-food applications dominate demand.",
+        ],
+      },
+      {
+        heading: "Sourcing strategy",
+        paragraphs: [
+          "For PET-heavy procurement portfolios, multi-year rPET contracts are now operationally essential. Spot reliance worked when the rPET market was a niche; under PPWR, food-grade flake is allocated through long-term commitments and quality contracts. Indorama Ventures, Plastipak, Veolia and Suez are the main contracted-rPET counterparties for major brand owners.",
+          "For PE and PP, a hybrid strategy works best in 2026: physical rPCR for non-food applications (where supply is adequate and cheap); mass-balance ISCC Plus for food-contact applications (where physical food-grade volume is structurally short). Building the mass-balance contract relationship now is important — major producers are prioritising customers who committed early.",
+          "Quality verification matters more than ever. PCR pellets vary in fitness-for-use; bag MFI, contamination level, and odour quality should be tested on each new lot rather than relying on supplier specifications alone. Application-validation cycles for new PCR sources can take 6–12 months for food-contact applications.",
+        ],
+      },
+      {
+        heading: "2030 outlook",
+        paragraphs: [
+          "By 2030, physical PCR capacity additions (announced 2024–2026) come online: roughly 2 Mt/y of new mechanical recycling capacity across PE, PP and PET. Chemical recycling adds another 0.5–1 Mt/y depending on which announced projects achieve commercial operation. Total PCR supply could reach 5–6 Mt/y against PPWR-implied demand of 6–8 Mt/y depending on portfolio mix.",
+          "The rPET premium is unlikely to compress materially before 2028. The 2030 PPWR step to 30% rPET will further tighten food-grade supply just as new DRS schemes come online — a balance that depends on member-state implementation pace. Rolling 24-month forward contracts for food-grade rPET should be considered the new procurement standard.",
+          "Mass-balance ISCC Plus volumes for PE and PP will become more available, with prices converging toward virgin-plus-€200-300/t as competition intensifies. The major risk is regulatory: any tightening of mass-balance allocation rules at EU level could compress effective certified output.",
+        ],
+      },
+    ],
   },
   {
     slug: "polymer-prices-vs-oil-correlation-2020-2026",
