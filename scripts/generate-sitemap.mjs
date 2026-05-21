@@ -59,32 +59,33 @@ const useCases = readUseCases();
 const today = new Date().toISOString().slice(0, 10);
 
 const STATIC_URLS = [
-  { path: "/", priority: 1.0 },
-  { path: "/get-quotes", priority: 0.9 },
-  { path: "/polymers", priority: 0.9 },
-  { path: "/grades", priority: 0.9 },
-  { path: "/applications", priority: 0.9 },
-  { path: "/suppliers", priority: 0.9 },
-  { path: "/learn", priority: 0.9 },
-  { path: "/insights", priority: 0.9 },
-  { path: "/about", priority: 0.6 },
-  { path: "/for-suppliers", priority: 0.7 },
-  { path: "/contact", priority: 0.5 },
-  { path: "/privacy", priority: 0.3 },
-  { path: "/terms", priority: 0.3 },
+  { path: "/", priority: 1.0, changefreq: "weekly" },
+  { path: "/get-quotes", priority: 0.9, changefreq: "weekly" },
+  { path: "/polymers", priority: 0.9, changefreq: "weekly" },
+  { path: "/grades", priority: 0.9, changefreq: "weekly" },
+  { path: "/applications", priority: 0.9, changefreq: "weekly" },
+  { path: "/suppliers", priority: 0.9, changefreq: "weekly" },
+  { path: "/learn", priority: 0.9, changefreq: "weekly" },
+  { path: "/insights", priority: 0.9, changefreq: "weekly" },
+  { path: "/about", priority: 0.6, changefreq: "monthly" },
+  { path: "/for-suppliers", priority: 0.7, changefreq: "monthly" },
+  { path: "/contact", priority: 0.5, changefreq: "monthly" },
+  { path: "/privacy", priority: 0.3, changefreq: "yearly" },
+  { path: "/terms", priority: 0.3, changefreq: "yearly" },
 ];
 
 const dynamicUrls = [
-  ...polymers.map((s) => ({ path: `/polymers/${s}`, priority: 0.8 })),
-  ...grades.map((s) => ({ path: `/grades/${s}`, priority: 0.8 })),
-  ...applications.map((s) => ({ path: `/applications/${s}`, priority: 0.8 })),
+  ...polymers.map((s) => ({ path: `/polymers/${s}`, priority: 0.8, changefreq: "monthly" })),
+  ...grades.map((s) => ({ path: `/grades/${s}`, priority: 0.8, changefreq: "monthly" })),
+  ...applications.map((s) => ({ path: `/applications/${s}`, priority: 0.8, changefreq: "monthly" })),
   ...useCases.map((u) => ({
     path: `/applications/${u.applicationSlug}/${u.slug}`,
     priority: 0.7,
+    changefreq: "monthly",
   })),
-  ...regions.map((s) => ({ path: `/suppliers/${s}`, priority: 0.8 })),
-  ...learnTerms.map((s) => ({ path: `/learn/${s}`, priority: 0.6 })),
-  ...insights.map((s) => ({ path: `/insights/${s}`, priority: 0.7 })),
+  ...regions.map((s) => ({ path: `/suppliers/${s}`, priority: 0.8, changefreq: "monthly" })),
+  ...learnTerms.map((s) => ({ path: `/learn/${s}`, priority: 0.6, changefreq: "monthly" })),
+  ...insights.map((s) => ({ path: `/insights/${s}`, priority: 0.7, changefreq: "weekly" })),
 ];
 
 const all = [...STATIC_URLS, ...dynamicUrls];
@@ -98,6 +99,7 @@ const xml =
         `  <url>\n` +
         `    <loc>${baseUrl}${u.path}</loc>\n` +
         `    <lastmod>${today}</lastmod>\n` +
+        `    <changefreq>${u.changefreq}</changefreq>\n` +
         `    <priority>${u.priority.toFixed(1)}</priority>\n` +
         `  </url>`
     )
