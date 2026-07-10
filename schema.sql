@@ -33,8 +33,16 @@ CREATE TABLE IF NOT EXISTS rfqs (
 
   -- Scoring
   free_domain_flag    BOOLEAN      NOT NULL DEFAULT false,
-  lead_score          INTEGER      NOT NULL DEFAULT 0
+  lead_score          INTEGER      NOT NULL DEFAULT 0,
+
+  -- Pipeline (used by /admin via api/admin/rfqs.ts)
+  status              TEXT         NOT NULL DEFAULT 'new',
+  internal_notes      TEXT
 );
+
+-- If the table already exists without the pipeline columns:
+-- ALTER TABLE rfqs ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT 'new';
+-- ALTER TABLE rfqs ADD COLUMN IF NOT EXISTS internal_notes TEXT;
 
 CREATE INDEX IF NOT EXISTS rfqs_submitted_at_idx ON rfqs (submitted_at DESC);
 CREATE INDEX IF NOT EXISTS rfqs_polymer_idx      ON rfqs (polymer);
