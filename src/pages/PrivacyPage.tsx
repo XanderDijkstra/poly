@@ -1,6 +1,7 @@
 import { PageLayout } from "@/components/PageLayout";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { SITE } from "@/lib/site";
+import { CookieSettingsButton } from "@/components/Analytics";
 
 export default function PrivacyPage() {
   usePageMeta({
@@ -69,8 +70,17 @@ export default function PrivacyPage() {
 
       <Section heading="7. Cookies and analytics">
         <p>
-          We use Plausible Analytics, which is cookieless and stores no personal data. We
-          do not run advertising or third-party retargeting pixels.
+          Only if you click &ldquo;Accept&rdquo; in the cookie banner do we use Google
+          Analytics 4 (Google Ireland Ltd.) to measure how visitors use this site, such as
+          which pages are viewed. Google then sets the cookies <code>_ga</code> and{" "}
+          <code>_ga_*</code>, which are kept for up to 2 years. If you decline, Google
+          Analytics is not loaded and no analytics cookies are set. Your choice is stored
+          locally in your browser. We do not run advertising or third-party retargeting
+          pixels.
+        </p>
+        <p>You can change your choice or withdraw your consent at any time:</p>
+        <p>
+          <CookieSettingsButton />
         </p>
       </Section>
     </PageLayout>

@@ -23,6 +23,7 @@ import PrivacyPage from "@/pages/PrivacyPage";
 import TermsPage from "@/pages/TermsPage";
 import AdminPage from "@/pages/AdminPage";
 import NotFoundPage from "@/pages/NotFoundPage";
+import { Analytics } from "@/components/Analytics";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Analytics />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/get-quotes" element={<GetQuotesPage />} />
