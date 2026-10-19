@@ -2,18 +2,24 @@
 // Postbuild prerenderer.
 //
 // For every known route, writes dist/<route>/index.html with route-specific
-// <title>, meta description, canonical, og:* and robots tags, plus real
-// crawlable body content injected into the #root div. React replaces #root
-// on load, so browsers behave exactly as before — but crawlers that don't
-// execute JS (social previews, GPTBot, ClaudeBot) and Google's first-pass
-// crawl now see unique, correct HTML per URL instead of the homepage shell.
+// <title>, meta description, canonical, og:* and robots tags, plus the real
+// server-rendered React tree (header nav, page content, footer) injected into
+// the #root div. The SSR bundle comes from `vite build --ssr
+// src/entry-server.tsx --outDir dist-ssr` (see package.json "build"). React
+// replaces #root on load, so browsers behave exactly as before — but crawlers
+// that don't execute JS and Google's first-pass crawl see the full page.
+//
+// If SSR of a route throws, that route falls back to the small hand-written
+// bodyHtml below (logged as a warning) instead of failing the build.
 //
 // Every valid route gets a static file, which lets vercel.json drop the SPA
 // catch-all rewrite: unknown URLs now return a real 404 (dist/404.html)
 // instead of a soft-404 200.
 //
 // Titles/descriptions intentionally mirror the usePageMeta() calls in
-// src/pages/* — keep them in sync when page meta changes.
+// src/pages/* — keep them in sync when page meta changes. The SSR render
+// captures the actual usePageMeta() values; on any mismatch those win (they
+// are what the browser sets after load) and the difference is logged.
 
 import fs from "node:fs";
 import os from "node:os";
@@ -24,6 +30,7 @@ import esbuild from "esbuild";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
+const SSR_ENTRY = path.join(ROOT, "dist-ssr", "entry-server.js");
 const SITE_URL = "https://polymerplatform.eu";
 const SITE_NAME = "Polymer Platform";
 
@@ -51,7 +58,7 @@ async function loadData() {
 }
 
 function renderPage(template, route) {
-  const url = SITE_URL + route.path;
+  const url = SITE_URL + (route.canonicalPath ?? route.path);
   let html = template;
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(route.title)}</title>`);
   html = html.replace(
@@ -66,10 +73,65 @@ function renderPage(template, route) {
     `<meta name="robots" content="${route.noindex ? "noindex, nofollow" : "index, follow"}" />`,
   ].join("\n    ");
   html = html.replace("</head>", `  ${extra}\n  </head>`);
-  if (route.bodyHtml) {
-    html = html.replace(/<div id="root"><\/div>/, `<div id="root">${route.bodyHtml}</div>`);
+  const body = route.ssrHtml ?? route.bodyHtml;
+  if (body) {
+    // Function replacement so "$" sequences in page content are kept literally.
+    html = html.replace(/<div id="root"><\/div>/, () => `<div id="root">${body}</div>`);
   }
   return html;
+}
+
+async function loadSsr() {
+  if (!fs.existsSync(SSR_ENTRY)) {
+    console.warn(`[prerender] WARNING: ${path.relative(ROOT, SSR_ENTRY)} not found — using fallback body content for all routes`);
+    return null;
+  }
+  try {
+    return (await import(pathToFileURL(SSR_ENTRY).href)).render;
+  } catch (err) {
+    console.warn("[prerender] WARNING: failed to load SSR bundle — using fallback body content for all routes\n", err);
+    return null;
+  }
+}
+
+// Server-render one route into route.ssrHtml and reconcile its head tags with
+// the page's own usePageMeta() call. Never throws: on failure the route keeps
+// its fallback bodyHtml.
+function applySsr(render, route, stats) {
+  if (!render) return;
+  let result;
+  try {
+    result = render(route.path);
+    if (!result?.html) throw new Error("empty render output");
+  } catch (err) {
+    stats.failed.push(route.path);
+    console.warn(`[prerender] WARNING: SSR failed for ${route.path}, using fallback body: ${err?.stack ?? err}`);
+    return;
+  }
+  route.ssrHtml = result.html;
+  const meta = result.meta;
+  if (!meta) return;
+  const canonicalPath = meta.canonical
+    ? meta.canonical.replace(/^https?:\/\/[^/]+/, "") || "/"
+    : route.path;
+  const fromHook = {
+    title: meta.title,
+    description: meta.description ?? route.description,
+    noindex: !!meta.noindex,
+    canonicalPath,
+  };
+  const current = {
+    title: route.title,
+    description: route.description,
+    noindex: !!route.noindex,
+    canonicalPath: route.canonicalPath ?? route.path,
+  };
+  for (const key of Object.keys(fromHook)) {
+    if (fromHook[key] !== current[key]) {
+      stats.metaMismatches.push(`${route.path} ${key}: "${current[key]}" -> "${fromHook[key]}"`);
+    }
+  }
+  Object.assign(route, fromHook);
 }
 
 function writeRoute(template, route) {
@@ -190,39 +252,89 @@ async function build() {
   }
   // Sanitize: if dist/index.html was already prerendered (script re-run
   // without a fresh vite build), strip the previously injected tags and
-  // body content so we never double-inject. The injected body contains no
-  // nested <div>, so the #root reset below is safe.
+  // body content so we never double-inject. #root is the last element in
+  // <body> (Vite puts its scripts in <head>), so match greedily up to </body>.
   const template = fs
     .readFileSync(path.join(DIST, "index.html"), "utf8")
     .replace(/^\s*<link rel="canonical"[^>]*>\n/gm, "")
     .replace(/^\s*<meta property="og:(?:title|description|url)"[^>]*>\n/gm, "")
     .replace(/^\s*<meta name="robots"[^>]*>\n/gm, "")
-    .replace(/<div id="root">[\s\S]*?<\/div>/, '<div id="root"></div>');
+    .replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, '<div id="root"></div>$1');
   const data = await loadData();
+  const render = await loadSsr();
+  const stats = { failed: [], metaMismatches: [] };
 
   const routes = [...STATIC_ROUTES.map((r) => ({ ...r }))];
   addDynamicRoutes(routes, data);
 
   const seen = new Set();
   const uniq = routes.filter((r) => (seen.has(r.path) ? false : (seen.add(r.path), true)));
-  for (const route of uniq) writeRoute(template, route);
+  for (const route of uniq) {
+    applySsr(render, route, stats);
+    writeRoute(template, route);
+  }
 
   // Real 404 page for unknown URLs (served by Vercel now that the SPA
   // catch-all rewrite is gone).
-  const notFound = renderPage(template, {
+  // "/404" matches no app route, so SSR renders NotFoundPage via path="*".
+  const notFoundRoute = {
     path: "/404",
     title: `Page not found | ${SITE_NAME}`,
-    description: "This page does not exist.",
+    description: "The page you requested doesn't exist on Polymer Platform.",
     noindex: true,
     bodyHtml: `${h(1, "Page not found")}${p("The page you requested does not exist.")}<p><a href="/">Back to the homepage</a></p>`,
-  });
+  };
+  applySsr(render, notFoundRoute, stats);
+  // Stays noindex and has no canonical-worthy URL of its own.
+  const notFound = renderPage(template, notFoundRoute).replace(/^\s*<link rel="canonical"[^>]*>\n/m, "");
   fs.writeFileSync(path.join(DIST, "404.html"), notFound);
 
-  const withBody = uniq.filter((r) => r.bodyHtml).length;
+  const ssrCount = uniq.filter((r) => r.ssrHtml).length;
   const indexable = uniq.filter((r) => !r.noindex).length;
   console.log(
-    `[prerender] wrote ${uniq.length} routes (${withBody} with body content, ${indexable} indexable) + 404.html`
+    `[prerender] wrote ${uniq.length} routes (${ssrCount} server-rendered, ${uniq.length - ssrCount} fallback, ${indexable} indexable) + 404.html`
   );
+  if (stats.failed.length) {
+    console.warn(`[prerender] WARNING: SSR failed for ${stats.failed.length} route(s): ${stats.failed.join(", ")}`);
+  }
+  if (stats.metaMismatches.length) {
+    console.warn(
+      `[prerender] head meta taken from usePageMeta() where it differed from the route table (${stats.metaMismatches.length}):\n  ` +
+        stats.metaMismatches.join("\n  ")
+    );
+  }
+  checkSitemap(uniq);
+}
+
+// Every sitemap URL must have a prerendered, indexable file.
+function checkSitemap(routes) {
+  const sitemapPath = path.join(DIST, "sitemap.xml");
+  if (!fs.existsSync(sitemapPath)) {
+    console.warn("[prerender] WARNING: dist/sitemap.xml not found, skipping sitemap check");
+    return;
+  }
+  const xml = fs.readFileSync(sitemapPath, "utf8");
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const byPath = new Map(routes.map((r) => [r.path, r]));
+  const problems = [];
+  for (const loc of locs) {
+    const p = loc.startsWith(SITE_URL) ? loc.slice(SITE_URL.length) || "/" : null;
+    const route = p && byPath.get(p);
+    const file = p && path.join(DIST, p.replace(/^\//, ""), "index.html");
+    if (!p) problems.push(`${loc}: not on ${SITE_URL}`);
+    else if (!fs.existsSync(file)) problems.push(`${loc}: no prerendered file`);
+    else if (route?.noindex) problems.push(`${loc}: page is noindex`);
+  }
+  const inSitemap = new Set(locs);
+  const missing = routes.filter((r) => !r.noindex && !inSitemap.has(SITE_URL + r.path)).map((r) => r.path);
+  if (problems.length || missing.length) {
+    console.warn(
+      `[prerender] WARNING: sitemap mismatch:\n  ` +
+        [...problems, ...missing.map((m) => `${m}: indexable route not in sitemap`)].join("\n  ")
+    );
+  } else {
+    console.log(`[prerender] sitemap OK: all ${locs.length} URLs have prerendered, indexable files`);
+  }
 }
 
 function addDynamicRoutes(routes, data) {
@@ -360,6 +472,12 @@ function addDynamicRoutes(routes, data) {
     });
   }
 
+  // /grades overview description interpolates the live grade count.
+  const gradesOverview = routes.find((r) => r.path === "/grades");
+  if (gradesOverview) {
+    gradesOverview.description = `${grades.length} polymer grades catalogued across PP, PE, PVC, PET and recycled streams. Properties, processing, equivalents, and verified European suppliers.`;
+  }
+
   // Overview pages: crawlable link hubs into every detail page.
   const overviewLinks = {
     "/polymers": polymers.map((x) => ({ href: `/polymers/${x.slug}`, label: `${x.name} (${x.abbreviation})` })),
@@ -373,12 +491,6 @@ function addDynamicRoutes(routes, data) {
     if (overviewLinks[route.path]) {
       route.bodyHtml = h(1, route.title.split("|")[0].trim()) + p(route.description) + linkList(overviewLinks[route.path]);
     }
-  }
-
-  // /grades overview description interpolates the live grade count.
-  const gradesOverview = routes.find((r) => r.path === "/grades");
-  if (gradesOverview) {
-    gradesOverview.description = `${grades.length} polymer grades catalogued across PP, PE, PVC, PET and recycled streams. Properties, processing, equivalents, and verified European suppliers.`;
   }
 
   // Homepage: crawlable intro + hub links.
