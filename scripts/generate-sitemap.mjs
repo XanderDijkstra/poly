@@ -39,6 +39,23 @@ function readUseCases() {
   return out;
 }
 
+// Insight posts carry their own dates: { slug -> updatedAt ?? publishedAt }.
+// Splits on each post's top-level `slug:` so nested fields can't leak across posts.
+function readInsightDates() {
+  const path = join(DATA_DIR, "insights.ts");
+  if (!existsSync(path)) return {};
+  const src = readFileSync(path, "utf8");
+  const dates = {};
+  for (const block of src.split(/^(?=\s{4}slug:)/m).slice(1)) {
+    const slug = block.match(/^\s{4}slug:\s*"([a-z0-9-]+)"/)?.[1];
+    const date =
+      block.match(/^\s{4}updatedAt:\s*"(\d{4}-\d{2}-\d{2})"/m)?.[1] ??
+      block.match(/^\s{4}publishedAt:\s*"(\d{4}-\d{2}-\d{2})"/m)?.[1];
+    if (slug && date) dates[slug] = date;
+  }
+  return dates;
+}
+
 function readBaseUrl() {
   if (!existsSync(SITE_FILE)) return "https://polymerplatform.eu";
   const src = readFileSync(SITE_FILE, "utf8");
@@ -55,7 +72,9 @@ const regions = readSlugs("regions.ts");
 const learnTerms = readSlugs("learnTerms.ts");
 const insights = readSlugs("insights.ts");
 const useCases = readUseCases();
+const insightDates = readInsightDates();
 
+// Build date for pages without a content date of their own.
 const today = new Date().toISOString().slice(0, 10);
 
 const STATIC_URLS = [
@@ -85,7 +104,12 @@ const dynamicUrls = [
   })),
   ...regions.map((s) => ({ path: `/suppliers/${s}`, priority: 0.8, changefreq: "monthly" })),
   ...learnTerms.map((s) => ({ path: `/learn/${s}`, priority: 0.6, changefreq: "monthly" })),
-  ...insights.map((s) => ({ path: `/insights/${s}`, priority: 0.7, changefreq: "weekly" })),
+  ...insights.map((s) => ({
+    path: `/insights/${s}`,
+    priority: 0.7,
+    changefreq: "weekly",
+    lastmod: insightDates[s],
+  })),
 ];
 
 const all = [...STATIC_URLS, ...dynamicUrls];
@@ -98,7 +122,7 @@ const xml =
       (u) =>
         `  <url>\n` +
         `    <loc>${baseUrl}${u.path}</loc>\n` +
-        `    <lastmod>${today}</lastmod>\n` +
+        `    <lastmod>${u.lastmod ?? today}</lastmod>\n` +
         `    <changefreq>${u.changefreq}</changefreq>\n` +
         `    <priority>${u.priority.toFixed(1)}</priority>\n` +
         `  </url>`
